@@ -20,3 +20,11 @@ body {
   background-color: var(--main-background-color);
  
 }
+
+footer {
+  
+  bottom: 0;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}

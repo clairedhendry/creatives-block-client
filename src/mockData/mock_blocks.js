@@ -2,9 +2,9 @@
 
 
 const MockBlocks = {
-    'VisArts': [
+    'Art': [
         {
-            'category_id': 'visArts',
+            'category_id': 'art',
             'id': 132115,
             'userName': 'Leela',
             'title': 'Planet Express Ship Portrait',
@@ -13,7 +13,7 @@ const MockBlocks = {
             'optional_details': 'are my colors ok?',
          },
          {
-             'category_id': 'visArts',
+             'category_id': 'art',
              'id': 56846,
              'userName': 'Leela',
              'title': 'Travel Comic',
@@ -22,7 +22,7 @@ const MockBlocks = {
              'optional_details': 'does this flow alirght? how about page two?',
          },
          {
-             'category_id': 'visArts',
+             'category_id': 'art',
              'id': 566,
              'userName': 'Leela',
              'title': 'illustration 3',
@@ -73,7 +73,7 @@ const MockBlocks = {
         {
             'category_id': 'music',
             'id': 68,
-            'userName': 'Leela',
+            'userName': 'Fry',
             'title': 'Holophonor song 2',
             'file': 'https://freesound.org/data/previews/177/177843_1506826-lq.mp3',
             'description': 'holophonor song 2',
@@ -82,7 +82,7 @@ const MockBlocks = {
         {
             'category_id': 'music',
             'id': 7868,
-            'userName': 'Leela',
+            'userName': 'Fry',
             'title': 'Holophonor Leela song',
             'file': 'https://freesound.org/data/previews/514/514847_2454582-lq.mp3',
             'description': 'holophonor leela song',

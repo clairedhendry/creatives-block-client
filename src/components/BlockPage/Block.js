@@ -1,12 +1,14 @@
 import React from 'react';
-import './Block.css'
+import './Block.css';
+import { Link } from 'react-router-dom';
 
 export default class Block extends React.Component {
     render() {
     return(
         <div className="block">
-            <p>{this.props.title}</p>
-            <div>{this.props.description}</div>
+            <div>{this.props.userName}</div>
+            <div>{this.props.title}</div>
+            <Link to='/blocks/:id' className="preview-content">{this.props.description}</Link>
         </div>
     )
     }
