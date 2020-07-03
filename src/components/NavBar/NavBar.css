@@ -1,0 +1,17 @@
+.navigation-bar {
+    display: flex;
+    background-color: white;
+    height: 50px;
+}
+
+.logo {
+    position: absolute;
+    left: 0;
+    margin-left: 10px;
+    
+}
+
+.links {
+    position: absolute;
+    right: 0;
+}
