@@ -7,18 +7,27 @@ export class DataProvider extends React.Component {
 
 state = {
     categories: [],
-    blocks: {},
+    art_blocks: [],
+    writing_blocks: [],
+    music_blocks: [],
+    categorySelected: 'all',
 }
 
 componentDidMount() {
     //populate recent blocks with dummy data
-    //shohuld become fetch call to API
+    //should become fetch call to API
     this.setState({
-        blocks: MockBlocks,
-
+        art_blocks: MockBlocks.Art,
+        writing_blocks: MockBlocks.Writing,
+        music_blocks: MockBlocks.Music,
     })
 }
 
+updateCategorySelected = (category) => {
+    this.setState({
+        categorySelected: category,
+    })
+}
 
     render() {
         return(
@@ -28,7 +37,7 @@ componentDidMount() {
                         ...this.state
                     },
                     actions: {
-
+                        updateCategorySelected: this.updateCategorySelected,
                     }
                 }}>
                     {this.props.children}

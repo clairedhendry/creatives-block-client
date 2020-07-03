@@ -14,7 +14,7 @@ export default function InfoSection() {
             <br/>
             Post a work in progress, and get feedback from our community of creatives.
             <br/>
-            Choose a category - Visual Art, Writing, or Music.
+            Choose a category: Art, Writing, or Music.
             <br/>
             Then share it! 
             <br/>
