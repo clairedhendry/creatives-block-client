@@ -7,7 +7,7 @@ export default class Block extends React.Component {
 
     return(
         <div className="block">
-            <div>{this.props.userName}</div>
+            <Link to={`/user/${this.props.userName}`}>{this.props.userName}</Link>
             <div>{this.props.title}</div>
             <Link to={`/blocks/${this.props.category}/${this.props.id}`} className="preview-content">{this.props.description}</Link>
         </div>

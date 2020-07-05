@@ -7,8 +7,11 @@
 
 .logo {
     position: absolute;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
     left: 0;
-    margin-left: 10px;
+    margin-left: 20px;
     
 }
 
@@ -17,7 +20,7 @@
     right: 0;
 }
 
- a {
+.links > a {
     text-decoration: none;
     font-weight: bold;
     padding-left: 20px;

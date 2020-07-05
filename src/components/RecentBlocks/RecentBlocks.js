@@ -47,7 +47,7 @@ blockRender = (category) => {
     const art = this.renderVisArtsBlocks();
     const writing = this.renderWritingBlocks();
     const music = this.renderMusicBlocks();
-    if(this.state.category === 'all') {
+    if((this.state.category === 'all') && (this.props.userName === null)) {
         return (
             <div className="container">   
                         <div className="visual-recent-blocks recent-blocks">
@@ -65,6 +65,25 @@ blockRender = (category) => {
                 </div>
         )
     }
+    else if((this.state.category === 'all') && (this.props.userName !== null)) {
+        return (
+            <div className="container">   
+                        <div className="visual-recent-blocks recent-blocks">
+                            <div className="category-link">Artist's Blocks</div>
+                            {art}
+                        </div>
+                        <div className="writing-recent-blocks recent-blocks">
+                            <div className="category-link">Writer's Blocks</div>
+                            {writing}
+                        </div>
+                        <div className="music-recent-blocks recent-blocks">
+                            <div className="category-link">Musician's Blocks</div>
+                            {music}
+                        </div>
+                </div>
+        )
+    }
+
     else if(this.state.category === 'art') {
         return (
             <div className="container">   

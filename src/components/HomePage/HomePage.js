@@ -11,7 +11,7 @@ export default class HomePage extends React.Component {
         return (
             <div>
                <Hero />
-               <RecentBlocks blocks={MockBlocks} category="all"/>
+               <RecentBlocks blocks={MockBlocks} category="all" userName={null}/>
                <InfoSection />
             </div>
         )

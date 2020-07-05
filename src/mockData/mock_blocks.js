@@ -59,6 +59,15 @@ const MockBlocks = {
             'description': 'a play about fry',
             'optional_details': 'looking for technical edits',
         },
+        {
+            'category_id': 'writing',
+            'id': 689,
+            'userName': 'Leela',
+            'title': 'Fry - a play',
+            'file': 'https://docs.google.com/document/d/1MErlUTZrfLB9IdiD1kNMiBq0sDSVNBJSZ6WwuVvnw9k/edit?usp=sharing',
+            'description': 'a play about fry',
+            'optional_details': 'looking for technical edits',
+        },
     ],
     'music': [
         {
@@ -87,7 +96,16 @@ const MockBlocks = {
             'file': 'https://freesound.org/data/previews/514/514847_2454582-lq.mp3',
             'description': 'holophonor leela song',
             'optional_details': 'stuck on this part',
-        }
+        },
+        {
+            'category_id': 'music',
+            'id': 7221,
+            'userName': 'Leela',
+            'title': 'Holophonor Leela song',
+            'file': 'https://freesound.org/data/previews/514/514847_2454582-lq.mp3',
+            'description': 'holophonor leela song',
+            'optional_details': 'stuck on this part',
+        },
     ],
 };
 
