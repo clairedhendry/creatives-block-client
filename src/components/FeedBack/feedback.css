@@ -1,0 +1,23 @@
+.feeback-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+label {
+    color: white;
+    padding: 15px;
+}
+
+button {
+    cursor: pointer;
+    margin: 15px;
+    padding: 5px;
+}

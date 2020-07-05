@@ -2,7 +2,7 @@
 
 
 const MockBlocks = {
-    'Art': [
+    'art': [
         {
             'category_id': 'art',
             'id': 132115,
@@ -31,7 +31,7 @@ const MockBlocks = {
              'optional_details': 'can"t seem to finish the head right',
          },
     ],
-    'Writing': [
+    'writing': [
         {
             'category_id': 'writing',
             'id': 45,
@@ -60,7 +60,7 @@ const MockBlocks = {
             'optional_details': 'looking for technical edits',
         },
     ],
-    'Music': [
+    'music': [
         {
             'category_id': 'music',
             'id': 786,

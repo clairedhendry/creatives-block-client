@@ -7,9 +7,10 @@ import Register from './components/RegistrationPage/Register';
 import CategoryPage from './components/CategoryPage/CategoryPage';
 import SignInPage from './components/SignIn/SignIn';
 import AboutPage from './components/AboutPage/AboutPage';
-import BlockPage from './components/BlockPage/BlockPage'
+import BlockPage from './components/BlockPage/BlockPage';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
-import { DataContext } from './Context'
+import AccountPage from './components/AccountPage/AccountPage';
+import { DataContext } from './Context';
 
 import './App.css';
 
@@ -20,7 +21,6 @@ static contextType = DataContext;
 
   render() {
 
-  const categoryId = this.conte
 
     return (
       <div>
@@ -31,10 +31,14 @@ static contextType = DataContext;
             <Route path='/category/:id' component={CategoryPage}/>
             <Route path='/about' component={AboutPage} />
             <Route path='/sign-in' component={SignInPage} />
-            <Route path='/blocks/:id' component={BlockPage} />
+            <Route path='/blocks/:category/:id' component={BlockPage} />
+            <Route path='/user/:userName' component={AccountPage} />
             <Route component={NotFoundPage} />
           </Switch>
-        <footer>Claire Hendry 2020</footer>
+        
+        <div className="footer-container">
+          <footer>Claire Hendry 2020</footer>
+        </div>
       </div>
     )
   }

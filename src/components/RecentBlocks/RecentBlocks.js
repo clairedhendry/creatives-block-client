@@ -18,20 +18,20 @@ state = {
 }
 
 renderVisArtsBlocks() {
-    let VisArtsBlocks = this.state.blocks.Art.map(block => 
-        <Block key={block.id} userName={block.userName} title={block.title} description={block.description}/>)
+    let VisArtsBlocks = this.state.blocks.art.map(block => 
+        <Block key={block.id} id={block.id} category='art' userName={block.userName} title={block.title} description={block.description}/>)
     return VisArtsBlocks;
 }
 
 renderWritingBlocks() {
-    let WritingBlocks = this.state.blocks.Writing.map(block => 
-        <Block key={block.id} userName={block.userName} title={block.title} description={block.description}/>)
+    let WritingBlocks = this.state.blocks.writing.map(block => 
+        <Block key={block.id} id={block.id} category='writing' userName={block.userName} title={block.title} description={block.description}/>)
     return WritingBlocks;
 }
 
 renderMusicBlocks() {
-    let MusicBlocks = this.state.blocks.Music.map(block => 
-        <Block key={block.id} userName={block.userName} title={block.title} description={block.description}/>)
+    let MusicBlocks = this.state.blocks.music.map(block => 
+        <Block key={block.id} id={block.id} category='music' userName={block.userName} title={block.title} description={block.description}/>)
     return MusicBlocks;
 }
 
