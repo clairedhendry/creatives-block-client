@@ -5,7 +5,7 @@ import HomePage from './components/HomePage/HomePage';
 import NavBar from './components/NavBar/NavBar';
 import Register from './components/RegistrationPage/Register';
 import CategoryPage from './components/CategoryPage/CategoryPage';
-import SignInPage from './components/SignIn/SignIn';
+import LogInPage from './components/LogIn/LogIn';
 import AboutPage from './components/AboutPage/AboutPage';
 import BlockPage from './components/BlockPage/BlockPage';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
@@ -30,7 +30,7 @@ static contextType = DataContext;
             <Route path='/register' component={Register} />
             <Route path='/category/:id' component={CategoryPage}/>
             <Route path='/about' component={AboutPage} />
-            <Route path='/sign-in' component={SignInPage} />
+            <Route path='/log-in' component={LogInPage} />
             <Route path='/blocks/:category/:id' component={BlockPage} />
             <Route path='/user/:userName' component={AccountPage} />
             <Route component={NotFoundPage} />

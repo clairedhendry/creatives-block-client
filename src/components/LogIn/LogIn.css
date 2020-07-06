@@ -1,8 +1,8 @@
-.signin-page {
+.login-page {
     text-align: center;
 }
 
-.signin-form {
+.login-form {
     display: flex;
     height: 80vh;
     flex-direction: column;
