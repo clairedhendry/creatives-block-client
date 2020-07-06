@@ -9,11 +9,11 @@ import  { MockBlocks } from '../../mockData/mock_blocks';
 export default class HomePage extends React.Component {
     render() {
         return (
-            <div>
+            <main>
                <Hero />
                <RecentBlocks blocks={MockBlocks} category="all" userName={null}/>
                <InfoSection />
-            </div>
+            </main>
         )
     }
 }

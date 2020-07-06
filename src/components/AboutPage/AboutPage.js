@@ -6,7 +6,7 @@ export default class AboutPage extends React.Component {
         return (
             <div className="about-page">
                <h1>About Page</h1>
-               <section class="description">
+               <section className="description">
                 <p>Having trouble with that last chapter?
                 <br/>
                 Need some feedback on your latest comic?
@@ -18,10 +18,10 @@ export default class AboutPage extends React.Component {
                 Post your work in progress and get feedback from fellow creatives.
                 </p>
              </section>
-            <section class="about"> 
+            <section className="about"> 
             <p>
-               <h3>How does it work?</h3> 
-            
+               How does it work?
+                <br />
                As creatives, we get stuck from time to time. It’s normal!
                 <br/>
                 Creative's Block is here to help! 
