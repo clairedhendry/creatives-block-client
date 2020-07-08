@@ -1,3 +1,17 @@
 .account-page-container {
     text-align: center;
 }
+
+h1 {
+    height: 150px;
+}
+
+.link {
+    margin-bottom: 30px;
+}
+
+.link > a{
+    text-decoration: none;
+    color: white;
+    padding-bottom: 25px;
+}

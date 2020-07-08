@@ -42,10 +42,12 @@ const className = `block ${this.props.category} ${selection}`
     return(
         <div className={className}>
             <Link to={`/user/${this.props.userName}`}>{this.props.userName}</Link>
-            <div>{this.props.title}</div>
+            <div className="content">{this.props.title}</div>
+            <div className="content">
             {TokenService.hasAuthToken()
             ? this.renderIfLoggedIn()
             : this.renderIfNotLoggedIn()}
+            </div>
         </div>
     )
     }

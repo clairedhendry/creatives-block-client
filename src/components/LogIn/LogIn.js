@@ -1,20 +1,18 @@
 import React from 'react';
 import TokenService from '../../Services/token-service';
+import { DataContext } from '../../Context'
 import './LogIn.css';
 
 
 export default class LogInPage extends React.Component {
 
-// handleSubmit = (e) => {
-//     const { userName, password } = e.target
-//     saveCredentials(
-//         window.btoa(userName.value + ':' + password.value)
-//     )
-// }
+static contextType = DataContext;
 
 handleSubmitBasicAuth = (e) => {
     e.preventDefault();
     const { userName, password } = e.target
+    this.context.actions.updateUserLoggedIn(userName.value)
+    TokenService.saveUserToken(userName.value)
     TokenService.saveAuthToken(
         TokenService.makeBasicAuthToken(userName.value, password.value)
     )

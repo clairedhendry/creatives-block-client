@@ -9,3 +9,15 @@
     align-items: center;
     color: white;
 }
+
+@media only screen and (max-width: 450px) {
+    .login-form {
+        width: 200px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .login-form > input {
+        width: 90%;
+    }
+}

@@ -9,7 +9,10 @@ import LogInPage from './components/LogIn/LogIn';
 import AboutPage from './components/AboutPage/AboutPage';
 import BlockPage from './components/BlockPage/BlockPage';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
+import NewBlockInput from './components/NewBlock/NewBlockInput';
 import AccountPage from './components/AccountPage/AccountPage';
+
+import TokenService from './Services/token-service';
 import { DataContext } from './Context';
 
 import './App.css';
@@ -21,6 +24,8 @@ static contextType = DataContext;
 
   render() {
 
+    //conditionally render accountpage depending on what user
+    //if have auth token, user should be updated to user
 
     return (
       <div>
@@ -33,6 +38,7 @@ static contextType = DataContext;
             <Route path='/log-in' component={LogInPage} />
             <Route path='/blocks/:category/:id' component={BlockPage} />
             <Route path='/user/:userName' component={AccountPage} />
+            <Route path='/newblock' component={NewBlockInput} />
             <Route component={NotFoundPage} />
           </Switch>
         

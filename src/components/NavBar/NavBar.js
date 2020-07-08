@@ -1,19 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../Services/token-service';
+import { DataContext } from '../../Context'
 import './NavBar.css';
 
 
 
 export default class NavBar extends React.Component {
 
+static contextType = DataContext;
+
 state = {
     mobile: true,
     menu_clicked: false,
+    logged_in: false,
 }
 
 handleLogOutClick = () => {
-
+    TokenService.clearAuthToken();
+    TokenService.clearUserToken();
+ 
 }
 
 renderLogInLink() {
@@ -30,20 +36,25 @@ renderLogInLink() {
             Log in
             </Link>
             <Link to='/about'>About</Link>
+       
       </div>
     )
 }
 
 renderLogOutLink() {
+
+const user = TokenService.getUserToken();
+
     return(
         <div className='nav-bar_logged-in vertical'>
             <Link to='/'>Creative's Block</Link>
             <Link
-            onClick={this.handleLogoutClick}
+            onClick={this.handleLogOutClick}
             to='/'>
             Logout
             </Link>
             <Link to='/about'>About</Link>
+            <Link to={`/user/${user}`}>My Account</Link>
         </div>
     )
 }

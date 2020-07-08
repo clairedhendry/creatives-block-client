@@ -11,6 +11,7 @@ state = {
     writing_blocks: [],
     music_blocks: [],
     categorySelected: 'all',
+    user_logged_in: '',
 }
 
 componentDidMount() {
@@ -29,6 +30,12 @@ updateCategorySelected = (category) => {
     })
 }
 
+updateUserLoggedIn = (userName) => {
+    this.setState({
+        user_logged_in: userName,
+    })
+}
+
     render() {
         return(
             <DataContext.Provider
@@ -38,6 +45,7 @@ updateCategorySelected = (category) => {
                     },
                     actions: {
                         updateCategorySelected: this.updateCategorySelected,
+                        updateUserLoggedIn: this.updateUserLoggedIn,
                     }
                 }}>
                     {this.props.children}

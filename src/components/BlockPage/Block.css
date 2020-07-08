@@ -28,9 +28,22 @@
     background-color: grey;
 }
 
+@media only screen and (max-width: 380px) {
+    .block {
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+    }
+}
+
 @media only screen and (max-width: 450px) {
     .block {
-        width: 75px;
-        height: 75px;
+        
+        margin: 10px;
+    }
+    .content {
+        font-size: x-small;
+        width: 90%;
+        padding: 2px;
     }
 }

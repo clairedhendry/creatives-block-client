@@ -1,6 +1,8 @@
 import React from 'react';
 import RecentBlocks from '../RecentBlocks/RecentBlocks';
-import { MockBlocks } from '../../mockData/mock_blocks'
+import { MockBlocks } from '../../mockData/mock_blocks';
+import TokenService from '../../Services/token-service';
+import { Link } from 'react-router-dom';
 import './AccountPage.css';
 
 export default class AccountPage extends React.Component {
@@ -31,17 +33,46 @@ componentDidMount() {
     this.renderRecentBlocks();
 }
 
+ifLoggedIn = () => {
+    const check_user = TokenService.getUserToken() 
+    ? TokenService.getUserToken() 
+    : this.props.match.params.userName;
+    
+    if(check_user !== this.props.match.params.userName) {
+        return this.props.match.params.userName
+    }
+    return check_user;
+    }
+
+renderNewBlockButton = () => {
+    const check_user = TokenService.getUserToken() 
+    ? TokenService.getUserToken() 
+    : null;
+    
+    if(check_user === this.props.match.params.userName) {
+        return  <div className="link">
+            <Link to='/newblock'>Create new block</Link>
+            </div>
+    }
+    
+    
+}
+
     render() {
 
 const newBlocks = this.renderRecentBlocks();
-const user = this.props.match.params.userName
+const user = this.ifLoggedIn();
+const newBlockButton = this.renderNewBlockButton();
 
         return(
             <div className="account-page-container">
                 <h1>{user}'s Blocks</h1>
+                
+                    {newBlockButton}
+            
                 <RecentBlocks 
                 blocks={newBlocks} 
-                userName={this.props.match.params.userName} 
+                userName={user} 
                 />
             </div>
         )

@@ -12,8 +12,8 @@ export default class HomePage extends React.Component {
         return (
             <main>
                <Hero />
-               <ScrollDrag blocks={MockBlocks} />
-               {/* <RecentBlocks blocks={MockBlocks} userName={null}/> */}
+               {/* <ScrollDrag blocks={MockBlocks} /> */}
+               <RecentBlocks blocks={MockBlocks} userName={null}/>
                <InfoSection />
             </main>
         )
