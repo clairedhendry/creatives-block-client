@@ -3,6 +3,7 @@ import RecentBlocks from '../RecentBlocks/RecentBlocks';
 import Hero from '../Hero/Hero';
 import InfoSection  from './InfoSection'
 import  { MockBlocks } from '../../mockData/mock_blocks';
+import ScrollDrag from '../scrolldrag/ScrollDrag'
 
 
 
@@ -11,7 +12,8 @@ export default class HomePage extends React.Component {
         return (
             <main>
                <Hero />
-               <RecentBlocks blocks={MockBlocks} userName={null}/>
+               <ScrollDrag blocks={MockBlocks} />
+               {/* <RecentBlocks blocks={MockBlocks} userName={null}/> */}
                <InfoSection />
             </main>
         )

@@ -19,7 +19,7 @@
 .recent-blocks {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    justify-content: center;
     width: 100%;
 }
 
@@ -46,8 +46,6 @@
     cursor: pointer;
 }
 
-
-
 .art-button {
     background-color: green;
     color: white;
@@ -68,9 +66,7 @@
 }
 
 @media only screen and (max-width: 450px) {
-    .container {
-        display: block;
-    }
+    
 
     .recent-blocks {
         width: 100%;
