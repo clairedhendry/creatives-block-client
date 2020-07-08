@@ -14,15 +14,15 @@
 }
 
 .art {
-    border: 3px green solid;
+    border: 3px rgb(255, 22, 255) solid;
 }
 
 .writing {
-    border: 3px red solid;
+    border: 3px rgb(255, 0, 64) solid;
 }
 
 .music {
-    border: 3px blue solid;
+    border: 3px rgb(0, 68, 255) solid;
 }
 
 .deselected {
@@ -46,5 +46,9 @@
         font-size: x-small;
         width: 90%;
         padding: 2px;
+    }
+
+    .block-filters {
+        flex-wrap: wrap;
     }
 }

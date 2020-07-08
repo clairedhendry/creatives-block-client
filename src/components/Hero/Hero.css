@@ -1,18 +1,29 @@
 .hero {
     text-align: center;
-    height: 150px;
+    background: url('../../image_assets//creative-block-logo.svg');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 250px;
+    margin-top: 50px;
+    margin-bottom: 75px;
 }
 
 h1 {
-
+    margin-top: 50px;
+    margin-bottom: 50px;
     color: white;
+    
+    padding-top: 250px;
+ 
 }
+
+
 
 @media only screen and (max-width: 450px) {
     .hero {
         height: 75px;
     }
     h1 {
-        margin-top: 30%;
+        padding-top: 100px;
     }
 }
