@@ -1,5 +1,11 @@
-.new-block {
-    margin-bottom: 15px;;
+.new-block-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    max-width: 800px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .new-block > a {
@@ -10,3 +16,17 @@
 p {
     color: white;
 }
+
+.new-block-form {
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 50px;
+    padding: 30px;
+}
+
+.new-block-form > label {
+    color: black;
+}
+

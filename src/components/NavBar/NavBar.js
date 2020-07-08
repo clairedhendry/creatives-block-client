@@ -25,7 +25,7 @@ handleLogOutClick = () => {
 renderLogInLink() {
     return (
         <div className='nav-bar__not-logged-in vertical'>
-            <Link to='/'>Creative's Block</Link>
+            <Link to='/'>Home</Link>
             <Link
             to='/register'>
             Register
@@ -47,7 +47,7 @@ const user = TokenService.getUserToken();
 
     return(
         <div className='nav-bar_logged-in vertical'>
-            <Link to='/'>Creative's Block</Link>
+            <Link to='/'>Home</Link>
             <Link
             onClick={this.handleLogOutClick}
             to='/'>

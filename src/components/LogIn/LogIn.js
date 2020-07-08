@@ -8,6 +8,8 @@ export default class LogInPage extends React.Component {
 
 static contextType = DataContext;
 
+//should validate inputs
+
 handleSubmitBasicAuth = (e) => {
     e.preventDefault();
     const { userName, password } = e.target

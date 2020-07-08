@@ -2,6 +2,24 @@ import React from 'react';
 import './Register.css'
 
 export default class RegisterPage extends React.Component {
+
+validateUserName(e) {
+    //validates that username is in correct format
+    //also checks if username is already taken
+    
+}
+
+validatePassword(e) {
+    //validates password is in correct format
+}
+
+validateEmail(e) {
+    //validates email address is in correct format
+    const { email } = e.target.value;
+
+}
+
+
     render() {
         return (
             <div className="register-page">
@@ -12,12 +30,14 @@ export default class RegisterPage extends React.Component {
                             <input className="userName"
                             id="userName"
                             type="text"
-                            placeholder="username"/>
+                            placeholder="username"
+                            onChange={e => this.validateUserName(e.target)}/>
                         <label htmlFor="email">email</label>
                             <input className="email"
                             id="email"
-                            type="text"
-                            placeholder="email"/>
+                            type="email"
+                            placeholder="email"
+                           />
                         <label htmlFor="password">password</label>
                             <input className="password"
                             id="password"

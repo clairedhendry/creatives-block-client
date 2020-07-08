@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import   Block  from '../BlockPage/Block';
 import { DataContext } from '../../Context';
+import TokenService from '../../Services/token-service';
 import './RecentBlocks.css'
 
 
@@ -85,7 +86,7 @@ blockRender = (category) => {
             
 }
 
-    render() {
+render() {
 
 const blocks = this.blockRender(this.state.category);
 
@@ -93,7 +94,9 @@ const blocks = this.blockRender(this.state.category);
         return (
             <section className="recent-blocks-container">
                 <div><p>Recently Posted Blocks</p></div>
-                     
+                     {TokenService.hasAuthToken() ?
+                        <div></div>
+                    : <div>Sign in to see block details</div>}
                         {blocks}
                 
             </section>
