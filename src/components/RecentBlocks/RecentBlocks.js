@@ -17,30 +17,6 @@ state = {
     category: 'all',
 }
 
-// renderVisArtsBlocks() {
-//     let VisArtsBlocks = this.state.blocks.art.map(block => 
-//         <Block key={block.id} id={block.id} category='art' userName={block.userName} title={block.title} description={block.description}/>)
-//     return VisArtsBlocks;
-// }
-
-// renderWritingBlocks() {
-//     let WritingBlocks = this.state.blocks.writing.map(block => 
-//         <Block key={block.id} id={block.id} category='writing' userName={block.userName} title={block.title} description={block.description}/>)
-//     return WritingBlocks;
-// }
-
-// renderMusicBlocks() {
-//     let MusicBlocks = this.state.blocks.music.map(block => 
-//         <Block key={block.id}
-//          id={block.id} category='music' 
-//         userName={block.userName} 
-//         title={block.title} 
-//         description={block.description}
-//         date_updated={block.date_updated}/>)
-//     return MusicBlocks;
-// }
-
-
 
 renderRecentBlocks() {
     let VisArtsBlocks = this.state.blocks.art;
@@ -51,11 +27,12 @@ renderRecentBlocks() {
     const newArray = allBlocksArray.sort(function(a, b) {
         var keyA = new Date(a.date_updated),
           keyB = new Date(b.date_updated);
-        // Compare the 2 dates
+     
         if (keyA < keyB) return -1;
         if (keyA > keyB) return 1;
         return 0;
       });
+
     const newBlocks = newArray.map(block => 
         <Block key={block.id}
         id={block.id} 
@@ -82,102 +59,11 @@ componentDidMount() {
     //will fetch block info and populate state
    
     this.renderRecentBlocks();
+    this.blockRender();
 }
-
-
-// blockRender = (category) => {
-//     const art = this.renderVisArtsBlocks();
-//     const writing = this.renderWritingBlocks();
-//     const music = this.renderMusicBlocks();
-//     if((this.state.category === 'all') && (this.props.userName === null)) {
-//         return (
-//             <div className="container">   
-//                         <div className="visual-recent-blocks recent-blocks">
-//                             <Link to='/category/art' className="category-link">Artist's Blocks</Link>
-//                             {art}
-//                         </div>
-//                         <div className="writing-recent-blocks recent-blocks">
-//                             <Link to='/category/writing' className="category-link">Writer's Blocks</Link>
-//                             {writing}
-//                         </div>
-//                         <div className="music-recent-blocks recent-blocks">
-//                             <Link to='/category/music' className="category-link">Musician's Blocks</Link>
-//                             {music}
-//                         </div>
-//                 </div>
-//         )
-//     }
-//     else if((this.state.category === 'all') && (this.props.userName !== null)) {
-//         return (
-//             <div className="container">   
-//                         <div className="visual-recent-blocks recent-blocks">
-//                             <div className="category-link">Artist's Blocks</div>
-//                             {art}
-//                         </div>
-//                         <div className="writing-recent-blocks recent-blocks">
-//                             <div className="category-link">Writer's Blocks</div>
-//                             {writing}
-//                         </div>
-//                         <div className="music-recent-blocks recent-blocks">
-//                             <div className="category-link">Musician's Blocks</div>
-//                             {music}
-//                         </div>
-//                 </div>
-//         )
-//     }
-
-//     else if(this.state.category === 'art') {
-//         return (
-//             <div className="container">   
-//                         <div className="recent-blocks">
-//                             {art}
-//                         </div>
-//                         <div className="recent-blocks">
-//                             {art}
-//                         </div>
-//                         <div className="recent-blocks">
-//                             {art}
-//                         </div>
-//                 </div>
-//         )
-//     }
-//     else if(this.state.category === 'writing') {
-//         return (
-//             <div className="container">   
-//                         <div className="recent-blocks">
-//                             {writing}
-//                         </div>
-//                         <div className="recent-blocks">
-//                             {writing}
-//                         </div>
-//                         <div className="recent-blocks">
-//                             {writing}
-//                         </div>
-//                 </div>
-//         )
-//     }
-//     else if(this.state.category === 'music') {
-//         return (
-//             <div className="container">   
-//                         <div className="recent-blocks">
-//                             {music}
-//                         </div>
-//                         <div className="recent-blocks">
-//                             {music}
-//                         </div>
-//                         <div className="recent-blocks">
-//                             {music}
-//                         </div>
-//                 </div>
-//         )
-//     }
-
-                        
-// }
 
 blockRender = (category) => {
     const allBlocks = this.renderRecentBlocks();
-    if((this.props.userName === null)) {
                 return (
                     <div className="container">   
                                 <div className="block-filters">
@@ -196,7 +82,7 @@ blockRender = (category) => {
                                </div>
                         </div>
                 )
-            }
+            
 }
 
     render() {

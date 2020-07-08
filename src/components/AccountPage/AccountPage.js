@@ -34,12 +34,15 @@ componentDidMount() {
     render() {
 
 const newBlocks = this.renderRecentBlocks();
-
+const user = this.props.match.params.userName
 
         return(
             <div className="account-page-container">
-                <h1>Account Page</h1>
-                <RecentBlocks blocks={newBlocks} userName={this.props.match.params.userName} category='all'/>
+                <h1>{user}'s Blocks</h1>
+                <RecentBlocks 
+                blocks={newBlocks} 
+                userName={this.props.match.params.userName} 
+                />
             </div>
         )
     }
