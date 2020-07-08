@@ -11,14 +11,16 @@
 
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    width: 95%;
 }
 
 .recent-blocks {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
-    width: 30%;
+    width: 100%;
 }
 
  p {
@@ -35,7 +37,35 @@
     color: white;
 }
 
+.block-filters {
+    display: flex;
+    justify-content: center;
+}
 
+.block-filters > button {
+    cursor: pointer;
+}
+
+
+
+.art-button {
+    background-color: green;
+    color: white;
+}
+
+.writing-button {
+    background-color: red;
+    color: white;
+}
+
+.music-button {
+    background-color: blue;
+    color: white;
+}
+
+.all-blocks-button {
+    color: black;
+}
 
 @media only screen and (max-width: 450px) {
     .container {

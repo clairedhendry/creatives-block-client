@@ -1,10 +1,9 @@
 .block {
-    width: 90%;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     background-color: white;
     text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin: 15px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -13,3 +12,18 @@
     padding-top: 20px;
 }
 
+.art {
+    border: 3px green solid;
+}
+
+.writing {
+    border: 3px red solid;
+}
+
+.music {
+    border: 3px blue solid;
+}
+
+.deselected {
+    background-color: grey;
+}

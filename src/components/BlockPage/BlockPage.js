@@ -41,7 +41,7 @@ renderBlockPage() {
                 <h2><Link to={`/user/${userName}`}>{userName}</Link></h2>
             </div>
             <div className="description">Description: {description}</div>
-            <a href={file} target="_blank">link</a>
+            <a href={file} target="_blank" rel="noopener noreferrer">link</a>
         </div>
     )
 
