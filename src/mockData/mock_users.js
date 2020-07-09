@@ -1,20 +1,20 @@
 const MockUsers = [
     {
         'userName': 'Fry',
-        'email': 'fry@planetexpress.com',
-        'password': '',
+        'user_email': 'fry@planetexpress.com',
+        'user_password': '',
         'credits': 2,
     },
     {
         'userName': 'Leela',
-        'email': 'leela@planetexpress.com',
-        'password': '',
+        'user_email': 'leela@planetexpress.com',
+        'user_password': '',
         'credits': 14,
     },
     {
         'userName': 'Bender',
-        'email': 'bender@planetexpress.com',
-        'password': '',
+        'user_email': 'bender@planetexpress.com',
+        'user_password': '',
         'credits': 10,
     },
 ];

@@ -2,28 +2,17 @@ import TokenService from '../Services/token-service'
 import config from '../config'
 
 const BlockAPIService = {
-getArtBlocks() {
-    //fetch recent art blocks from api
-    //no auth required
-    return(
-        fetch()
-    )
-},
-
-getWritingBlocks() {
-    //fetch recent art blocks from api
-    //no auth required
-    return(
-        fetch()
-    )
-},
-
-getMusicBlocks() {
-    //fetch recent art blocks from api
-    //no auth required
-    return(
-        fetch()
-    )
+getAllRecentBlocks() {
+return fetch(`${config.API_ENDPOINT}/recent-blocks`, {
+    headers: {
+        'authorization': `basic ${config.AUTHORIZATION}`,
+    },
+})
+    .then(res =>
+        (!res.ok)
+        ? res.json().then(e => Promise.reject(e))
+        : res.json()
+        )
 },
 
 getBlock(category, blockId) {
@@ -37,6 +26,7 @@ getBlock(category, blockId) {
         ? res.json().then(e => Promise.reject(e))
         : res.json()
         )
+    
 },
 
 getBlockFeedback(user_id, blockId) {

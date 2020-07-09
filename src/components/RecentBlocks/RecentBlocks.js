@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import   Block  from '../BlockPage/Block';
 import { DataContext } from '../../Context';
 import TokenService from '../../Services/token-service';
+import BlockAPIService from '../../Services/block-api-service';
 import './RecentBlocks.css'
 
 
@@ -14,37 +15,39 @@ export default class RecentBlocks extends React.Component {
 static contextType = DataContext;
 
 state = {
-    blocks: this.props.blocks,
+    blocks: this.context.state.blocks,
     category: 'all',
 }
 
 
 renderRecentBlocks() {
-    let VisArtsBlocks = this.state.blocks.art;
-    let WritingBlocks = this.state.blocks.writing;
-    let MusicBlocks = this.state.blocks.music;
-    const allBlocksArray = VisArtsBlocks.concat(WritingBlocks, MusicBlocks);
+    // let VisArtsBlocks = this.state.blocks.art;
+    // let WritingBlocks = this.state.blocks.writing;
+    // let MusicBlocks = this.state.blocks.music;
+    // const allBlocksArray = VisArtsBlocks.concat(WritingBlocks, MusicBlocks);
+    // const allBlocksArray = this.state.blocks;
    
-    const newArray = allBlocksArray.sort(function(a, b) {
-        var keyA = new Date(a.date_updated),
-          keyB = new Date(b.date_updated);
-     
-        if (keyA < keyB) return -1;
-        if (keyA > keyB) return 1;
-        return 0;
-      });
 
-    const newBlocks = newArray.map(block => 
-        <Block key={block.id}
-        id={block.id} 
-        category={block.category_id}
-        category_selected={this.state.category} 
-        userName={block.userName} 
-        title={block.title} 
-        description={block.description}
-        date_updated={block.date_updated}
-        />)
-    return newBlocks;
+    // const newArray = allBlocksArray.sort(function(a, b) {
+    //     var keyA = new Date(a.date_updated),
+    //       keyB = new Date(b.date_updated);
+     
+    //     if (keyA < keyB) return -1;
+    //     if (keyA > keyB) return 1;
+    //     return 0;
+    //   });
+
+    // const newBlocks = newArray.map(block => 
+    //     <Block key={block.id}
+    //     id={block.id} 
+    //     category={block.category_id}
+    //     category_selected={this.state.category} 
+    //     userName={block.userName} 
+    //     title={block.block_title} 
+    //     description={block.block_description}
+    //     date_updated={block.date_updated}
+    //     />)
+    // return newBlocks;
 }
 
 updateCategorySelected = (e) => {
@@ -58,13 +61,13 @@ updateCategorySelected = (e) => {
 
 componentDidMount() {
     //will fetch block info and populate state
-   
+
     this.renderRecentBlocks();
     this.blockRender();
 }
 
 blockRender = (category) => {
-    const allBlocks = this.renderRecentBlocks();
+    // const allBlocks = this.renderRecentBlocks();
                 return (
                     <div className="container">   
                                 <div className="block-filters">
@@ -79,7 +82,7 @@ blockRender = (category) => {
 
                                 </div>
                                <div className=" recent-blocks">
-                                   {allBlocks}
+                                   {/* {allBlocks} */}
                                </div>
                         </div>
                 )
