@@ -26,7 +26,8 @@
 }
 
 .deselected {
-    background-color: grey;
+    visibility: hidden;
+
 }
 
 @media only screen and (max-width: 380px) {

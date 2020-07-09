@@ -96,7 +96,7 @@ const blocks = this.blockRender(this.state.category);
                 <div><p>Recently Posted Blocks</p></div>
                      {TokenService.hasAuthToken() ?
                         <div></div>
-                    : <div>Sign in to see block details</div>}
+                    : <div className="sign-in-message">Sign in to see block details</div>}
                         {blocks}
                 
             </section>

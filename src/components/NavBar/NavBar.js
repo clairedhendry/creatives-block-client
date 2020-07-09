@@ -19,23 +19,17 @@ state = {
 handleLogOutClick = () => {
     TokenService.clearAuthToken();
     TokenService.clearUserToken();
+    this.updateMenuState();
  
 }
 
 renderLogInLink() {
     return (
         <div className='nav-bar__not-logged-in vertical'>
-            <Link to='/'>Home</Link>
-            <Link
-            to='/register'>
-            Register
-            </Link>
-          
-            <Link
-            to='/log-in'>
-            Log in
-            </Link>
-            <Link to='/about'>About</Link>
+            <Link to='/' onClick={this.updateMenuState}>Home</Link>
+            <Link to='/register' onClick={this.updateMenuState}>Register</Link>
+            <Link to='/log-in' onClick={this.updateMenuState}>Log in</Link>
+            <Link to='/about' onClick={this.updateMenuState}>About</Link>
        
       </div>
     )
@@ -47,14 +41,10 @@ const user = TokenService.getUserToken();
 
     return(
         <div className='nav-bar_logged-in vertical'>
-            <Link to='/'>Home</Link>
-            <Link
-            onClick={this.handleLogOutClick}
-            to='/'>
-            Logout
-            </Link>
-            <Link to='/about'>About</Link>
-            <Link to={`/user/${user}`}>My Account</Link>
+            <Link to='/' onClick={this.updateMenuState}>Home</Link>
+            <Link onClick={this.handleLogOutClick} to='/'>Logout</Link>
+            <Link to='/about' onClick={this.updateMenuState}>About</Link>
+            <Link to={`/user/${user}`} onClick={this.updateMenuState}>My Account</Link>
         </div>
     )
 }
@@ -69,12 +59,12 @@ renderDesktopNav() {
      return (
         <div>
         <div className="navigation-bar">
-        <Link to='/'>Creative's Block</Link>
+        <Link to='/' onClick={this.updateMenuState}>Home</Link>
         <div className="links">
         {TokenService.hasAuthToken()
          ? this.renderLogOutLink()
          : this.renderLogInLink()}
-        <Link to='/about'>About</Link>
+        <Link to='/about' onClick={this.updateMenuState}>About</Link>
         </div>
         </div>
 
@@ -95,15 +85,11 @@ renderMobileNav() {
             return (
                 <div className="mobile_nav">
                     <button onClick={this.updateMenuState}>menu</button>
-                        {/* <div className="links"> */}
-
-                        {TokenService.hasAuthToken()
+                        
+                       {TokenService.hasAuthToken()
                         ? this.renderLogOutLink()
                         : this.renderLogInLink()}
-              
-                        {/* </div> */}
- 
-                
+                          
                 </div>
             )
         }
@@ -128,18 +114,6 @@ render() {
 
 
         return (
-            // <nav>
-            //         <div className="navigation-bar">
-            //         <Link to='/' className="logo">Creative's Block</Link>
-            //         <div className="links">
-            //         {TokenService.hasAuthToken()
-            //          ? this.renderLogOutLink()
-            //          : this.renderLogInLink()}
-            //         <Link to='/about'>About</Link>
-            //         </div>
-            //         </div>
-            
-            // </nav>
             <nav className="navigation-bar">
                 {this.renderNavBar()}
             </nav>

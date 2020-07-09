@@ -1,11 +1,12 @@
 import React from 'react';
+import Hero from '../Hero/Hero'
 import './AboutPage.css';
 
 export default class AboutPage extends React.Component {
     render() {
         return (
             <div className="about-page">
-               <h1>About Page</h1>
+                <Hero />
                <section className="description">
                 <p>Having trouble with that last chapter?
                 <br/>
