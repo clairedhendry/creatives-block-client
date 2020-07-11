@@ -15,7 +15,6 @@ export default class RecentBlocks extends React.Component {
 static contextType = DataContext;
 
 state = {
-    blocks: this.context.state.blocks,
     category: 'all',
 }
 
@@ -25,29 +24,29 @@ renderRecentBlocks() {
     // let WritingBlocks = this.state.blocks.writing;
     // let MusicBlocks = this.state.blocks.music;
     // const allBlocksArray = VisArtsBlocks.concat(WritingBlocks, MusicBlocks);
-    // const allBlocksArray = this.state.blocks;
+    const allBlocksArray = this.props.blocks;
    
 
-    // const newArray = allBlocksArray.sort(function(a, b) {
-    //     var keyA = new Date(a.date_updated),
-    //       keyB = new Date(b.date_updated);
+    const newArray = allBlocksArray.sort(function(a, b) {
+        var keyA = new Date(a.date_updated),
+          keyB = new Date(b.date_updated);
      
-    //     if (keyA < keyB) return -1;
-    //     if (keyA > keyB) return 1;
-    //     return 0;
-    //   });
+        if (keyA < keyB) return -1;
+        if (keyA > keyB) return 1;
+        return 0;
+      });
 
-    // const newBlocks = newArray.map(block => 
-    //     <Block key={block.id}
-    //     id={block.id} 
-    //     category={block.category_id}
-    //     category_selected={this.state.category} 
-    //     userName={block.userName} 
-    //     title={block.block_title} 
-    //     description={block.block_description}
-    //     date_updated={block.date_updated}
-    //     />)
-    // return newBlocks;
+    const newBlocks = newArray.map(block => 
+        <Block key={block.id}
+        id={block.id} 
+        category={block.category_id}
+        category_selected={this.state.category} 
+        userName={block.user_name} 
+        title={block.block_title} 
+        description={block.block_description}
+        date_updated={block.date_updated}
+        />)
+    return newBlocks;
 }
 
 updateCategorySelected = (e) => {
@@ -67,7 +66,7 @@ componentDidMount() {
 }
 
 blockRender = (category) => {
-    // const allBlocks = this.renderRecentBlocks();
+    const allBlocks = this.renderRecentBlocks();
                 return (
                     <div className="container">   
                                 <div className="block-filters">
@@ -82,7 +81,7 @@ blockRender = (category) => {
 
                                 </div>
                                <div className=" recent-blocks">
-                                   {/* {allBlocks} */}
+                                   {allBlocks}
                                </div>
                         </div>
                 )

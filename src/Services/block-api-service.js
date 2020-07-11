@@ -3,22 +3,30 @@ import config from '../config'
 
 const BlockAPIService = {
 getAllRecentBlocks() {
-return fetch(`${config.API_ENDPOINT}/recent-blocks`, {
+return fetch(`${config.API_ENDPOINT}/blocks/recent-blocks`, {
     headers: {
-        'authorization': `basic ${config.AUTHORIZATION}`,
+        
     },
-})
-    .then(res =>
-        (!res.ok)
-        ? res.json().then(e => Promise.reject(e))
-        : res.json()
-        )
+    })
+    .then((response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error(response.statusText);
+    }
+  })
+ 
+  
+  .catch((err) => {
+    alert(`something went wrong: ${err.message}`)
+  });
 },
 
 getBlock(category, blockId) {
     return(`${config.API_ENDPOINT}/blocks/${category}/${blockId}`, {
         headers: {
-            'authorization': `basic ${TokenService.getAuthToken()}`,
+            'API_TOKEN': `Bearer ${config.API_TOKEN}`,
+            'Authorization': `basic ${TokenService.getAuthToken()}`,
         },
     })
     .then(res => 
@@ -32,6 +40,7 @@ getBlock(category, blockId) {
 getBlockFeedback(user_id, blockId) {
     return(`${config.API_ENDPOINT}/blocks/${user_id}/${blockId}/feedback`, {
         headers: {
+            'API_TOKEN': `Bearer ${config.API_TOKEN}`,
             'authorization': `basic ${TokenService.getAuthToken()}`,
         },
     })
@@ -46,6 +55,7 @@ postFeedback(user_id, blockId, text) {
     return fetch(`${config.API_ENDPOINT}/blocks/${user_id}/${blockId}/feedback`, {
         method: 'POST',
         headers: {
+            'API_TOKEN': `Bearer ${config.API_TOKEN}`,
             'content-type': 'application/json',
             'authorization': `basic ${TokenService.getAuthToken()}`
         },

@@ -24,27 +24,12 @@ componentDidMount() {
     //     writing_blocks: MockBlocks.Writing,
     //     music_blocks: MockBlocks.Music,
     // })
-    fetch(`${config.API_ENDPOINT}/recent-blocks`, {
-            headers: {
-                'Authorization': `Bearer ${config.AUTHORIZATION}`,
-            },
+    BlockAPIService.getAllRecentBlocks()
+    .then(data => {
+        this.setState({
+            blocks: data,
         })
-        .then((response) => {
-            if (response.ok) {
-              return response.json();
-            } else {
-              throw new Error(response.statusText);
-            }
-          })
-         
-          .then(data => {
-              this.setState({
-                  blocks: data,
-              })
-          })
-          .catch((err) => {
-            alert(`something went wrong: ${err.message}`)
-          });
+    });
 }
 
 updateCategorySelected = (category) => {

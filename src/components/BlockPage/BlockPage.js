@@ -14,23 +14,27 @@ export default class BlockPage extends React.Component {
 static contextType = DataContext;
 
 state = {
-    blockData: MockBlocks,
+    blockData: this.context.state.blocks,
     category: this.props.match.params.category,
     id: this.props.match.params.id,
 }
 
 renderBlockPage() {
+    //fetch specific block data
+    //protected endpoint
+    fetch()
+
     const category = this.state.category;
     const id = parseInt(this.state.id);
-    const data = this.state.blockData[`${category}`];
-    const blockIndex = data.findIndex(el => el.id === id);
-    const block = this.state.blockData[`${category}`][`${blockIndex}`];
+    // const data = this.state.blockData[`${category}`];
+    const blockIndex = this.state.blockData.findIndex(el => el.id === id);
+    const block = this.state.blockData[`${blockIndex}`];
 
-    const description = block.description;
-    const title = block.title;
-    const userName = block.userName;
+    const description = block.block_description;
+    const title = block.block_title;
+    const userName = block.user_name;
     const details = block.optional_details;
-    const file = block.file;
+    const file = block.block_file;
     
     return (
         <div className="block-container">
@@ -48,15 +52,15 @@ renderBlockPage() {
 }
 
 componentDidMount() {
-    this.renderBlockPage();
+    // this.renderBlockPage();
 }
 
     render() {
 
-const block = this.renderBlockPage();
+// const block = this.renderBlockPage();
         return(
             <div className="blocks-page-container">
-                {block}
+                {/* {block} */}
                 <Feedback />
             </div>
         )
