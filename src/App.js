@@ -12,7 +12,6 @@ import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 import NewBlockInput from './components/NewBlock/NewBlockInput';
 import AccountPage from './components/AccountPage/AccountPage';
 
-import TokenService from './Services/token-service';
 import { DataContext } from './Context';
 
 import './App.css';

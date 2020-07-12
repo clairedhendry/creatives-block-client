@@ -17,13 +17,7 @@ state = {
 }
 
 componentDidMount() {
-    //populate recent blocks with dummy data
-    //should become fetch call to API
-    // this.setState({
-    //     art_blocks: MockBlocks.Art,
-    //     writing_blocks: MockBlocks.Writing,
-    //     music_blocks: MockBlocks.Music,
-    // })
+
     BlockAPIService.getAllRecentBlocks()
     .then(data => {
         this.setState({

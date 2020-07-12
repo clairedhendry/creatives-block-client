@@ -11,7 +11,7 @@ const MockBlocks = {
             'title': 'Planet Express Ship Portrait',
             'file': 'https://images-na.ssl-images-amazon.com/images/I/31Rvw9O8ApL._AC_.jpg',
             'description': 'this is a portrait of the ship',
-            'optional_details': 'are my colors ok?',
+            'feedback_details': 'are my colors ok?',
             'date_updated': '2020-01-12'
          },
          {
@@ -22,7 +22,7 @@ const MockBlocks = {
              'title': 'Travel Comic',
              'file': 'https://images-na.ssl-images-amazon.com/images/I/31Rvw9O8ApL._AC_.jpg',
              'description': 'a comic about our deliveries',
-             'optional_details': 'does this flow alirght? how about page two?',
+             'feedback_details': 'does this flow alirght? how about page two?',
              'date_updated': '2020-04-12'
          },
          {
@@ -33,7 +33,7 @@ const MockBlocks = {
              'title': 'illustration 3',
              'file': 'https://images-na.ssl-images-amazon.com/images/I/31Rvw9O8ApL._AC_.jpg',
              'description': 'a portrait of someone we met last delivery',
-             'optional_details': 'can"t seem to finish the head right',
+             'feedback_details': 'can"t seem to finish the head right',
              'date_updated': '2020-05-12'
          },
          {
@@ -44,7 +44,7 @@ const MockBlocks = {
             'title': 'Planet Express Ship Portrait',
             'file': 'https://images-na.ssl-images-amazon.com/images/I/31Rvw9O8ApL._AC_.jpg',
             'description': 'this is a portrait of the ship',
-            'optional_details': 'are my colors ok?',
+            'feedback_details': 'are my colors ok?',
             'date_updated': '2020-04-23'
          },
          {
@@ -55,7 +55,7 @@ const MockBlocks = {
              'title': 'Travel Comic',
              'file': 'https://images-na.ssl-images-amazon.com/images/I/31Rvw9O8ApL._AC_.jpg',
              'description': 'a comic about our deliveries',
-             'optional_details': 'does this flow alirght? how about page two?',
+             'feedback_details': 'does this flow alirght? how about page two?',
              'date_updated': '2019-09-12'
          },
          {
@@ -66,7 +66,7 @@ const MockBlocks = {
              'title': 'illustration 3',
              'file': 'https://images-na.ssl-images-amazon.com/images/I/31Rvw9O8ApL._AC_.jpg',
              'description': 'a portrait of someone we met last delivery',
-             'optional_details': 'can"t seem to finish the head right',
+             'feedback_details': 'can"t seem to finish the head right',
              'date_updated': '2019-11-21'
          },
     ],
@@ -79,7 +79,7 @@ const MockBlocks = {
             'title': 'Benders poem',
             'file': 'https://docs.google.com/document/d/1f6P9PHagTXIpqfbHm2JsxXgytPnYWmliePhIectew2g/edit?usp=sharing',
             'description': 'a poem',
-            'optional_details': 'how about the word choice',
+            'feedback_details': 'how about the word choice',
             'date_updated': '2020-01-11'
         },
         {
@@ -90,7 +90,7 @@ const MockBlocks = {
             'title': 'bender is the greatest',
             'file': 'https://docs.google.com/document/d/1pYdOBTDbz8nAi8E_K-c_3xbWstmmMv5B1EtfH7g9Tjk/edit?usp=sharing',
             'description': 'a short story about how i saved the world',
-            'optional_details': 'am i cool enough? i think i can seem cooler',
+            'feedback_details': 'am i cool enough? i think i can seem cooler',
             'date_updated': '2020-06-12'
         },
         {
@@ -101,7 +101,7 @@ const MockBlocks = {
             'title': 'Fry - a play',
             'file': 'https://docs.google.com/document/d/1MErlUTZrfLB9IdiD1kNMiBq0sDSVNBJSZ6WwuVvnw9k/edit?usp=sharing',
             'description': 'a play about fry',
-            'optional_details': 'looking for technical edits',
+            'feedback_details': 'looking for technical edits',
             'date_updated': '2019-07-12'
         },
         {
@@ -112,7 +112,7 @@ const MockBlocks = {
             'title': 'Fry - a play',
             'file': 'https://docs.google.com/document/d/1MErlUTZrfLB9IdiD1kNMiBq0sDSVNBJSZ6WwuVvnw9k/edit?usp=sharing',
             'description': 'a play about fry',
-            'optional_details': 'looking for technical edits',
+            'feedback_details': 'looking for technical edits',
             'date_updated': '2020-03-15'
         },
         {
@@ -123,7 +123,7 @@ const MockBlocks = {
             'title': 'Benders poem',
             'file': 'https://docs.google.com/document/d/1f6P9PHagTXIpqfbHm2JsxXgytPnYWmliePhIectew2g/edit?usp=sharing',
             'description': 'a poem',
-            'optional_details': 'how about the word choice',
+            'feedback_details': 'how about the word choice',
             'date_updated': '2020-04-01'
         },
         {
@@ -134,7 +134,7 @@ const MockBlocks = {
             'title': 'bender is the greatest',
             'file': 'https://docs.google.com/document/d/1pYdOBTDbz8nAi8E_K-c_3xbWstmmMv5B1EtfH7g9Tjk/edit?usp=sharing',
             'description': 'a short story about how i saved the world',
-            'optional_details': 'am i cool enough? i think i can seem cooler',
+            'feedback_details': 'am i cool enough? i think i can seem cooler',
             'date_updated': '2020-02-22'
         },
         {
@@ -145,7 +145,7 @@ const MockBlocks = {
             'title': 'Fry - a play',
             'file': 'https://docs.google.com/document/d/1MErlUTZrfLB9IdiD1kNMiBq0sDSVNBJSZ6WwuVvnw9k/edit?usp=sharing',
             'description': 'a play about fry',
-            'optional_details': 'looking for technical edits',
+            'feedback_details': 'looking for technical edits',
             'date_updated': '2019-12-12'
         },
         {
@@ -156,7 +156,7 @@ const MockBlocks = {
             'title': 'Fry - a play',
             'file': 'https://docs.google.com/document/d/1MErlUTZrfLB9IdiD1kNMiBq0sDSVNBJSZ6WwuVvnw9k/edit?usp=sharing',
             'description': 'a play about fry',
-            'optional_details': 'looking for technical edits',
+            'feedback_details': 'looking for technical edits',
             'date_updated': '2020-02-11'
         },
     ],
@@ -169,7 +169,7 @@ const MockBlocks = {
             'title': 'Holophonor suite 1',
             'file': 'https://freesound.org/data/previews/177/177843_1506826-lq.mp3',
             'description': 'holophonor suite 1',
-            'optional_details': 'cant seem to figure out this line',
+            'feedback_details': 'cant seem to figure out this line',
             'date_updated': '2020-06-17'
         },
         {
@@ -180,7 +180,7 @@ const MockBlocks = {
             'title': 'Holophonor song 2',
             'file': 'https://freesound.org/data/previews/177/177843_1506826-lq.mp3',
             'description': 'holophonor song 2',
-            'optional_details': 'is it moody enough?',
+            'feedback_details': 'is it moody enough?',
             'date_updated': '2020-05-22'
         },
         {
@@ -191,7 +191,7 @@ const MockBlocks = {
             'title': 'Holophonor Leela song',
             'file': 'https://freesound.org/data/previews/514/514847_2454582-lq.mp3',
             'description': 'holophonor leela song',
-            'optional_details': 'stuck on this part',
+            'feedback_details': 'stuck on this part',
             'date_updated': '2020-03-03'
         },
         {
@@ -202,7 +202,7 @@ const MockBlocks = {
             'title': 'Holophonor Leela song',
             'file': 'https://freesound.org/data/previews/514/514847_2454582-lq.mp3',
             'description': 'holophonor leela song',
-            'optional_details': 'stuck on this part',
+            'feedback_details': 'stuck on this part',
             'date_updated': '2020-04-19'
         },
         {
@@ -213,7 +213,7 @@ const MockBlocks = {
             'title': 'Holophonor suite 1',
             'file': 'https://freesound.org/data/previews/177/177843_1506826-lq.mp3',
             'description': 'holophonor suite 1',
-            'optional_details': 'cant seem to figure out this line',
+            'feedback_details': 'cant seem to figure out this line',
             'date_updated': '2020-04-18'
         },
         {
@@ -224,7 +224,7 @@ const MockBlocks = {
             'title': 'Holophonor song 2',
             'file': 'https://freesound.org/data/previews/177/177843_1506826-lq.mp3',
             'description': 'holophonor song 2',
-            'optional_details': 'is it moody enough?',
+            'feedback_details': 'is it moody enough?',
             'date_updated': '2020-05-04'
         },
         {
@@ -235,7 +235,7 @@ const MockBlocks = {
             'title': 'Holophonor Leela song',
             'file': 'https://freesound.org/data/previews/514/514847_2454582-lq.mp3',
             'description': 'holophonor leela song',
-            'optional_details': 'stuck on this part',
+            'feedback_details': 'stuck on this part',
             'date_updated': '2020-07-04'
         },
         {
@@ -246,7 +246,7 @@ const MockBlocks = {
             'title': 'Holophonor Leela song',
             'file': 'https://freesound.org/data/previews/514/514847_2454582-lq.mp3',
             'description': 'holophonor leela song',
-            'optional_details': 'stuck on this part',
+            'feedback_details': 'stuck on this part',
             'date_updated': '2020-02-20'
         },
     ],

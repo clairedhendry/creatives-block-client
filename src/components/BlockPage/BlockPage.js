@@ -33,7 +33,7 @@ renderBlockPage() {
     const description = block.block_description;
     const title = block.block_title;
     const userName = block.user_name;
-    const details = block.optional_details;
+    const details = block.feedback_details;
     const file = block.block_file;
     
     return (

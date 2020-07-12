@@ -5,7 +5,7 @@ const BlockAPIService = {
 getAllRecentBlocks() {
 return fetch(`${config.API_ENDPOINT}/blocks/recent-blocks`, {
     headers: {
-        
+        'API_TOKEN': `bearer ${config.API_TOKEN}`,
     },
     })
     .then((response) => {
@@ -23,33 +23,66 @@ return fetch(`${config.API_ENDPOINT}/blocks/recent-blocks`, {
 },
 
 getBlock(category, blockId) {
-    return(`${config.API_ENDPOINT}/blocks/${category}/${blockId}`, {
+    return fetch(`${config.API_ENDPOINT}/blocks/${category}/${blockId}`, {
         headers: {
-            'API_TOKEN': `Bearer ${config.API_TOKEN}`,
+            'API_TOKEN': `bearer ${config.API_TOKEN}`,
             'Authorization': `basic ${TokenService.getAuthToken()}`,
         },
     })
-    .then(res => 
-        (!res.ok)
-        ? res.json().then(e => Promise.reject(e))
-        : res.json()
-        )
-    
-},
+    .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(response.statusText);
+        }
+      })
+     
+      
+      .catch((err) => {
+        alert(`something went wrong: ${err.message}`)
+      });
+    },
 
-getBlockFeedback(user_id, blockId) {
-    return(`${config.API_ENDPOINT}/blocks/${user_id}/${blockId}/feedback`, {
+getUsersBlocks(user_name) {
+    return fetch(`${config.API_ENDPOINT}/blocks/${user_name}`, {
+        headers: {
+            'API_TOKEN': `bearer ${config.API_TOKEN}`,
+            'Authorization': `basic ${TokenService.getAuthToken()}`,
+        },
+    })
+    .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(response.statusText);
+        }
+      })
+     
+      
+      .catch((err) => {
+        alert(`something went wrong: ${err.message}`)
+      });
+   },
+
+
+getBlockFeedback(blockId) {
+    return fetch(`${config.API_ENDPOINT}/feedback/${blockId}`, {
         headers: {
             'API_TOKEN': `Bearer ${config.API_TOKEN}`,
             'authorization': `basic ${TokenService.getAuthToken()}`,
         },
     })
-    .then(res => 
-        (!res.ok)
-        ? res.json().then(e => Promise.reject(e))
-        : res.json()
-        )
-},
+    .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(response.statusText);
+        }
+      })
+      .catch((err) => {
+        alert(`something went wrong: ${err.message}`)
+      });
+    },
 
 postFeedback(user_id, blockId, text) {
     return fetch(`${config.API_ENDPOINT}/blocks/${user_id}/${blockId}/feedback`, {
@@ -65,12 +98,19 @@ postFeedback(user_id, blockId, text) {
             text,
         }),
     })
-    .then(res => 
-        (!res.ok)
-        ? res.json().then(e => Promise.reject(e))
-        : res.json())
+    .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(response.statusText);
+        }
+      })
+     
+      
+      .catch((err) => {
+        alert(`something went wrong: ${err.message}`)
+      });
+    },
 }
-
-};
 
 export default BlockAPIService;
