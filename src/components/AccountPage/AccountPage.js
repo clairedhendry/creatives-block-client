@@ -2,6 +2,7 @@ import React from 'react';
 import RecentBlocks from '../RecentBlocks/RecentBlocks';
 import { MockBlocks } from '../../mockData/mock_blocks';
 import TokenService from '../../Services/token-service';
+import BlockAPIService from '../../Services/block-api-service'
 import { Link } from 'react-router-dom';
 import './AccountPage.css';
 
@@ -11,26 +12,32 @@ export default class AccountPage extends React.Component {
    //temp use mock data to fill
    
 state = {
-    blocks: MockBlocks
+    blocks: [],
 }
 
-renderRecentBlocks() {
-    const userName = this.props.match.params.userName;
-    const art_blocks = this.state.blocks.art.filter(block => block.userName === userName);
-    const writing_blocks = this.state.blocks.writing.filter(block => block.userName === userName);
-    const music_blocks = this.state.blocks.music.filter(block => block.userName === userName);
+// renderRecentBlocks() {
+//     const userName = this.props.match.params.userName;
+//     const art_blocks = this.state.blocks.art.filter(block => block.userName === userName);
+//     const writing_blocks = this.state.blocks.writing.filter(block => block.userName === userName);
+//     const music_blocks = this.state.blocks.music.filter(block => block.userName === userName);
 
-    const newBlocks = {
-        art: art_blocks,
-        writing: writing_blocks,
-        music: music_blocks,
-    };
+//     const newBlocks = {
+//         art: art_blocks,
+//         writing: writing_blocks,
+//         music: music_blocks,
+//     };
 
-    return newBlocks;
-}
+//     return newBlocks;
+// }
 
 componentDidMount() {
-    this.renderRecentBlocks();
+    const userName = this.props.match.params.userName;
+    BlockAPIService.getUsersBlocks(userName)
+        .then(data => {
+            this.setState({
+                blocks: data,
+            })
+        })
 }
 
 ifLoggedIn = () => {
@@ -60,7 +67,7 @@ renderNewBlockButton = () => {
 
     render() {
 
-const newBlocks = this.renderRecentBlocks();
+// const newBlocks = this.renderRecentBlocks();
 const user = this.ifLoggedIn();
 const newBlockButton = this.renderNewBlockButton();
 
@@ -71,7 +78,7 @@ const newBlockButton = this.renderNewBlockButton();
                     {newBlockButton}
             
                 <RecentBlocks 
-                blocks={newBlocks} 
+                blocks={this.state.blocks} 
                 userName={user} 
                 />
             </div>

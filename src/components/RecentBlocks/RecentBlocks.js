@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import   Block  from '../BlockPage/Block';
 import { DataContext } from '../../Context';
 import TokenService from '../../Services/token-service';
-import BlockAPIService from '../../Services/block-api-service';
 import './RecentBlocks.css'
 
 
@@ -71,13 +70,13 @@ blockRender = (category) => {
                     <div className="container">   
                                 <div className="block-filters">
                                     <button className="art-button" value="art" 
-                                    onClick={this.updateCategorySelected}>Artist's Blocks</button>
+                                    onClick={this.updateCategorySelected}>Art</button>
                                     <button className="writing-button" value="writing" 
-                                    onClick={this.updateCategorySelected}>Writer's Blocks</button>
+                                    onClick={this.updateCategorySelected}>Writing</button>
                                     <button className="music-button" value="music" 
-                                    onClick={this.updateCategorySelected}>Musician's Blocks</button>
+                                    onClick={this.updateCategorySelected}>Music</button>
                                     <button className="all-blocks-button" value="all"
-                                    onClick={this.updateCategorySelected}>All Blocks</button>
+                                    onClick={this.updateCategorySelected}>All</button>
 
                                 </div>
                                <div className=" recent-blocks">

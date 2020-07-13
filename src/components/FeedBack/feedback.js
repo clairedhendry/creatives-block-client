@@ -7,10 +7,10 @@ export default class Feedback extends React.Component {
         return(
             <div className="feedback-container">
                 <form className="feedback-form">
-                <label htmlFor="comment-area">Leave some feedback</label>
-                <textarea id="comment-area" name="comment-field" cols="50" rows="8" placeholder="leave some feedback...">
-                    
-                </textarea>
+                    <label htmlFor="comment-area">Leave some feedback</label>
+                    <textarea id="comment-area" name="comment-field" cols="50" rows="8" placeholder="leave some feedback...">
+                        
+                    </textarea>
      
                 <button type="submit">Submit Feedback</button>
             </form>

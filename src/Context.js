@@ -16,15 +16,15 @@ state = {
     user_logged_in: '',
 }
 
-componentDidMount() {
+// componentDidMount() {
 
-    BlockAPIService.getAllRecentBlocks()
-    .then(data => {
-        this.setState({
-            blocks: data,
-        })
-    });
-}
+//     BlockAPIService.getAllRecentBlocks()
+//     .then(data => {
+//         this.setState({
+//             blocks: data,
+//         })
+//     });
+// }
 
 updateCategorySelected = (category) => {
     this.setState({

@@ -9,14 +9,14 @@ renderIfLoggedIn() {
     return(
         <Link to={`/blocks/${this.props.category}/${this.props.id}`} 
         className="preview-content">
-        {this.props.block_description}
+        {this.props.description}
         </Link>
     )
 }
 
 renderIfNotLoggedIn() {
     return(
-        <div>{this.props.block_description}</div>
+        <div>{this.props.description}</div>
     )
 }
 

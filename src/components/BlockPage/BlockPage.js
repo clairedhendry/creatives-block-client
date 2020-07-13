@@ -3,6 +3,7 @@ import { DataContext } from '../../Context';
 import { MockBlocks } from '../../mockData/mock_blocks';
 import { Link } from 'react-router-dom';
 import Feedback from '../FeedBack/feedback';
+import BlockAPIService from '../../Services/block-api-service'
 import './BlockPage.css';
 
 
@@ -14,22 +15,27 @@ export default class BlockPage extends React.Component {
 static contextType = DataContext;
 
 state = {
-    blockData: this.context.state.blocks,
+    blockData: {},
     category: this.props.match.params.category,
     id: this.props.match.params.id,
 }
 
-renderBlockPage() {
+fetchBlockData() {
     //fetch specific block data
     //protected endpoint
-    fetch()
-
     const category = this.state.category;
     const id = parseInt(this.state.id);
-    // const data = this.state.blockData[`${category}`];
-    const blockIndex = this.state.blockData.findIndex(el => el.id === id);
-    const block = this.state.blockData[`${blockIndex}`];
 
+    BlockAPIService.getBlock(category, id)
+    .then(data => {
+        this.setState({
+            blockData : data
+        })
+    })
+}
+    
+renderBlockData() {
+    const  block  = this.state.blockData
     const description = block.block_description;
     const title = block.block_title;
     const userName = block.user_name;
@@ -51,16 +57,17 @@ renderBlockPage() {
 
 }
 
+
 componentDidMount() {
-    // this.renderBlockPage();
+    this.fetchBlockData();
 }
 
     render() {
 
-// const block = this.renderBlockPage();
+const block = this.renderBlockData();
         return(
             <div className="blocks-page-container">
-                {/* {block} */}
+                {block}
                 <Feedback />
             </div>
         )

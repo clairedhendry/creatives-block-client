@@ -33,6 +33,10 @@
     font-weight: bold;
 }
 
+.content > a {
+    color: black;
+}
+
 .category-link {
     color: white;
 }
@@ -44,7 +48,10 @@
 
 .block-filters > button {
     cursor: pointer;
-    height: 35px;
+    height: 50px;
+    width: 100px;
+    font-size: larger;
+    font-weight: bold;
 }
 
 .art-button {
