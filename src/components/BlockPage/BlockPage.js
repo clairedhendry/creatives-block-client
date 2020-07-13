@@ -68,7 +68,10 @@ const block = this.renderBlockData();
         return(
             <div className="blocks-page-container">
                 {block}
-                <Feedback />
+                <Feedback 
+                user_id={this.state.blockData.user_id}
+                block_id={this.state.blockData.id}
+                />
             </div>
         )
     }

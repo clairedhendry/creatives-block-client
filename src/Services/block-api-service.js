@@ -84,8 +84,8 @@ getBlockFeedback(blockId) {
       });
     },
 
-postFeedback(user_id, blockId, text) {
-    return fetch(`${config.API_ENDPOINT}/blocks/${user_id}/${blockId}/feedback`, {
+postFeedback(block_id, feedback, userid, flagged) {
+    return fetch(`${config.API_ENDPOINT}/feedback/${block_id}`, {
         method: 'POST',
         headers: {
             'API_TOKEN': `Bearer ${config.API_TOKEN}`,
@@ -93,9 +93,10 @@ postFeedback(user_id, blockId, text) {
             'authorization': `basic ${TokenService.getAuthToken()}`
         },
         body: JSON.stringify({
-            user_id: user_id,
-            blockId: blockId,
-            text,
+            block_id: block_id,
+            feedback: feedback,
+            userid: userid,
+            flagged: flagged
         }),
     })
     .then((response) => {
