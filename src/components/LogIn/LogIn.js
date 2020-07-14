@@ -38,7 +38,7 @@ handleSubmitBasicAuth = (e) => {
                     type="text"
                     placeholder="password"/>
 
-                <button type="submit" onclick="window.location.href='/'">Log In</button>
+                <button type="submit">Log In</button>
 
                 </form>
             </div>

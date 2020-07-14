@@ -1,0 +1,56 @@
+.landing-page-container {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: xxx-large;
+} 
+
+.landing-page-links {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    background-color: white;
+    padding: 35px;
+}
+
+.landing-page-links > a {
+    text-decoration: none;
+    font-size: x-large;
+}
+
+.landing-page-hero {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    width: 100vw;
+    height: 800px;
+    background-image: url('../../image_assets/creative-block-logo.svg');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    
+}
+
+@media only screen and (max-width: 450px) {
+    .landing-h1 {
+       margin-top: 35%;
+    }
+
+    .landing-page-hero {
+        margin: 0;
+        height: 500px;
+    }
+
+    .landing-page-links {
+        padding: 15px;
+    }
+
+    .landing-page-links > a {
+        text-decoration: none;
+        font-size: medium;
+        font-weight: bold;
+    }
+
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import RecentBlocks from '../RecentBlocks/RecentBlocks';
 import Hero from '../Hero/Hero';
-import InfoSection  from './InfoSection';
+
 import BlockAPIService from '../../Services/block-api-service'
 
 
@@ -22,11 +22,14 @@ componentDidMount() {
     });
 }
     render() {
+
+const blocks = this.state.blocks.length > 0 ? <RecentBlocks blocks={this.state.blocks} userName={null}/> : <div>Loading blocks...</div>
+        
         return (
             <main>
                <Hero />
-               <RecentBlocks blocks={this.state.blocks} userName={null}/>
-               <InfoSection />
+               {blocks}
+            
             </main>
         )
     }

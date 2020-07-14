@@ -1,0 +1,60 @@
+.info-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    justify-content: space-evenly;
+}
+
+.info-logo-1 {
+    margin-left: 150px;
+    padding-top: 50px;
+    height: 150px;
+    width: 150px;
+    background-image: url('../../image_assets/creative-block-logo.svg');
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.information {
+    display: flex;
+    flex-direction: row;
+    color: black;
+    background-color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+.right {
+    width: auto;
+    margin-right: 0;
+}
+
+.left {
+    width: auto;
+    margin-left: 0;
+}
+
+.about > p{
+    color: black;
+}
+
+.one {
+    background-color: white;
+}
+
+.two {
+    background-color: grey;
+}
+
+@media only screen and (max-width: 450px) {
+
+    .information {
+        flex-direction: column;
+        font-size: medium;
+        padding: 15px;
+    }
+
+    .info-logo-1 {
+        display: none;
+    }
+}

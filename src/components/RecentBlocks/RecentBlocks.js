@@ -14,6 +14,7 @@ export default class RecentBlocks extends React.Component {
 static contextType = DataContext;
 
 state = {
+   
     category: 'all',
 }
 
@@ -30,8 +31,8 @@ renderRecentBlocks() {
         var keyA = new Date(a.date_updated),
           keyB = new Date(b.date_updated);
      
-        if (keyA < keyB) return -1;
-        if (keyA > keyB) return 1;
+        if (keyA > keyB) return -1;
+        if (keyA < keyB) return 1;
         return 0;
       });
 
@@ -60,8 +61,8 @@ updateCategorySelected = (e) => {
 componentDidMount() {
     //will fetch block info and populate state
 
-    this.renderRecentBlocks();
-    this.blockRender();
+    // this.renderRecentBlocks();
+
 }
 
 blockRender = (category) => {
@@ -95,10 +96,10 @@ const blocks = this.blockRender(this.state.category);
         return (
             <section className="recent-blocks-container">
                 <div><p>Recently Posted Blocks</p></div>
-                     {TokenService.hasAuthToken() ?
-                        <div></div>
-                    : <div className="sign-in-message">Sign in to see block details</div>}
-                        {blocks}
+                     {TokenService.hasAuthToken() 
+                    ?  <div>Sign in to view blocks</div>
+                    : <div className="sign-in-message"><Link to='/log-in'>Sign in</Link> to see block details</div>}
+                    {blocks}
                 
             </section>
         )

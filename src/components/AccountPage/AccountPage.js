@@ -12,25 +12,14 @@ export default class AccountPage extends React.Component {
    //temp use mock data to fill
    
 state = {
+   user: this.props.match.params.userName,
     blocks: [],
+    isLoading: true,
 }
 
-// renderRecentBlocks() {
-//     const userName = this.props.match.params.userName;
-//     const art_blocks = this.state.blocks.art.filter(block => block.userName === userName);
-//     const writing_blocks = this.state.blocks.writing.filter(block => block.userName === userName);
-//     const music_blocks = this.state.blocks.music.filter(block => block.userName === userName);
 
-//     const newBlocks = {
-//         art: art_blocks,
-//         writing: writing_blocks,
-//         music: music_blocks,
-//     };
-
-//     return newBlocks;
-// }
-
-componentDidMount() {
+fetchBlocks() {
+    
     const userName = this.props.match.params.userName;
     BlockAPIService.getUsersBlocks(userName)
         .then(data => {
@@ -38,7 +27,10 @@ componentDidMount() {
                 blocks: data,
             })
         })
-}
+        
+    }
+
+
 
 ifLoggedIn = () => {
     const check_user = TokenService.getUserToken() 
@@ -55,32 +47,57 @@ renderNewBlockButton = () => {
     const check_user = TokenService.getUserToken() 
     ? TokenService.getUserToken() 
     : null;
-    
+    const userName = this.props.match.params.userName
     if(check_user === this.props.match.params.userName) {
         return  <div className="link">
-            <Link to='/newblock'>Create new block</Link>
+            <Link to={`/user/${userName}/newblock`}>Create new block</Link>
             </div>
     }
-    
-    
 }
+
+checkUser() {
+    if(this.state.user !== this.props.match.params.userName) {
+        this.setState({
+            user: this.props.match.params.userName
+        })
+        this.fetchBlocks();
+    } return
+}
+
+// renderIfLoading() {
+//     const user = this.ifLoggedIn();
+//     if(!this.state.isLoading) {
+//         return(
+//             <RecentBlocks 
+//             blocks={this.state.blocks} 
+//             userName={user} 
+//             />
+//         )
+//     }
+//     else if(this.state.isLoading) {
+//         return(
+//             <div className="is-loading">
+//                 Fetching New Blocks
+//             </div>
+//         )
+//     }
+// }
 
     render() {
 
 // const newBlocks = this.renderRecentBlocks();
 const user = this.ifLoggedIn();
 const newBlockButton = this.renderNewBlockButton();
+const blocks = this.state.blocks.length > 0 ? <RecentBlocks blocks={this.state.blocks} userName={null}/> : this.fetchBlocks()
+const checkUser = this.checkUser();
 
         return(
             <div className="account-page-container">
                 <h1>{user}'s Blocks</h1>
                 
-                    {newBlockButton}
-            
-                <RecentBlocks 
-                blocks={this.state.blocks} 
-                userName={user} 
-                />
+                {newBlockButton}
+                {blocks}
+               <Link className="footer-link" to='/home'>Home</Link>
             </div>
         )
     }

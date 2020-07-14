@@ -14,15 +14,15 @@
 }
 
 .art {
-    border: 3px rgb(255, 22, 255) solid;
+    border: 5px rgb(255, 22, 255) solid;
 }
 
 .writing {
-    border: 3px rgb(255, 0, 64) solid;
+    border: 5px rgb(255, 166, 0) solid;
 }
 
 .music {
-    border: 3px rgb(0, 68, 255) solid;
+    border: 5px rgb(0, 68, 255) solid;
 }
 
 .deselected {

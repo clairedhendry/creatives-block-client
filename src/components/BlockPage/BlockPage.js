@@ -71,6 +71,7 @@ const block = this.renderBlockData();
                 <Feedback 
                 user_id={this.state.blockData.user_id}
                 block_id={this.state.blockData.id}
+                userName={this.state.blockData.user_name}
                 />
             </div>
         )

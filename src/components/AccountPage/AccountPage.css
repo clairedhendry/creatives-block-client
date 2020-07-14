@@ -15,3 +15,11 @@ h1 {
     color: white;
     padding-bottom: 25px;
 }
+
+.footer-link {
+    text-decoration: none;
+    color: white;
+    padding-bottom: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}

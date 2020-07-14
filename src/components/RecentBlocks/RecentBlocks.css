@@ -61,7 +61,7 @@
 }
 
 .writing-button {
-    background-color: rgb(255, 0, 64);
+    background-color: rgb(255, 166, 0);
     color: white;
     border-radius: 10px;
 }
@@ -80,6 +80,14 @@
 
 .sign-in-message {
     color: white;
+    padding-bottom: 50px;
+}
+
+.sign-in-message > a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
 }
 
 @media only screen and (max-width: 450px) {

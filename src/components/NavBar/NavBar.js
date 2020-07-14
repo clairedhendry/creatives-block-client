@@ -26,7 +26,7 @@ handleLogOutClick = () => {
 renderLogInLink() {
     return (
         <div className='nav-bar__not-logged-in vertical'>
-            <Link to='/' onClick={this.updateMenuState}>Home</Link>
+            <Link to='/home' onClick={this.updateMenuState}>Home</Link>
             <Link to='/register' onClick={this.updateMenuState}>Register</Link>
             <Link to='/log-in' onClick={this.updateMenuState}>Log in</Link>
             <Link to='/about' onClick={this.updateMenuState}>About</Link>
@@ -41,7 +41,7 @@ const user = TokenService.getUserToken();
 
     return(
         <div className='nav-bar_logged-in vertical'>
-            <Link to='/' onClick={this.updateMenuState}>Home</Link>
+            <Link to='/home' onClick={this.updateMenuState}>Home</Link>
             <Link onClick={this.handleLogOutClick} to='/'>Logout</Link>
             <Link to='/about' onClick={this.updateMenuState}>About</Link>
             <Link to={`/user/${user}`} onClick={this.updateMenuState}>My Account</Link>
@@ -59,7 +59,7 @@ renderDesktopNav() {
      return (
         <div>
         <div className="navigation-bar">
-        <Link to='/' onClick={this.updateMenuState}>Home</Link>
+        <Link to='/home' onClick={this.updateMenuState}>Home</Link>
         <div className="links">
         {TokenService.hasAuthToken()
          ? this.renderLogOutLink()

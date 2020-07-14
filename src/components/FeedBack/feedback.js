@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import BlockAPIService from '../../Services/block-api-service'
 import './feedback.css';
 
@@ -6,7 +7,8 @@ export default class Feedback extends React.Component {
 
 state = {
     text: '',
-    flagged: false
+    flagged: false,
+    submitted: false
 }
 
 onChange = (e) => {
@@ -23,14 +25,17 @@ handleSubmit = (e) => {
     const  text = this.state.text
     const flagged = this.state.flagged
     BlockAPIService.postFeedback(block_id, text, user_id, flagged)
-    .then(data => {
-        alert(`your feedback has been posted`)
-    })
+    
+    .then(
+        this.setState({
+            submitted: true
+        })
+    )
 } 
 
-    render() {
+renderForm = () => {
+    if(!this.state.submitted) {
         return(
-            <div className="feedback-container">
                 <form className="feedback-form" onSubmit={e => this.handleSubmit(e)}>
                     <label htmlFor="comment-area">Leave some feedback</label>
                     <textarea 
@@ -43,8 +48,28 @@ handleSubmit = (e) => {
                     </textarea>
      
                 <button type="submit">Submit Feedback</button>
-            </form>
-            </div>
+                </form>
+
         )
+    }
+    else {
+        return(
+           <p>
+                Thank you for submitting feedback!
+           </p>
+        )
+    }
+}
+
+    render() {
+
+
+
+       return(
+           <div className="feedback-container">
+               {this.renderForm()}
+               <Link to={`/user/${this.props.userName}`}>Back</Link>
+           </div>
+       )
     }
 }

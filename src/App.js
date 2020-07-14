@@ -1,6 +1,7 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 
+import LandingPage from './components/LandingPage/LandingPage';
 import HomePage from './components/HomePage/HomePage';
 import NavBar from './components/NavBar/NavBar';
 import Register from './components/RegistrationPage/Register';
@@ -30,14 +31,15 @@ static contextType = DataContext;
       <div>
         <NavBar />
           <Switch>
-            <Route exact path='/' component={HomePage} />
+            <Route exact path='/' component={LandingPage} />
+            <Route path='/home' component={HomePage} />
             <Route path='/register' component={Register} />
             <Route path='/category/:id' component={CategoryPage}/>
             <Route path='/about' component={AboutPage} />
             <Route path='/log-in' component={LogInPage} />
             <Route path='/blocks/:category/:id' component={BlockPage} />
-            <Route path='/user/:userName' component={AccountPage} />
-            <Route path='/newblock' component={NewBlockInput} />
+            <Route exact path='/user/:userName' component={AccountPage} />
+            <Route path='/user/:userName/newblock' component={NewBlockInput} />
             <Route component={NotFoundPage} />
           </Switch>
         
