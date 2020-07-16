@@ -1,6 +1,5 @@
 import React from 'react';
 import RecentBlocks from '../RecentBlocks/RecentBlocks';
-import { MockBlocks } from '../../mockData/mock_blocks';
 import TokenService from '../../Services/token-service';
 import BlockAPIService from '../../Services/block-api-service'
 import { Link } from 'react-router-dom';

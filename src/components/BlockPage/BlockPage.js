@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Feedback from '../FeedBack_Input/feedback';
-import BlockAPIService from '../../Services/block-api-service'
+import Feedback from '../Feedback/feedback';
+import BlockAPIService from '../../Services/block-api-service';
 import './BlockPage.css';
 import TokenService from '../../Services/token-service';
-import ViewFeedback from '../Feedback_View/feedback_view'
+import ViewFeedback from '../Feedback_View/feedback_view';
 
 export default class BlockPage extends React.Component {
 
