@@ -4,8 +4,8 @@ const TokenService = {
   saveAuthToken(token) {
     window.localStorage.setItem(config.TOKEN_KEY, token)
   },
-  saveUserToken(userName) {
-      window.localStorage.setItem(config.USER_TOKEN, userName)
+  saveUserToken(username) {
+      window.localStorage.setItem(config.USER_TOKEN, username)
   },
   getAuthToken() {
     return window.localStorage.getItem(config.TOKEN_KEY)

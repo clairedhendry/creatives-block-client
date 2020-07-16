@@ -1,12 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from './node_modules/react';
+import { Link } from './node_modules/react-router-dom';
 import BlockAPIService from '../../Services/block-api-service'
 import './feedback.css';
 
 export default class Feedback extends React.Component {
 
 state = {
-    text: '',
+    feedback: '',
     flagged: false,
     submitted: false
 }
@@ -17,14 +17,14 @@ onChange = (e) => {
     })
 }
 
-    //user_id, blockid, text
+  
 handleSubmit = (e) => {
     e.preventDefault();
-    const user_id = this.props.user_id
+    const user_name = this.props.user_name
     const block_id = this.props.block_id
-    const  text = this.state.text
+    const feedback = this.state.feedback
     const flagged = this.state.flagged
-    BlockAPIService.postFeedback(block_id, text, user_id, flagged)
+    BlockAPIService.postFeedback(block_id, feedback, user_name, flagged)
     
     .then(
         this.setState({
@@ -68,7 +68,7 @@ renderForm = () => {
        return(
            <div className="feedback-container">
                {this.renderForm()}
-               <Link to={`/user/${this.props.userName}`}>Back</Link>
+               <Link to={`/user/${this.props.user_name}`}>Back</Link>
            </div>
        )
     }

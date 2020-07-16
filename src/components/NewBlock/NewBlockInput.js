@@ -51,15 +51,22 @@ handleBlockSubmit = (e) => {
 e.preventDefault();
 const user_name = this.state.userName;
 const category_id = this.state.category;
-const block_title = this.state.block_title;
+const block_title = this.state.title;
 const block_file = this.state.file;
-const block_description = this.state.block_description;
+const block_description = this.state.description;
 const feedback_details = this.state.feedback_details
 
 BlockAPIService.postNewBlock(user_name, category_id, block_title, block_file, block_description, feedback_details)
 
+
 .then(
-    alert(`you posted a new block`)
+    this.setState({
+        title: '',
+        file: null,
+        description: '',
+        feedback_details: '',
+        category: ''
+    })
 )
 
 }

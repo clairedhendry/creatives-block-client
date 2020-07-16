@@ -5,7 +5,7 @@ const BlockAPIService = {
 getAllRecentBlocks() {
 return fetch(`${config.API_ENDPOINT}/blocks/recent-blocks`, {
     headers: {
-        'API_TOKEN': `bearer ${config.API_TOKEN}`,
+        // 'API_TOKEN': `bearer ${config.API_TOKEN}`,
     },
     })
     .then((response) => {
@@ -25,8 +25,8 @@ return fetch(`${config.API_ENDPOINT}/blocks/recent-blocks`, {
 getBlock(category, blockId) {
     return fetch(`${config.API_ENDPOINT}/blocks/${category}/${blockId}`, {
         headers: {
-            'API_TOKEN': `bearer ${config.API_TOKEN}`,
-            'Authorization': `basic ${TokenService.getAuthToken()}`,
+            // 'API_TOKEN': `bearer ${config.API_TOKEN}`,
+            'Authorization': `bearer ${TokenService.getAuthToken()}`,
         },
     })
     .then((response) => {
@@ -44,10 +44,9 @@ getBlock(category, blockId) {
     },
 
 getUsersBlocks(user_name) {
-    return fetch(`${config.API_ENDPOINT}/blocks/${user_name}`, {
+    return fetch(`${config.API_ENDPOINT}/recent-blocks/${user_name}`, {
         headers: {
-            'API_TOKEN': `bearer ${config.API_TOKEN}`,
-            'Authorization': `basic ${TokenService.getAuthToken()}`,
+            // 'API_TOKEN': `bearer ${config.API_TOKEN}`,
         },
     })
     .then((response) => {
@@ -69,7 +68,7 @@ getBlockFeedback(blockId) {
     return fetch(`${config.API_ENDPOINT}/feedback/${blockId}`, {
         headers: {
             'API_TOKEN': `Bearer ${config.API_TOKEN}`,
-            'authorization': `basic ${TokenService.getAuthToken()}`,
+            'Authorization': `bearer ${TokenService.getAuthToken()}`,
         },
     })
     .then((response) => {
@@ -84,18 +83,18 @@ getBlockFeedback(blockId) {
       });
     },
 
-postFeedback(block_id, feedback, userid, flagged) {
+postFeedback(block_id, feedback, user_name, flagged) {
     return fetch(`${config.API_ENDPOINT}/feedback/${block_id}`, {
         method: 'POST',
         headers: {
-            'API_TOKEN': `B=bearer ${config.API_TOKEN}`,
+            // 'API_TOKEN': `bearer ${config.API_TOKEN}`,
             'content-type': 'application/json',
-            'authorization': `basic ${TokenService.getAuthToken()}`
+            'Authorization': `bearer ${TokenService.getAuthToken()}`
         },
         body: JSON.stringify({
             block_id: block_id,
             feedback: feedback,
-            userid: userid,
+            user_name: user_name,
             flagged: flagged
         }),
     })
@@ -113,13 +112,13 @@ postFeedback(block_id, feedback, userid, flagged) {
       });
     },
 
-    postNewBlock(user_name, category_id, block_title, block_file, block_description, feedback_details) {
-      return fetch(`${config.API_ENDPOINT}/blocks/${user_name}/${category_id}`, {
+  postNewBlock(user_name, category_id, block_title, block_file, block_description, feedback_details) {
+      return fetch(`${config.API_ENDPOINT}/blocks/${user_name}`, {
         method: 'POST',
         headers: {
-            'API_TOKEN': `bearer ${config.API_TOKEN}`,
+            // 'API_TOKEN': `bearer ${config.API_TOKEN}`,
             'content-type': 'application/json',
-            'authorization': `basic ${TokenService.getAuthToken()}`
+            'Authorization': `bearer ${TokenService.getAuthToken()}`
         },
         body: JSON.stringify({
             user_name: user_name,
