@@ -18,3 +18,9 @@ h2 > a {
     text-decoration: none;
     color: white;
 }
+
+.no-feedback {
+    color: white;
+    text-align: center;
+    padding-top: 100px;
+}

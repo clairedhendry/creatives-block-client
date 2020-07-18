@@ -23,8 +23,14 @@ checkUserTokenToFetch() {
         
         BlockAPIService.getBlockFeedback(this.state.id)
         .then(data => {
-        this.setState({
-            blockFeedback: data
+            data.length === 0
+            ? this.setState({
+                blockFeedback: [
+                    {message: `There is no feedback on this block yet`}
+                ]
+            })
+            : this.setState({
+                blockFeedback: data
         })
     }
     )
@@ -82,28 +88,30 @@ renderBlockData() {
 
 
 renderFeedbackInput() {
-    
+    if(TokenService.getUserToken !== this.state.blockData.user_name) {
         return (
             <Feedback 
             user_name={this.state.blockData.user_name}
             block_id={this.state.blockData.id}
-            
             />
        )
+    } else {
+        return
+    }
+       
 }
 
 renderBlockFeedback() {
-    
-    // BlockAPIService.getBlockFeedback(this.props.id)
-    // .then(data => 
-    //     this.setState({
-    //         blockFeedback: data
-    //     })
-    // )
-
+    const message = this.state.blockFeedback[0].message
+    if(message) {
+        return <div className="no-feedback">
+            {message}
+        </div>
+    } else {
     return (
         <ViewFeedback blockFeedback={this.state.blockFeedback} category={this.state.category}/>
     )
+}
 }
 
 
@@ -115,6 +123,8 @@ renderBlockFeedback() {
        
 
 // }
+
+
 
 render() {
 
@@ -128,8 +138,9 @@ render() {
                 : this.renderBlockData()}
                {this.state.blockFeedback.length === 0
                ? this.checkUserTokenToFetch()
-                : this.renderBlockFeedback()}
-              
+               : this.renderBlockFeedback()}
+                {}
+               {this.renderFeedbackInput()}
             </div>
         )
     }
