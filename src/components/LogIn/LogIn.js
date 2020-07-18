@@ -8,41 +8,16 @@ import './LogIn.css';
 
 export default class LogInPage extends React.Component {
 
-// static contextType = DataContext;
+static contextType = DataContext;
 
 state = {
     user_name: '', 
     error: null   
 }
 
-// //should validate inputs
-
-// handleSubmitBasicAuth = (e) => {
-//     e.preventDefault();
-//     const { userName, password } = e.target
-//     this.context.actions.updateUserLoggedIn(userName.value)
-//     TokenService.saveUserToken(userName.value)
-//     TokenService.saveAuthToken(
-//         TokenService.makeBasicAuthToken(userName.value, password.value)
-//     )
-//     userName.value = ''
-//     password.value = ''
-// }
-
 static defaultProps = {
     onLoginSuccess: () => {}
   }
-
-//   handleSubmitBasicAuth = ev => {
-//     ev.preventDefault()
-//     const { user_name, user_password } = ev.target
-
-  
-    
-//     user_name.value = ''
-//     user_password.value = ''
-//     this.props.onLoginSuccess()
-//   }
 
   updateName = (e) => {
       this.setState({
@@ -52,17 +27,18 @@ static defaultProps = {
 
   handleSubmitJwtAuth = e => {
       e.preventDefault();
+      this.context.actions.updateLoggedIn()
       this.setState({ error: null })
-      const { username, user_password } = e.target
+      const { user_name, user_password } = e.target
 
       TokenService.saveUserToken(this.state.user_name)
     
       AuthApiService.postLogin({
-          username: username.value,
+          user_name: user_name.value,
           user_password: user_password.value,
         })
         .then(res => {
-            username.value = ''
+            user_name.value = ''
             user_password.value = ''
             TokenService.saveAuthToken(res.authToken)
             this.props.onLoginSuccess()
@@ -77,12 +53,12 @@ static defaultProps = {
             <div className="login-page">
               <h2>Log In</h2>
                 <form className="login-form" onSubmit={this.handleSubmitJwtAuth}>
-                <label htmlFor="username">user name</label>
-                    <input className="username"
+                <label htmlFor="user_name">user name</label>
+                    <input className="user_name"
                     onChange={e => this.updateName(e)}
-                    id="username"
+                    id="user_name"
                     type="text"
-                    placeholder="username"/>
+                    placeholder="user_name"/>
                 <label htmlFor="user_password">password</label>
                     <input className="user_password"
                     id="user_password"

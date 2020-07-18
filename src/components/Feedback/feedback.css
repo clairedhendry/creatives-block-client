@@ -28,6 +28,10 @@ button {
     padding: 5px;
 }
 
+.feedback-message {
+    color: white;
+}
+
 @media only screen and (max-width: 450px) {
     .feedback-form {
         width: 80%;

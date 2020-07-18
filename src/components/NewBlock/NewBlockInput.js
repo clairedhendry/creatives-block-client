@@ -7,7 +7,7 @@ import './NewBlockInput.css'
 export default class NewBlockInput extends React.Component {
 
 state = {
-    userName: this.props.match.params.userName,
+    user_name: this.props.match.params.user_name,
     title: '',
     file: null,
     description: '',
@@ -49,7 +49,7 @@ updateFeedbackDetails = (e) => {
 
 handleBlockSubmit = (e) => {
 e.preventDefault();
-const user_name = this.state.userName;
+const user_name = this.state.user_name;
 const category_id = this.state.category;
 const block_title = this.state.title;
 const block_file = this.state.file;

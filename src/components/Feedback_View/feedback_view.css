@@ -1,0 +1,26 @@
+.view-feedback-container {
+    height: 100%;
+    width: 100%;
+}
+
+.feedback {
+    background-color: white;
+    max-width: 60%;
+    margin: 15px auto 15px auto;
+    padding: 15px;
+    color: black;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.art {
+    border: 5px rgb(255, 22, 255) solid;
+}
+
+.writing {
+    border: 5px rgb(255, 166, 0) solid;
+}
+
+.music {
+    border: 5px rgb(0, 68, 255) solid;
+}

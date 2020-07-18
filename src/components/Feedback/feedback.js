@@ -2,25 +2,34 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import BlockAPIService from '../../Services/block-api-service'
 import './feedback.css';
+import TokenService from '../../Services/token-service';
 
 export default class Feedback extends React.Component {
 
 state = {
     feedback: '',
     flagged: false,
-    submitted: false
+    submitted: false,
+    user_name: ''
 }
 
-onChange = (e) => {
+componentDidMount() {
     this.setState({
-        text: e.target.value
+        user_name: TokenService.getUserToken()
     })
 }
 
-  
+
+
+onChange = (e) => {
+    this.setState({
+        feedback: e.target.value
+    })
+}
+
 handleSubmit = (e) => {
     e.preventDefault();
-    const user_name = this.props.user_name
+    const user_name = this.state.user_name
     const block_id = this.props.block_id
     const feedback = this.state.feedback
     const flagged = this.state.flagged
@@ -54,7 +63,7 @@ renderForm = () => {
     }
     else {
         return(
-           <p>
+           <p className="feedback-message">
                 Thank you for submitting feedback!
            </p>
         )

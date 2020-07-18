@@ -1,18 +1,31 @@
-import React from 'react' 
+import React from 'react';
+import BlockService from '../../Services/block-api-service'
+import BlockAPIService from '../../Services/block-api-service';
+import './feedback_view.css'
 
 export default class ViewFeedback extends React.Component {
 
-    
-componentDidMount() {
-    
-    }
-    
-    
+
+
+renderFeedback() {
+   const feedback = this.props.blockFeedback.map(feedback => {
+       const className = `feedback ${this.props.category}` 
+       return (<div className={className} key={feedback.id} >
+                {feedback.date_provided}
+                <br/>
+                {feedback.feedback}
+                <br/>
+                <button type="submit">Flag this comment</button>
+        </div>)
+    })
+    return feedback
+}
+
 render() {
 
        return(
-            <div className="view-feedback container">
-                Feedback
+            <div className="view-feedback-container">
+                {this.renderFeedback()}
             </div>
         )
     }

@@ -3,9 +3,9 @@ import './Register.css'
 
 export default class RegisterPage extends React.Component {
 
-validateUserName(e) {
-    //validates that username is in correct format
-    //also checks if username is already taken
+validateuser_name(e) {
+    //validates that user_name is in correct format
+    //also checks if user_name is already taken
     
 }
 
@@ -26,12 +26,12 @@ validateEmail(e) {
               
                <h2>Register for an account</h2> 
                     <form className="registration-form">
-                        <label htmlFor="userName">user name</label>
-                            <input className="userName"
-                            id="userName"
+                        <label htmlFor="user_name">user name</label>
+                            <input className="user_name"
+                            id="user_name"
                             type="text"
-                            placeholder="username"
-                            onChange={e => this.validateUserName(e.target)}/>
+                            placeholder="user_name"
+                            onChange={e => this.validateuser_name(e.target)}/>
                         <label htmlFor="email">email</label>
                             <input className="email"
                             id="email"

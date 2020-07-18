@@ -38,8 +38,8 @@ static contextType = DataContext;
             <Route path='/about' component={AboutPage} />
             <Route path='/log-in' component={LogInPage} />
             <Route path='/blocks/:category/:id' component={BlockPage} />
-            <Route exact path='/user/:userName' component={AccountPage} />
-            <Route path='/user/:userName/newblock' component={NewBlockInput} />
+            <Route exact path='/user/:user_name' component={AccountPage} />
+            <Route path='/user/:user_name/newblock' component={NewBlockInput} />
             <Route component={NotFoundPage} />
           </Switch>
         

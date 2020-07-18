@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     background-color: grey;
+    height: 50px;
 }
 
 .logo {
@@ -51,10 +52,8 @@
 .vertical {
     display: flex;
     flex-direction: column;
-
     padding-top: 15px;
     padding-bottom: 15px;
-
 }
 
 .vertical > a {
@@ -63,4 +62,10 @@
     padding-left: 20px;
     color: white;
     padding-right: 20px;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

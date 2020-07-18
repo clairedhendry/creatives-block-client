@@ -41,7 +41,7 @@ renderRecentBlocks() {
         id={block.id} 
         category={block.category_id}
         category_selected={this.state.category} 
-        userName={block.user_name} 
+        user_name={block.user_name} 
         title={block.block_title} 
         description={block.block_description}
         date_updated={block.date_updated}

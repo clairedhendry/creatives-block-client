@@ -15,27 +15,52 @@ state = {
     },
     category: this.props.match.params.category,
     id: this.props.match.params.id,
+    blockFeedback: []
 }
 
+checkUserTokenToFetch() {
+    if(this.state.blockData.user_name === TokenService.getUserToken()) {
+        
+        BlockAPIService.getBlockFeedback(this.state.id)
+        .then(data => {
+        this.setState({
+            blockFeedback: data
+        })
+    }
+    )
+    }
+}
+
+
 fetchBlockData() {
-    //fetch specific block data
-    //protected endpoint
+
     const category = this.state.category;
     const id = parseInt(this.state.id);
 
     BlockAPIService.getBlock(category, id)
     .then(data => {
         this.setState({
-            blockData : data
+            blockData : {
+                
+                    block_description: data.block_description,
+                    block_file: data.block_file,
+                    block_title: data.block_title,
+                    category_id: data.category_id,
+                    date_updated: data.date_updated,
+                    feedback_details: data.feedback_details,
+                    id: data.id,
+                    user_name: data.user_name
+            }
         })
     })
+ 
 }
-    
+
 renderBlockData() {
     const block  = this.state.blockData
     const description = block.block_description;
     const title = block.block_title;
-    const userName = block.user_name;
+    const user_name = block.user_name;
     const details = block.feedback_details;
     const file = block.block_file;
     
@@ -45,8 +70,8 @@ renderBlockData() {
             <div className="title">
                 <h1>{title}</h1>
             </div>
-            <div className="userName">
-                <h2><Link to={`/user/${userName}`}>{userName}</Link></h2>
+            <div className="user_name">
+                <h2><Link to={`/user/${user_name}`}>{user_name}</Link></h2>
             </div>
             <div className="description">Description: {description}</div>
             <a href={file} target="_blank" rel="noopener noreferrer">link</a>
@@ -55,13 +80,6 @@ renderBlockData() {
 
 }
 
-fetchBlockFeedback() {
-
-}
-
-// componentDidMount() {
-//     this.fetchBlockData();
-// }
 
 renderFeedbackInput() {
     
@@ -75,11 +93,28 @@ renderFeedbackInput() {
 }
 
 renderBlockFeedback() {
+    
+    // BlockAPIService.getBlockFeedback(this.props.id)
+    // .then(data => 
+    //     this.setState({
+    //         blockFeedback: data
+    //     })
+    // )
+
     return (
-        <ViewFeedback />
+        <ViewFeedback blockFeedback={this.state.blockFeedback} category={this.state.category}/>
     )
 }
 
+
+// componentDidMount() {
+//     if( this.state.blockData.user_name === TokenService.getUserToken()) {
+//         return this.fetchBlockFeedback()
+//     }
+   
+       
+
+// }
 
 render() {
 
@@ -91,10 +126,10 @@ render() {
                 {this.state.blockData.block_description === ''
                 ? this.fetchBlockData()
                 : this.renderBlockData()}
-                {/* {feedbackBlock} */}
-                {this.state.blockData.user_name === TokenService.getUserToken()
-                ? this.renderBlockFeedback()
-                : this.renderFeedbackInput()}
+               {this.state.blockFeedback.length === 0
+               ? this.checkUserTokenToFetch()
+                : this.renderBlockFeedback()}
+              
             </div>
         )
     }

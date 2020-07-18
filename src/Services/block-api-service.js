@@ -67,7 +67,7 @@ getUsersBlocks(user_name) {
 getBlockFeedback(blockId) {
     return fetch(`${config.API_ENDPOINT}/feedback/${blockId}`, {
         headers: {
-            'API_TOKEN': `Bearer ${config.API_TOKEN}`,
+            // 'API_TOKEN': `Bearer ${config.API_TOKEN}`,
             'Authorization': `bearer ${TokenService.getAuthToken()}`,
         },
     })

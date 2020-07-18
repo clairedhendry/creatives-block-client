@@ -11,7 +11,7 @@ export default class AccountPage extends React.Component {
    //temp use mock data to fill
    
 state = {
-   user: this.props.match.params.userName,
+   user: this.props.match.params.user_name,
     blocks: [],
     isLoading: true,
 }
@@ -19,8 +19,8 @@ state = {
 
 fetchBlocks() {
     
-    const userName = this.props.match.params.userName;
-    BlockAPIService.getUsersBlocks(userName)
+    const user_name = this.props.match.params.user_name;
+    BlockAPIService.getUsersBlocks(user_name)
         .then(data => {
             this.setState({
                 blocks: data,
@@ -34,10 +34,10 @@ fetchBlocks() {
 ifLoggedIn = () => {
     const check_user = TokenService.getUserToken() 
     ? TokenService.getUserToken() 
-    : this.props.match.params.userName;
+    : this.props.match.params.user_name;
     
-    if(check_user !== this.props.match.params.userName) {
-        return this.props.match.params.userName
+    if(check_user !== this.props.match.params.user_name) {
+        return this.props.match.params.user_name
     }
     return check_user;
     }
@@ -46,18 +46,18 @@ renderNewBlockButton = () => {
     const check_user = TokenService.getUserToken() 
     ? TokenService.getUserToken() 
     : null;
-    const userName = this.props.match.params.userName
-    if(check_user === this.props.match.params.userName) {
+    const user_name = this.props.match.params.user_name
+    if(check_user === this.props.match.params.user_name) {
         return  <div className="link">
-            <Link to={`/user/${userName}/newblock`}>Create new block</Link>
+            <Link to={`/user/${user_name}/newblock`}>Create new block</Link>
             </div>
     }
 }
 
 checkUser() {
-    if(this.state.user !== this.props.match.params.userName) {
+    if(this.state.user !== this.props.match.params.user_name) {
         this.setState({
-            user: this.props.match.params.userName
+            user: this.props.match.params.user_name
         })
         this.fetchBlocks();
     } return
@@ -69,7 +69,7 @@ checkUser() {
 //         return(
 //             <RecentBlocks 
 //             blocks={this.state.blocks} 
-//             userName={user} 
+//             user_name={user} 
 //             />
 //         )
 //     }
@@ -87,7 +87,7 @@ checkUser() {
 // const newBlocks = this.renderRecentBlocks();
 const user = this.ifLoggedIn();
 const newBlockButton = this.renderNewBlockButton();
-const blocks = this.state.blocks.length > 0 ? <RecentBlocks blocks={this.state.blocks} userName={null}/> : this.fetchBlocks()
+const blocks = this.state.blocks.length > 0 ? <RecentBlocks blocks={this.state.blocks} user_name={null}/> : this.fetchBlocks()
 const checkUser = this.checkUser();
 
         return(

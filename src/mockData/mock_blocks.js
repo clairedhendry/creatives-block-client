@@ -6,7 +6,7 @@ const MockBlocks = {
         {
             'category_id': 'art',
             'id': 132115,
-            'userName': 'Leela',
+            'user_name': 'Leela',
             'user_id': 1,
             'title': 'Planet Express Ship Portrait',
             'file': 'https://images-na.ssl-images-amazon.com/images/I/31Rvw9O8ApL._AC_.jpg',
@@ -17,7 +17,7 @@ const MockBlocks = {
          {
              'category_id': 'art',
              'id': 9,
-             'userName': 'Leela',
+             'user_name': 'Leela',
              'user_id': 1,
              'title': 'Travel Comic',
              'file': 'https://images-na.ssl-images-amazon.com/images/I/31Rvw9O8ApL._AC_.jpg',
@@ -28,7 +28,7 @@ const MockBlocks = {
          {
              'category_id': 'art',
              'id': 364,
-             'userName': 'Leela',
+             'user_name': 'Leela',
              'user_id': 1,
              'title': 'illustration 3',
              'file': 'https://images-na.ssl-images-amazon.com/images/I/31Rvw9O8ApL._AC_.jpg',
@@ -39,7 +39,7 @@ const MockBlocks = {
          {
             'category_id': 'art',
             'id': 655,
-            'userName': 'Leela',
+            'user_name': 'Leela',
             'user_id': 1,
             'title': 'Planet Express Ship Portrait',
             'file': 'https://images-na.ssl-images-amazon.com/images/I/31Rvw9O8ApL._AC_.jpg',
@@ -50,7 +50,7 @@ const MockBlocks = {
          {
              'category_id': 'art',
              'id': 146,
-             'userName': 'Leela',
+             'user_name': 'Leela',
              'user_id': 1,
              'title': 'Travel Comic',
              'file': 'https://images-na.ssl-images-amazon.com/images/I/31Rvw9O8ApL._AC_.jpg',
@@ -61,7 +61,7 @@ const MockBlocks = {
          {
              'category_id': 'art',
              'id': 586,
-             'userName': 'Leela',
+             'user_name': 'Leela',
              'user_id': 1,
              'title': 'illustration 3',
              'file': 'https://images-na.ssl-images-amazon.com/images/I/31Rvw9O8ApL._AC_.jpg',
@@ -74,7 +74,7 @@ const MockBlocks = {
         {
             'category_id': 'writing',
             'id': 45,
-            'userName': 'Bender',
+            'user_name': 'Bender',
             'user_id': 2,
             'title': 'Benders poem',
             'file': 'https://docs.google.com/document/d/1f6P9PHagTXIpqfbHm2JsxXgytPnYWmliePhIectew2g/edit?usp=sharing',
@@ -85,7 +85,7 @@ const MockBlocks = {
         {
             'category_id': 'writing',
             'id': 337,
-            'userName': 'Bender',
+            'user_name': 'Bender',
             'user_id': 2,
             'title': 'bender is the greatest',
             'file': 'https://docs.google.com/document/d/1pYdOBTDbz8nAi8E_K-c_3xbWstmmMv5B1EtfH7g9Tjk/edit?usp=sharing',
@@ -96,7 +96,7 @@ const MockBlocks = {
         {
             'category_id': 'writing',
             'id': 123,
-            'userName': 'Bender',
+            'user_name': 'Bender',
             'user_id': 2,
             'title': 'Fry - a play',
             'file': 'https://docs.google.com/document/d/1MErlUTZrfLB9IdiD1kNMiBq0sDSVNBJSZ6WwuVvnw9k/edit?usp=sharing',
@@ -107,7 +107,7 @@ const MockBlocks = {
         {
             'category_id': 'writing',
             'id': 689,
-            'userName': 'Leela',
+            'user_name': 'Leela',
             'user_id': 1,
             'title': 'Fry - a play',
             'file': 'https://docs.google.com/document/d/1MErlUTZrfLB9IdiD1kNMiBq0sDSVNBJSZ6WwuVvnw9k/edit?usp=sharing',
@@ -118,7 +118,7 @@ const MockBlocks = {
         {
             'category_id': 'writing',
             'id': 49,
-            'userName': 'Bender',
+            'user_name': 'Bender',
             'user_id': 2,
             'title': 'Benders poem',
             'file': 'https://docs.google.com/document/d/1f6P9PHagTXIpqfbHm2JsxXgytPnYWmliePhIectew2g/edit?usp=sharing',
@@ -129,7 +129,7 @@ const MockBlocks = {
         {
             'category_id': 'writing',
             'id': 338,
-            'userName': 'Bender',
+            'user_name': 'Bender',
             'user_id': 2,
             'title': 'bender is the greatest',
             'file': 'https://docs.google.com/document/d/1pYdOBTDbz8nAi8E_K-c_3xbWstmmMv5B1EtfH7g9Tjk/edit?usp=sharing',
@@ -140,7 +140,7 @@ const MockBlocks = {
         {
             'category_id': 'writing',
             'id': 178,
-            'userName': 'Bender',
+            'user_name': 'Bender',
             'user_id': 2,
             'title': 'Fry - a play',
             'file': 'https://docs.google.com/document/d/1MErlUTZrfLB9IdiD1kNMiBq0sDSVNBJSZ6WwuVvnw9k/edit?usp=sharing',
@@ -151,7 +151,7 @@ const MockBlocks = {
         {
             'category_id': 'writing',
             'id': 633,
-            'userName': 'Leela',
+            'user_name': 'Leela',
             'user_id': 1,
             'title': 'Fry - a play',
             'file': 'https://docs.google.com/document/d/1MErlUTZrfLB9IdiD1kNMiBq0sDSVNBJSZ6WwuVvnw9k/edit?usp=sharing',
@@ -164,7 +164,7 @@ const MockBlocks = {
         {
             'category_id': 'music',
             'id': 786,
-            'userName': 'Fry',
+            'user_name': 'Fry',
             'user_id': 3,
             'title': 'Holophonor suite 1',
             'file': 'https://freesound.org/data/previews/177/177843_1506826-lq.mp3',
@@ -175,7 +175,7 @@ const MockBlocks = {
         {
             'category_id': 'music',
             'id': 68,
-            'userName': 'Fry',
+            'user_name': 'Fry',
             'user_id': 3,
             'title': 'Holophonor song 2',
             'file': 'https://freesound.org/data/previews/177/177843_1506826-lq.mp3',
@@ -186,7 +186,7 @@ const MockBlocks = {
         {
             'category_id': 'music',
             'id': 7868,
-            'userName': 'Fry',
+            'user_name': 'Fry',
             'user_id': 3,
             'title': 'Holophonor Leela song',
             'file': 'https://freesound.org/data/previews/514/514847_2454582-lq.mp3',
@@ -197,7 +197,7 @@ const MockBlocks = {
         {
             'category_id': 'music',
             'id': 7261,
-            'userName': 'Leela',
+            'user_name': 'Leela',
             'user_id': 1,
             'title': 'Holophonor Leela song',
             'file': 'https://freesound.org/data/previews/514/514847_2454582-lq.mp3',
@@ -208,7 +208,7 @@ const MockBlocks = {
         {
             'category_id': 'music',
             'id': 76,
-            'userName': 'Fry',
+            'user_name': 'Fry',
             'user_id': 3,
             'title': 'Holophonor suite 1',
             'file': 'https://freesound.org/data/previews/177/177843_1506826-lq.mp3',
@@ -219,7 +219,7 @@ const MockBlocks = {
         {
             'category_id': 'music',
             'id': 618,
-            'userName': 'Fry',
+            'user_name': 'Fry',
             'user_id': 3,
             'title': 'Holophonor song 2',
             'file': 'https://freesound.org/data/previews/177/177843_1506826-lq.mp3',
@@ -230,7 +230,7 @@ const MockBlocks = {
         {
             'category_id': 'music',
             'id': 768,
-            'userName': 'Fry',
+            'user_name': 'Fry',
             'user_id': 3,
             'title': 'Holophonor Leela song',
             'file': 'https://freesound.org/data/previews/514/514847_2454582-lq.mp3',
@@ -241,7 +241,7 @@ const MockBlocks = {
         {
             'category_id': 'music',
             'id': 721,
-            'userName': 'Leela',
+            'user_name': 'Leela',
             'user_id': 1,
             'title': 'Holophonor Leela song',
             'file': 'https://freesound.org/data/previews/514/514847_2454582-lq.mp3',
