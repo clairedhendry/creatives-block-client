@@ -16,8 +16,14 @@ h1 {
 }
 
 .landing-page-links > a {
+    cursor: pointer;
     text-decoration: none;
     font-size: x-large;
+    font-weight: bolder;
+}
+
+.landing-page-links > a:visited {
+    color: black
 }
 
 .landing-page-hero {

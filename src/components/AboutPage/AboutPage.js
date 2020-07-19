@@ -23,23 +23,17 @@ export default class AboutPage extends React.Component {
             <p>
                How does it work?
                 <br />
-               As creatives, we get stuck from time to time. It’s normal!
+                It's easy! Sign in, create a new block!
                 <br/>
-                Creative's Block is here to help! 
+                Choose a category: Visual Art, Writing, or Music.
                 <br/>
-                Post a work in progress, and get feedback from our community of creatives.
-                <br/>
-                Choose a category - Visual Art, Writing, or Music.
-                <br/>
-                Then share it! 
+                Users can sort by category or navigate to your page to find and check out your blocks.
                 <br/>
                 Check back often to see feedback on your block.
                 <br/>
                 Update, edit, or delete your block whenever you want!
                 <br/>
-                Giving feedback earns you block credits
-                <br/>
-                Spend your block credits to post more blocks of your own
+                
             </p>
         </section>
             </div>

@@ -9,7 +9,7 @@ export default function InfoSection() {
             
             <div className="information one">
                 <div className="info-logo-1"></div>
-                <div className="about right">
+                <div className="about-landing right">
                     <h3>How does it work?</h3> 
                
                     <p>      
@@ -35,7 +35,7 @@ export default function InfoSection() {
            <div className="information two">
                 <div className="about left">
                     <p>
-                        Click Get Started to look at Recently Posted Blocks
+                        Click 'Get Started' to look at recently posted blocks!
                         <br />
 
                     </p>

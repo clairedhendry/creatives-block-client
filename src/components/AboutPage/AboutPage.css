@@ -1,3 +1,8 @@
 .about-page {
     text-align: center;
 }
+
+.about > p, .description > p{
+    color: white;
+    padding: 20px 0 20px 0;
+}

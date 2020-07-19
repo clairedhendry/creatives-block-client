@@ -20,23 +20,24 @@ state = {
 
 
 renderRecentBlocks() {
-    // let VisArtsBlocks = this.state.blocks.art;
-    // let WritingBlocks = this.state.blocks.writing;
-    // let MusicBlocks = this.state.blocks.music;
-    // const allBlocksArray = VisArtsBlocks.concat(WritingBlocks, MusicBlocks);
+
     const allBlocksArray = this.props.blocks;
    
 
-    const newArray = allBlocksArray.sort(function(a, b) {
-        var keyA = new Date(a.date_updated),
-          keyB = new Date(b.date_updated);
+    // const newArray = allBlocksArray.sort(function(a, b) {
+    //     var keyA = new Date(a.date_updated),
+    //       keyB = new Date(b.date_updated);
      
-        if (keyA > keyB) return -1;
-        if (keyA < keyB) return 1;
-        return 0;
-      });
+    //     if (keyA > keyB) return -1;
+    //     if (keyA < keyB) return 1;
+    //     return 0;
+    //   });
 
-    const newBlocks = newArray.map(block => 
+    const blockArray = (this.props.blocks.rows && (this.props.blocks.rows.length > 0))
+                        ? this.props.blocks.rows
+                        : this.props.blocks
+
+    const newBlocks = blockArray.map(block => 
         <Block key={block.id}
         id={block.id} 
         category={block.category_id}

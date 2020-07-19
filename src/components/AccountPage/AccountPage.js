@@ -82,12 +82,19 @@ checkUser() {
 //     }
 // }
 
+blocks() {
+    const blocks = this.state.blocks.length > 0 
+    ? <RecentBlocks blocks={this.state.blocks} user_name={null}/> 
+    : this.fetchBlocks()
+
+    return blocks
+}
+
     render() {
 
-// const newBlocks = this.renderRecentBlocks();
 const user = this.ifLoggedIn();
 const newBlockButton = this.renderNewBlockButton();
-const blocks = this.state.blocks.length > 0 ? <RecentBlocks blocks={this.state.blocks} user_name={null}/> : this.fetchBlocks()
+// const blocks = this.state.blocks.length > 0 ? <RecentBlocks blocks={this.state.blocks} user_name={null}/> : this.fetchBlocks()
 const checkUser = this.checkUser();
 
         return(
@@ -95,7 +102,8 @@ const checkUser = this.checkUser();
                 <h1>{user}'s Blocks</h1>
                 
                 {newBlockButton}
-                {blocks}
+                <Link to={`/user/${user}/profile`}>Edit Profile Info</Link>s
+                {this.blocks()}
                <Link className="footer-link" to='/home'>Home</Link>
             </div>
         )

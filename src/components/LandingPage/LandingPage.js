@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import InfoSection from '../InfoSections/InfoSection'
 import './LandingPage.css'
+import RegisterPage from '../RegistrationPage/Register'
 
 
 export default class LandingPage extends React.Component {
@@ -19,6 +20,7 @@ export default class LandingPage extends React.Component {
                 <Link to='/log-in'>Have an Account?</Link>
                 </div>
                 <InfoSection />
+                <RegisterPage />
             </div>
 
         )

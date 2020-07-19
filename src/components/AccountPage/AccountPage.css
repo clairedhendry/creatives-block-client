@@ -2,18 +2,25 @@
     text-align: center;
 }
 
-h1 {
-    height: 150px;
-}
-
 .link {
     margin-bottom: 30px;
+
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px;
+}
+
+a:visited {
+    color: white;
 }
 
 .link > a{
     text-decoration: none;
     color: white;
-    padding-bottom: 25px;
+    padding: 40px 0 25px 0;
 }
 
 .footer-link {

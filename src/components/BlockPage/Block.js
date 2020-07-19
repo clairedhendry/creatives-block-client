@@ -42,7 +42,8 @@ const className = `block ${this.props.category} ${selection}`
     return(
         <div className={className}>
             <Link to={`/user/${this.props.user_name}`}>{this.props.user_name}</Link>
-            <div className="content">{this.props.title}</div>
+            <div className="content">{this.props.title}
+            <br />{this.props.date_updated}</div>
             <div className="content">
             {TokenService.hasAuthToken()
             ? this.renderIfLoggedIn()

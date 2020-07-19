@@ -34,10 +34,17 @@ renderLoading() {
 fetchRecentBlocks() {
     BlockAPIService.getAllRecentBlocks()
         .then(data => {
-            this.setState({
-                blocks: data
+            data.length === 0
+            ? this.setState({
+                blocks: [
+                    {message: `There are no blocks to display`}
+                ]
             })
+            : this.setState({
+                blocks: data
         })
+    }
+    )
         .then( () => {
             this.setState({
                 loading: false

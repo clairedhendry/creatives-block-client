@@ -12,10 +12,14 @@ import BlockPage from './components/BlockPage/BlockPage';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 import NewBlockInput from './components/NewBlock/NewBlockInput';
 import AccountPage from './components/AccountPage/AccountPage';
+import ProfilePage from './components/AccountPage/ProfilePage';
+import Terms from './components/TermsPage/TermsPage'
+
 
 import { DataContext } from './Context';
 
 import './App.css';
+
 
 
 export default class App extends React.Component {
@@ -23,9 +27,6 @@ export default class App extends React.Component {
 static contextType = DataContext;
 
   render() {
-
-    //conditionally render accountpage depending on what user
-    //if have auth token, user should be updated to user
 
     return (
       <div>
@@ -39,7 +40,9 @@ static contextType = DataContext;
             <Route path='/log-in' component={LogInPage} />
             <Route path='/blocks/:category/:id' component={BlockPage} />
             <Route exact path='/user/:user_name' component={AccountPage} />
+            <Route exact path='/user/:user_name/profile' component={ProfilePage} />
             <Route path='/user/:user_name/newblock' component={NewBlockInput} />
+            <Route path='/terms' component={Terms} />
             <Route component={NotFoundPage} />
           </Switch>
         

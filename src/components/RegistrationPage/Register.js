@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Register.css'
 
 export default class RegisterPage extends React.Component {
+
 
 validateuser_name(e) {
     //validates that user_name is in correct format
@@ -18,6 +20,7 @@ validateEmail(e) {
     const { email } = e.target.value;
 
 }
+
 
 
     render() {
@@ -48,7 +51,11 @@ validateEmail(e) {
                             id="confirm-password"
                             type="text"
                             placeholder="confirm password"/>
-
+                        <label htmlFor="terms">I agree to the Creative's Block 
+                            <Link to='/terms' target='_blank'>Terms of Use</Link></label>
+                            <input className="terms"
+                            id="terms"
+                            type="checkbox" required/>
                         <button type="submit">Register</button>
                     </form>
         
