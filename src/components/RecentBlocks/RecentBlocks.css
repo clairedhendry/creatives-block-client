@@ -25,6 +25,7 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    margin-bottom: 50px;
 }
 
 .recent-blocks > a {

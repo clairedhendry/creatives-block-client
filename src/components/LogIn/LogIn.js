@@ -62,7 +62,7 @@ static defaultProps = {
                 <label htmlFor="user_password">password</label>
                     <input className="user_password"
                     id="user_password"
-                    type="text"
+                    type="password"
                     placeholder="password"/>
 
                 <button type="submit">Log In</button>
