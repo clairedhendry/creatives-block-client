@@ -9,14 +9,15 @@ renderIfLoggedIn() {
     return(
         <Link to={`/blocks/${this.props.category}/${this.props.id}`} 
         className="preview-content">
-        {this.props.description}
+            {this.props.title}
+        {/* {this.props.description} */}
         </Link>
     )
 }
 
 renderIfNotLoggedIn() {
     return(
-        <div>{this.props.description}</div>
+        <div>{this.props.title}</div>
     )
 }
 
@@ -34,17 +35,29 @@ renderCategorySelected() {
     return selection;
 }
 
+renderImage() {
+    if(this.props.url && this.props.category === 'art') {
+        const styles = {backgroundImage: `url(${this.props.url})`}
+        return (
+            <div style={styles} className="icon"></div>
+        )
+    } else {
+        return (
+            <div className={`${this.props.category}-icon icon`}></div>
+        )
+    }
+}
+
 render() {
 
 const selection = this.renderCategorySelected();
-const className = `block ${this.props.category} ${selection}`
+const className = `block ${this.props.category} ${selection} `
 
     return(
         <div className={className}>
-            <Link to={`/user/${this.props.user_name}`}>{this.props.user_name}</Link>
-            <div className="content">{this.props.title}
-            <br />{this.props.date_updated}</div>
+           {this.renderImage()}
             <div className="content">
+            <Link to={`/user/${this.props.user_name}`}>{this.props.user_name}</Link>         
             {TokenService.hasAuthToken()
             ? this.renderIfLoggedIn()
             : this.renderIfNotLoggedIn()}

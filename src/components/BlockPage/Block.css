@@ -1,4 +1,7 @@
 .block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 250px;
     height: 250px;
     background-color: white;
@@ -13,21 +16,58 @@
     padding-top: 20px;
 }
 
+.content {
+    display: flex;
+    width: 100%;
+    font-size: large;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content > a:visited {
+    color: black
+}
+
 .art {
-    border: 5px rgb(255, 22, 255) solid;
+    border: 5px rgb(255, 51, 153) solid;
+   
 }
 
 .writing {
-    border: 5px rgb(255, 166, 0) solid;
+    border: 5px rgb(255, 204, 51) solid;
+
 }
 
 .music {
-    border: 5px rgb(0, 68, 255) solid;
+    border: 5px rgb(57, 102, 255) solid;
+  
 }
 
 .deselected {
    display: none;
 }
+
+.icon {
+    width: 100%;
+    height: 60%;
+    background-position: center; 
+    text-align: center;
+    background-repeat: no-repeat;
+}
+
+.writing-icon {
+    background-image: url('../../image_assets/writing-logo.svg');
+}
+
+.music-icon {
+    background-image: url('../../image_assets/music-logo.svg');
+}
+
+.art-icon {
+    background-image: url('../../image_assets/art-logo.svg');
+}
+
+
 
 @media only screen and (max-width: 380px) {
     .block {

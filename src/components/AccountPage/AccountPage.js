@@ -90,19 +90,28 @@ blocks() {
     return blocks
 }
 
+renderEditProfileLink() {
+    const user = this.ifLoggedIn();
+    const userLoggedIn = TokenService.getUserToken()
+    if(this.state.user === userLoggedIn) {
+        return (
+            <Link to={`/user/${user}/profile`}>Edit Profile Info</Link>
+        )
+    }
+   
+}
+
     render() {
 
 const user = this.ifLoggedIn();
 const newBlockButton = this.renderNewBlockButton();
-// const blocks = this.state.blocks.length > 0 ? <RecentBlocks blocks={this.state.blocks} user_name={null}/> : this.fetchBlocks()
 const checkUser = this.checkUser();
 
         return(
             <div className="account-page-container">
                 <h1>{user}'s Blocks</h1>
-                
                 {newBlockButton}
-                <Link to={`/user/${user}/profile`}>Edit Profile Info</Link>s
+                {this.renderEditProfileLink()}
                 {this.blocks()}
                <Link className="footer-link" to='/home'>Home</Link>
             </div>

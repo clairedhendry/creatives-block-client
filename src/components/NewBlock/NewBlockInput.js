@@ -9,7 +9,7 @@ export default class NewBlockInput extends React.Component {
 state = {
     user_name: this.props.match.params.user_name,
     title: '',
-    file: null,
+    file: {},
     description: '',
     feedback_details: '',
     category: ''
@@ -33,10 +33,10 @@ updateCategory = (e) => {
     })
 }
 
-onFileChangeHandler=event=>{
+onFileChangeHandler= (e) =>{
 
     this.setState({
-      file: event.target.files[0],
+      file: e.target.files[0],
       loaded: 0,
     })
   }

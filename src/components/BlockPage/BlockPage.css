@@ -24,3 +24,12 @@ h2 > a {
     text-align: center;
     padding-top: 100px;
 }
+
+.block-image {
+    width: 100%;
+    height: 500px;
+    background-position: center; 
+    text-align: center;
+    background-repeat: no-repeat;
+    margin: 0 auto 0 auto;
+}

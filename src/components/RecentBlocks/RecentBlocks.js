@@ -40,6 +40,7 @@ renderRecentBlocks() {
     const newBlocks = blockArray.map(block => 
         <Block key={block.id}
         id={block.id} 
+        url={block.block_url}
         category={block.category_id}
         category_selected={this.state.category} 
         user_name={block.user_name} 

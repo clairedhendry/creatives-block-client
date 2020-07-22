@@ -51,6 +51,7 @@ fetchBlockData() {
                     block_description: data.block_description,
                     block_file: data.block_file,
                     block_title: data.block_title,
+                    block_url: data.block_url,
                     category_id: data.category_id,
                     date_updated: data.date_updated,
                     feedback_details: data.feedback_details,
@@ -68,19 +69,22 @@ renderBlockData() {
     const title = block.block_title;
     const user_name = block.user_name;
     const details = block.feedback_details;
-    const file = block.block_file;
-    
+    const url = block.block_url;
+    const style = {
+        backgroundImage: `url(${url})`,
+    };    
    
     return (
         <div className="block-container">
             <div className="title">
                 <h1>{title}</h1>
             </div>
+            <div style={style} className="block-image">
+                </div>
             <div className="user_name">
                 <h2><Link to={`/user/${user_name}`}>{user_name}</Link></h2>
             </div>
             <div className="description">Description: {description}</div>
-            <a href={file} target="_blank" rel="noopener noreferrer">link</a>
         </div>
     )
 
@@ -115,21 +119,9 @@ renderBlockFeedback() {
 }
 
 
-// componentDidMount() {
-//     if( this.state.blockData.user_name === TokenService.getUserToken()) {
-//         return this.fetchBlockFeedback()
-//     }
-   
-       
-
-// }
-
-
 
 render() {
 
-
-// const feedbackBlock = this.renderFeedback();
 
         return(
             <div className="blocks-page-container">
