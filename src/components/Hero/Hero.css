@@ -1,7 +1,8 @@
 .hero {
-    text-align: center;
+    
     background: url('../../image_assets/creative-block-logo-white.svg');
     background-position: center; 
+    text-align: center;
     background-repeat: no-repeat; 
     height: 250px;
     margin-top: 50px;
