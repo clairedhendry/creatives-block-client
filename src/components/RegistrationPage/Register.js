@@ -121,11 +121,11 @@ handleSubmit = (e) => {
     })
 }
 
-renderErrorMessage() {
-    return (
-        <div>{this.state.error}</div>
-    )
-}
+// renderErrorMessage() {
+//     return (
+//         <div>{this.state.error}</div>
+//     )
+// }
 
 
     render() {
@@ -140,9 +140,9 @@ renderErrorMessage() {
                             type="text"
                             placeholder="user_name"
                             onChange={e => this.updateUsername(e)}/>
-                            {this.state.error !== null
+                            {/* {this.state.error !== null
                             ? this.renderErrorMessage()
-                            : null}
+                            : null} */}
                             {this.validateUser_name()}
                         <label htmlFor="email">email</label>
                             <input className="email"

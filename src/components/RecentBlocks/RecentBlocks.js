@@ -8,9 +8,6 @@ import './RecentBlocks.css'
 
 export default class RecentBlocks extends React.Component {
 
-//blocks can be fetched directly from component instead of context
-//so rest of page can load while wait
-
 static contextType = DataContext;
 
 state = {
@@ -21,21 +18,24 @@ state = {
 
 renderRecentBlocks() {
 
-    const allBlocksArray = this.props.blocks;
-   
 
-    // const newArray = allBlocksArray.sort(function(a, b) {
-    //     var keyA = new Date(a.date_updated),
-    //       keyB = new Date(b.date_updated);
-     
-    //     if (keyA > keyB) return -1;
-    //     if (keyA < keyB) return 1;
-    //     return 0;
-    //   });
-
-    const blockArray = (this.props.blocks.rows && (this.props.blocks.rows.length > 0))
+    const fetchedBlocks = (this.props.blocks.rows && (this.props.blocks.rows.length > 0))
                         ? this.props.blocks.rows
                         : this.props.blocks
+
+    const emptyBlocks = {
+        id: 0,
+        block_url: `no display`,
+        category_id: 'art',
+        user_name: 'None',
+        block_title: 'None',
+        block_description: 'None',
+        date_updated: new Date()
+    }
+
+    const blockArray = fetchedBlocks.length === 0 
+                        ? blockArray = [emptyBlocks]
+                        : fetchedBlocks
 
     const newBlocks = blockArray.map(block => 
         <Block key={block.id}
@@ -58,14 +58,6 @@ updateCategorySelected = (e) => {
     })
 }
 
-
-
-componentDidMount() {
-    //will fetch block info and populate state
-
-    // this.renderRecentBlocks();
-
-}
 
 blockRender = (category) => {
     const allBlocks = this.renderRecentBlocks();
