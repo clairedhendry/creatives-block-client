@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch, Link, Redirect } from 'react-router-dom';
 
 import LandingPage from './components/LandingPage/LandingPage';
 import HomePage from './components/HomePage/HomePage';
@@ -19,20 +19,29 @@ import Terms from './components/TermsPage/TermsPage'
 import { DataContext } from './Context';
 
 import './App.css';
+import TokenService from './Services/token-service';
 
 
 
 export default class App extends React.Component {
 
+
 static contextType = DataContext;
 
+
   render() {
+
+
 
     return (
       <div>
         <NavBar />
           <Switch>
-            <Route exact path='/' component={LandingPage} />
+            <Route exact path='/'>
+              {TokenService.hasAuthToken() 
+              ? <Redirect to='/home'/> 
+              : <LandingPage />}
+              </Route> 
             <Route path='/home' component={HomePage} />
             <Route path='/register' component={Register} />
             <Route path='/category/:id' component={CategoryPage}/>

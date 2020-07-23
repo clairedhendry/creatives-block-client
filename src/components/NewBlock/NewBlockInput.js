@@ -62,7 +62,7 @@ BlockAPIService.postNewBlock(user_name, category_id, block_title, block_file, bl
 .then(
     this.setState({
         title: '',
-        file: null,
+        file: {},
         description: '',
         feedback_details: '',
         category: ''

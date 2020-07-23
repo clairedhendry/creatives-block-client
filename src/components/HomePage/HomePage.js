@@ -6,22 +6,13 @@ import BlockAPIService from '../../Services/block-api-service'
 
 
 
+
 export default class HomePage extends React.Component {
 
 state = {
     blocks: [],
     loading: true,
 }
-
-// componentDidMount() {
-
-//     BlockAPIService.getAllRecentBlocks()
-//     .then(data => {
-//         this.setState({
-//             blocks: data,
-//         })
-//     });
-// }
 
 renderLoading() {
     if(this.state.loading) {
@@ -53,8 +44,7 @@ fetchRecentBlocks() {
 }
 
 render() {
-
-        
+       
         return (
             <main>
                <Hero />

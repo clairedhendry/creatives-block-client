@@ -35,17 +35,23 @@ renderCategorySelected() {
     return selection;
 }
 
+// renderImage() {
+//     if(this.props.url && this.props.category === 'art') {
+//         const styles = {backgroundImage: `url(${this.props.url})`}
+//         return (
+//             <div style={styles} className="icon"></div>
+//         )
+//     } else {
+//         return (
+//             <div className={`${this.props.category}-icon icon`}></div>
+//         )
+//     }
+// }
+
 renderImage() {
-    if(this.props.url && this.props.category === 'art') {
-        const styles = {backgroundImage: `url(${this.props.url})`}
-        return (
-            <div style={styles} className="icon"></div>
-        )
-    } else {
-        return (
-            <div className={`${this.props.category}-icon icon`}></div>
-        )
-    }
+    return (
+        <div className={`${this.props.category}-icon icon`}></div>
+    )
 }
 
 render() {

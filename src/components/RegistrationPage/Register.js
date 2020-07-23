@@ -14,7 +14,8 @@ state = {
         password: '',
         email: '',  
         confirmPassword: '',
-        error: null
+        error: null,
+        password_error: true
      }
 
 updateUsername(e) {
@@ -121,12 +122,6 @@ handleSubmit = (e) => {
     })
 }
 
-// renderErrorMessage() {
-//     return (
-//         <div>{this.state.error}</div>
-//     )
-// }
-
 
     render() {
         return (
@@ -140,9 +135,9 @@ handleSubmit = (e) => {
                             type="text"
                             placeholder="user_name"
                             onChange={e => this.updateUsername(e)}/>
-                            {/* {this.state.error !== null
-                            ? this.renderErrorMessage()
-                            : null} */}
+                            {this.state.error === null
+                             ? <></>
+                             : <div>{this.state.error}</div>}
                             {this.validateUser_name()}
                         <label htmlFor="email">email</label>
                             <input className="email"
@@ -171,7 +166,10 @@ handleSubmit = (e) => {
                             <input className="terms"
                             id="terms"
                             type="checkbox" required/>
-                        <button type="submit">Register</button>
+                        
+                         <button type="submit" disabled>Register</button>
+                        
+                        
                     </form>
         
             </div>

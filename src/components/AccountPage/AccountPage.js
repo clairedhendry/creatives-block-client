@@ -14,6 +14,7 @@ state = {
    user: this.props.match.params.user_name,
     blocks: [],
     isLoading: true,
+    noBlocks: true,
 }
 
 
@@ -21,14 +22,16 @@ fetchBlocks() {
     
     const user_name = this.props.match.params.user_name;
     BlockAPIService.getUsersBlocks(user_name)
-        .then(data => {
-            this.setState({
-                blocks: data,
-            })
+         .then(data => {
+             data.length === 0
+             ? this.setState({
+                 noBlocks: true
+             })
+             : this.setState({
+                 blocks: data,
+             })
         })
-        
     }
-
 
 
 ifLoggedIn = () => {
@@ -54,7 +57,8 @@ renderNewBlockButton = () => {
     }
 }
 
-checkUser() {
+componentDidMount() {
+// checkUser() {
     if(this.state.user !== this.props.match.params.user_name) {
         this.setState({
             user: this.props.match.params.user_name
@@ -62,6 +66,7 @@ checkUser() {
         this.fetchBlocks();
     } return
 }
+
 
 // renderIfLoading() {
 //     const user = this.ifLoggedIn();
@@ -83,11 +88,17 @@ checkUser() {
 // }
 
 blocks() {
-    const blocks = this.state.blocks.length > 0 
-    ? <RecentBlocks blocks={this.state.blocks} user_name={null}/> 
-    : this.fetchBlocks()
 
-    return blocks
+    if(!this.state.noBlocks) {
+        return (
+            <RecentBlocks blocks={this.state.blocks} user_name={null}/> 
+        )
+    } else {
+        return (
+        <div>There are no blocks to display!</div>
+        )
+    }
+     
 }
 
 renderEditProfileLink() {
@@ -105,7 +116,7 @@ renderEditProfileLink() {
 
 const user = this.ifLoggedIn();
 const newBlockButton = this.renderNewBlockButton();
-const checkUser = this.checkUser();
+// const checkUser = this.checkUser();
 
         return(
             <div className="account-page-container">

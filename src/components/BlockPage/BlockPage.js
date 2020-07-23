@@ -5,6 +5,9 @@ import BlockAPIService from '../../Services/block-api-service';
 import './BlockPage.css';
 import TokenService from '../../Services/token-service';
 import ViewFeedback from '../Feedback_View/feedback_view';
+import FileViewer from 'react-file-viewer'
+import ReactAudioPlayer from 'react-audio-player'
+import { Document } from 'react-pdf'
 
 export default class BlockPage extends React.Component {
 
@@ -73,14 +76,27 @@ renderBlockData() {
     const style = {
         backgroundImage: `url(${url})`,
     };    
+    let display;
+    if(block.category_id === 'art') {
+        display = <div style={style} className="block-image"></div>
+    }
+    if(block.category_id === 'music') {
+        display = <ReactAudioPlayer src={url}
+        controls
+        loop
+        />
+    }
+    
+    if(block.category_id === 'writing') {
+        display = <FileViewer fileType='docx' filePath={url} />
+    }
    
     return (
         <div className="block-container">
             <div className="title">
                 <h1>{title}</h1>
             </div>
-            <div style={style} className="block-image">
-                </div>
+            {display}
             <div className="user_name">
                 <h2><Link to={`/user/${user_name}`}>{user_name}</Link></h2>
             </div>

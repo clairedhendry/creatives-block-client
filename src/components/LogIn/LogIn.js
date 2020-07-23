@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom'
 import TokenService from '../../Services/token-service';
 import { DataContext } from '../../Context';
 import AuthApiService from '../../Services/auth-api-service';
@@ -12,12 +13,16 @@ static contextType = DataContext;
 
 state = {
     user_name: '', 
-    error: null   
+    error: null,
+    loggedIn: false
 }
 
-static defaultProps = {
-    onLoginSuccess: () => {}
-  }
+onLoginSuccess() {
+    this.setState({
+        loggedIn: true
+    })
+}
+
 
   updateName = (e) => {
       this.setState({
@@ -41,7 +46,7 @@ static defaultProps = {
             user_name.value = ''
             user_password.value = ''
             TokenService.saveAuthToken(res.authToken)
-            this.props.onLoginSuccess()
+            this.onLoginSuccess()
         })
         .catch(res => {
             this.setState({error: res.error})
@@ -64,7 +69,9 @@ static defaultProps = {
                     id="user_password"
                     type="password"
                     placeholder="password"/>
-
+                    {this.state.error === null
+                    ? <></>
+                    : <div>{this.state.error}</div>}
                 <button type="submit">Log In</button>
 
                 </form>
