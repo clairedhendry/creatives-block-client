@@ -15,7 +15,6 @@ state = {
         email: '',  
         confirmPassword: '',
         error: null,
-        password_error: true
      }
 
 updateUsername(e) {
@@ -167,7 +166,7 @@ handleSubmit = (e) => {
                             id="terms"
                             type="checkbox" required/>
                         
-                         <button type="submit" disabled>Register</button>
+                         <button type="submit" >Register</button>
                         
                         
                     </form>
