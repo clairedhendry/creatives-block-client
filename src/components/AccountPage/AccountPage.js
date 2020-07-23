@@ -59,12 +59,7 @@ renderNewBlockButton = () => {
 
 componentDidMount() {
 // checkUser() {
-    if(this.state.user !== this.props.match.params.user_name) {
-        this.setState({
-            user: this.props.match.params.user_name
-        })
-        this.fetchBlocks();
-    } return
+    this.fetchBlocks()
 }
 
 
@@ -123,7 +118,9 @@ const newBlockButton = this.renderNewBlockButton();
                 <h1>{user}'s Blocks</h1>
                 {newBlockButton}
                 {this.renderEditProfileLink()}
-                {this.blocks()}
+                {this.state.blocks.length > 0
+                ? <RecentBlocks blocks={this.state.blocks} user_name={null}/>
+                : <div className="no-blocks">There are no blocks to display!</div>}
                <Link className="footer-link" to='/home'>Home</Link>
             </div>
         )
