@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import BlockAPIService from "../../Services/block-api-service";
-import ValidationError from "./Validation";
 import "./NewBlockInput.css";
 
 export default class NewBlockInput extends React.Component {
@@ -61,16 +59,15 @@ export default class NewBlockInput extends React.Component {
       block_file,
       block_description,
       feedback_details
-    )
-      .then
-      /*this.setState({
+    ).then(
+      this.setState({
         title: "",
         file: {},
         description: "",
         feedback_details: "",
         category: "",
-      })*/
-      ();
+      })
+    );
   };
 
   render() {

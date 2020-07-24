@@ -1,59 +1,52 @@
-import React from 'react';
-import BlockAPIService from './Services/block-api-service'
-import { MockBlocks } from './mockData/mock_blocks'
-import config from './config'
-import TokenService from './Services/token-service'
-
+import React from "react";
 
 export const DataContext = React.createContext();
 
 export class DataProvider extends React.Component {
-
-state = {
+  state = {
     categories: [],
     blocks: [],
-    categorySelected: 'all',
-    user_logged_in: '',
-    logged_in: false
-}
+    categorySelected: "all",
+    user_logged_in: "",
+    logged_in: false,
+  };
 
-
-updateCategorySelected = (category) => {
+  updateCategorySelected = (category) => {
     this.setState({
-        categorySelected: category,
-    })
-}
+      categorySelected: category,
+    });
+  };
 
-updateUserLoggedIn = (user_name) => {
+  updateUserLoggedIn = (user_name) => {
     this.setState({
-        user_logged_in: user_name,
-    })
-}
+      user_logged_in: user_name,
+    });
+  };
 
-updateLoggedIn = () => {
+  updateLoggedIn = () => {
     this.setState({
-        logged_in: !this.state.logged_in
-    })
-}
+      logged_in: !this.state.logged_in,
+    });
+  };
 
-    render() {
-        return(
-            <DataContext.Provider
-                value={{
-                    state: {
-                        ...this.state
-                    },
-                    actions: {
-                        updateCategorySelected: this.updateCategorySelected,
-                        updateUserLoggedIn: this.updateUserLoggedIn,
-                        updateLoggedIn: this.updateLoggedIn
-                    }
-                }}>
-                    {this.props.children}
-                </DataContext.Provider>
-        )
-    };
-
+  render() {
+    return (
+      <DataContext.Provider
+        value={{
+          state: {
+            ...this.state,
+          },
+          actions: {
+            updateCategorySelected: this.updateCategorySelected,
+            updateUserLoggedIn: this.updateUserLoggedIn,
+            updateLoggedIn: this.updateLoggedIn,
+          },
+        }}
+      >
+        {this.props.children}
+      </DataContext.Provider>
+    );
+  }
 }
 
 export const DataConsumer = DataContext.Consumer;
