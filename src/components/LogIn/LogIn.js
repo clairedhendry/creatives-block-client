@@ -45,7 +45,6 @@ export default class LogInPage extends React.Component {
       })
       .catch((res) => {
         this.setState({ error: res.error });
-        console.log(res.error);
       });
   };
 
@@ -69,12 +68,7 @@ export default class LogInPage extends React.Component {
             type="password"
             placeholder="password"
           />
-          {this.state.error === null ? (
-            <></>
-          ) : (
-            //: <div>{this.state.error}</div>
-            <></>
-          )}
+          {this.state.error === null ? <></> : <div>{this.state.error}</div>}
           <button type="submit">Log In</button>
         </form>
       </div>

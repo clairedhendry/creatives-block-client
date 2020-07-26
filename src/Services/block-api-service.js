@@ -25,7 +25,7 @@ const BlockAPIService = {
     return fetch(`${config.API_ENDPOINT}/blocks/${category}/${blockId}`, {
       headers: {
         // 'API_TOKEN': `bearer ${config.API_TOKEN}`,
-        Authorization: `bearer ${TokenService.getAuthToken()}`,
+        "Authorization": `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then((response) => {
@@ -64,7 +64,7 @@ const BlockAPIService = {
     return fetch(`${config.API_ENDPOINT}/feedback/${blockId}`, {
       headers: {
         // 'API_TOKEN': `Bearer ${config.API_TOKEN}`,
-        Authorization: `bearer ${TokenService.getAuthToken()}`,
+        "Authorization": `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then((response) => {
@@ -85,7 +85,7 @@ const BlockAPIService = {
       headers: {
         // 'API_TOKEN': `bearer ${config.API_TOKEN}`,
         "content-type": "application/json",
-        Authorization: `bearer ${TokenService.getAuthToken()}`,
+        "Authorization": `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         block_id: block_id,
@@ -127,7 +127,7 @@ const BlockAPIService = {
       method: "POST",
       headers: {
         // 'API_TOKEN': `bearer ${config.API_TOKEN}`,
-        Authorization: `bearer ${TokenService.getAuthToken()}`,
+        "Authorization": `bearer ${TokenService.getAuthToken()}`,
       },
       body: formData,
     })
