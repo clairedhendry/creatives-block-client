@@ -73,7 +73,7 @@ export default class NewBlockInput extends React.Component {
       block_file,
       block_description,
       feedback_details
-    ).then(
+    ).then(res =>
       this.setState({
         title: "",
         file: {},
