@@ -85,11 +85,6 @@ export default class NewBlockInput extends React.Component {
       .catch((res) => {
         this.setState({ error: res.error });
       })
-      .then(
-        this.setState({
-          uploaded: true
-        })
-      );
   };
 
   renderUploadBlock() {
