@@ -74,13 +74,7 @@ export default class NewBlockInput extends React.Component {
       block_description,
       feedback_details
     ).then(res =>
-      this.setState({
-        title: "",
-        file: {},
-        description: "",
-        feedback_details: "",
-        category: "",
-      })
+      this.props.history.push('/myaccount')
     )
       .catch((res) => {
         this.setState({ error: res.error });

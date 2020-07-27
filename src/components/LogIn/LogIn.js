@@ -16,6 +16,8 @@ export default class LogInPage extends React.Component {
   onLoginSuccess() {
     this.setState({
       loggedIn: true,
+    }, () => {
+      this.props.history.replace('/home');
     });
   }
 

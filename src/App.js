@@ -32,8 +32,8 @@ export default class App extends React.Component {
             {TokenService.hasAuthToken() ? (
               <Redirect to="/home" />
             ) : (
-              <LandingPage />
-            )}
+                <LandingPage />
+              )}
           </Route>
           <Route path="/home" component={HomePage} />
           <Route path="/register" component={Register} />
@@ -41,6 +41,7 @@ export default class App extends React.Component {
           <Route path="/about" component={AboutPage} />
           <Route path="/log-in" component={LogInPage} />
           <Route path="/blocks/:category/:id" component={BlockPage} />
+          <Route path="/myaccount" component={AccountPage} />
           <Route exact path="/user/:user_name" component={AccountPage} />
           <Route
             exact
