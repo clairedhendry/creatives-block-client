@@ -18,6 +18,8 @@ export default class NavBar extends React.Component {
     handleLogOutClick = () => {
         TokenService.clearAuthToken();
         TokenService.clearUserToken();
+        this.context.actions.updateLoggedIn();
+        this.context.actions.updateUserLoggedIn(null);
         this.updateMenuState();
 
     }

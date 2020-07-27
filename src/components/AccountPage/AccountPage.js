@@ -1,17 +1,18 @@
 import React from 'react';
 import RecentBlocks from '../RecentBlocks/RecentBlocks';
 import TokenService from '../../Services/token-service';
-import BlockAPIService from '../../Services/block-api-service'
+import BlockAPIService from '../../Services/block-api-service';
+import Context from '../../Context';
 import { Link } from 'react-router-dom';
 import './AccountPage.css';
 
 export default class AccountPage extends React.Component {
-
+    static contextType = Context;
     //new fetch call to server for all user's blocks
     //temp use mock data to fill
 
     state = {
-        user: this.props.match.params.user_name || TokenService.getUserToken(),
+        user: this.props.match.params.user_name || this.context.state.user_logged_in,
         blocks: [],
         isLoading: true,
         noBlocks: true,
@@ -20,8 +21,8 @@ export default class AccountPage extends React.Component {
 
     fetchBlocks() {
 
-        const user_name = this.props.match.params.user_name;
-        BlockAPIService.getUsersBlocks(user_name)
+        const { user } = this.state;
+        BlockAPIService.getUsersBlocks(user)
             .then(data => {
                 data.length === 0
                     ? this.setState({
@@ -33,24 +34,9 @@ export default class AccountPage extends React.Component {
             })
     }
 
-
-    ifLoggedIn = () => {
-        const check_user = TokenService.getUserToken()
-            ? TokenService.getUserToken()
-            : this.props.match.params.user_name;
-
-        if (check_user !== this.props.match.params.user_name) {
-            return this.props.match.params.user_name
-        }
-        return check_user;
-    }
-
     renderNewBlockButton = () => {
-        const check_user = TokenService.getUserToken()
-            ? TokenService.getUserToken()
-            : null;
-        const user_name = this.props.match.params.user_name
-        if (check_user === this.props.match.params.user_name) {
+
+        if (!this.props.match.params.user_name) {
             return <div className="link">
                 <Link to={`/user/${user_name}/newblock`}>Create new block</Link>
             </div>
@@ -58,48 +44,11 @@ export default class AccountPage extends React.Component {
     }
 
     componentDidMount() {
-        // checkUser() {
         this.fetchBlocks()
     }
 
-
-    // renderIfLoading() {
-    //     const user = this.ifLoggedIn();
-    //     if(!this.state.isLoading) {
-    //         return(
-    //             <RecentBlocks 
-    //             blocks={this.state.blocks} 
-    //             user_name={user} 
-    //             />
-    //         )
-    //     }
-    //     else if(this.state.isLoading) {
-    //         return(
-    //             <div className="is-loading">
-    //                 Fetching New Blocks
-    //             </div>
-    //         )
-    //     }
-    // }
-
-    blocks() {
-
-        if (!this.state.noBlocks) {
-            return (
-                <RecentBlocks blocks={this.state.blocks} user_name={null} />
-            )
-        } else {
-            return (
-                <div>There are no blocks to display!</div>
-            )
-        }
-
-    }
-
     renderEditProfileLink() {
-        const user = this.ifLoggedIn();
-        const userLoggedIn = TokenService.getUserToken()
-        if (this.state.user === userLoggedIn) {
+        if (!this.props.match.params.user_name) {
             return (
                 <Link to={`/user/${user}/profile`}>Edit Profile Info</Link>
             )
@@ -109,7 +58,7 @@ export default class AccountPage extends React.Component {
 
     render() {
 
-        const user = this.ifLoggedIn();
+        const { user } = this.state;
         const newBlockButton = this.renderNewBlockButton();
         // const checkUser = this.checkUser();
 
