@@ -55,6 +55,12 @@ export default class AccountPage extends React.Component {
 
     }
 
+    componentWillUnmount() {
+        this.setState({
+            user: null
+        })
+    }
+
     render() {
 
         const { user } = this.state;
