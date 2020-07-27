@@ -80,12 +80,16 @@ export default class NewBlockInput extends React.Component {
         description: "",
         feedback_details: "",
         category: "",
-        uploaded: true
       })
     )
       .catch((res) => {
         this.setState({ error: res.error });
-      });
+      })
+      .then(
+        this.setState({
+          uploaded: true
+        })
+      );
   };
 
   renderUploadBlock() {
