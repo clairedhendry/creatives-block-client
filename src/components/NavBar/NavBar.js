@@ -48,36 +48,12 @@ export default class NavBar extends React.Component {
         )
     }
 
-    // renderDesktopNav() {
-    //  if(this.state.mobile === true) {
-    //     return (
-    //         this.renderMobileNav()
-    //     )
-    //  }
-    //  else if(this.state.mobile === false) {
-    //      return (
-    //         <div>
-    //         <div className="navigation-bar">
-    //         <Link to='/home' onClick={this.updateMenuState}>Home</Link>
-    //         <div className="links">
-    //         {TokenService.hasAuthToken()
-    //          ? this.renderLogOutLink()
-    //          : this.renderLogInLink()}
-    //         <Link to='/about' onClick={this.updateMenuState}>About</Link>
-    //         </div>
-    //         </div>
-
-    //     </div>
-    //      )
-    //  }
-    // }
-
     renderDesktopNav() {
 
         return (
 
             <div className="horizontal">
-                {TokenService.hasAuthToken()
+                {this.context.state.user_logged_in
                     ? this.renderLogOutLink()
                     : this.renderLogInLink()}
             </div>

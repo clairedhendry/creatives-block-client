@@ -1,5 +1,7 @@
 import React from "react";
 
+import TokenService from './Services/token-service';
+
 export const DataContext = React.createContext();
 
 export class DataProvider extends React.Component {
@@ -28,6 +30,10 @@ export class DataProvider extends React.Component {
       logged_in: !this.state.logged_in,
     });
   };
+
+  componentDidMount() {
+    this.updateUserLoggedIn(TokenService.getUserToken());
+  }
 
   render() {
     return (
