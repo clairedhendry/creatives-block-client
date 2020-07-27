@@ -9,7 +9,7 @@ export class DataProvider extends React.Component {
     categories: [],
     blocks: [],
     categorySelected: "all",
-    user_logged_in: "",
+    user_logged_in: null,
     logged_in: false,
   };
 

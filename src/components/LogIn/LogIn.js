@@ -34,6 +34,7 @@ export default class LogInPage extends React.Component {
     const { user_name, user_password } = e.target;
 
     TokenService.saveUserToken(this.state.user_name);
+    this.context.actions.updateUserLoggedIn(this.state.user_name);
 
     AuthApiService.postLogin({
       user_name: user_name.value,
