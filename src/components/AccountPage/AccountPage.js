@@ -1,6 +1,5 @@
 import React from 'react';
 import RecentBlocks from '../RecentBlocks/RecentBlocks';
-import TokenService from '../../Services/token-service';
 import BlockAPIService from '../../Services/block-api-service';
 import { DataContext } from '../../Context';
 import { Link } from 'react-router-dom';
@@ -38,7 +37,7 @@ export default class AccountPage extends React.Component {
 
         if (!this.props.match.params.user_name) {
             return <div className="link">
-                <Link to={`/user/${user_name}/newblock`}>Create new block</Link>
+                <Link to={`/user/${this.state.user}/newblock`}>Create new block</Link>
             </div>
         }
     }
@@ -50,7 +49,7 @@ export default class AccountPage extends React.Component {
     renderEditProfileLink() {
         if (!this.props.match.params.user_name) {
             return (
-                <Link to={`/user/${user}/profile`}>Edit Profile Info</Link>
+                <Link to={`/user/${this.state.user}/profile`}>Edit Profile Info</Link>
             )
         }
 
@@ -60,7 +59,6 @@ export default class AccountPage extends React.Component {
 
         const { user } = this.state;
         const newBlockButton = this.renderNewBlockButton();
-        // const checkUser = this.checkUser();
 
         return (
             <div className="account-page-container">
