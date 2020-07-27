@@ -5,7 +5,9 @@ import AuthApiService from "../../Services/auth-api-service";
 
 export default class RegisterPage extends React.Component {
   onRegistrationSuccess() {
-    window.history.back();
+    this.setState({
+      success: true
+    })
   }
 
   state = {
@@ -14,6 +16,7 @@ export default class RegisterPage extends React.Component {
     email: "",
     confirmPassword: "",
     error: null,
+    success: false
   };
 
   updateUsername(e) {
@@ -95,65 +98,82 @@ export default class RegisterPage extends React.Component {
         password.value = "";
         email.value = "";
         confirm_password.value = "";
-        this.props.onRegistrationSuccess();
+        this.onRegistrationSuccess();
       })
       .catch((res) => {
         this.setState({ error: res.error });
       });
   };
 
+  renderRegistration() {
+    if (!this.state.success) {
+      return (
+        <div className="register-page">
+          <h2>Register for an account</h2>
+          <form className="registration-form" onSubmit={this.handleSubmit}>
+            <label htmlFor="user_name">user name</label>
+            <input
+              className="user_name"
+              id="user_name"
+              type="text"
+              placeholder="user_name"
+              onChange={(e) => this.updateUsername(e)}
+            />
+            {this.state.error === null ? <></> : <div>{this.state.error}</div>}
+            {this.validateUser_name()}
+            <label htmlFor="email">email</label>
+            <input
+              className="email"
+              id="email"
+              type="email"
+              placeholder="email"
+              onChange={(e) => this.updateEmail(e)}
+            />
+            {this.validateEmailAddress()}
+            <label htmlFor="password">password</label>
+            <input
+              className="password"
+              id="password"
+              type="password"
+              placeholder="password"
+              onChange={(e) => this.updatePassword(e)}
+            />
+            {this.validatePassword()}
+            <label htmlFor="confirm_password">confirm password</label>
+            <input
+              className="password"
+              id="confirm_password"
+              type="password"
+              placeholder="confirm password"
+              onChange={(e) => this.updateConfirmPassword(e)}
+            />
+            {this.confirmPassword()}
+            <label htmlFor="terms">
+              I agree to the Creative's Block
+            <Link to="/terms" target="_blank">
+                Terms of Use
+            </Link>
+            </label>
+            <input className="terms" id="terms" type="checkbox" required />
+
+            <button type="submit">Register</button>
+          </form>
+        </div>
+      );
+    } else {
+      return (
+        <div className="register-page">
+          <div className="success-message">Registered Successfully</div>
+          <Link to='/log-in'>Go to Log In</Link>
+        </div>
+      )
+    }
+  }
+
   render() {
     return (
       <div className="register-page">
-        <h2>Register for an account</h2>
-        <form className="registration-form" onSubmit={this.handleSubmit}>
-          <label htmlFor="user_name">user name</label>
-          <input
-            className="user_name"
-            id="user_name"
-            type="text"
-            placeholder="user_name"
-            onChange={(e) => this.updateUsername(e)}
-          />
-          {this.state.error === null ? <></> : <div>{this.state.error}</div>}
-          {this.validateUser_name()}
-          <label htmlFor="email">email</label>
-          <input
-            className="email"
-            id="email"
-            type="email"
-            placeholder="email"
-            onChange={(e) => this.updateEmail(e)}
-          />
-          {this.validateEmailAddress()}
-          <label htmlFor="password">password</label>
-          <input
-            className="password"
-            id="password"
-            type="password"
-            placeholder="password"
-            onChange={(e) => this.updatePassword(e)}
-          />
-          {this.validatePassword()}
-          <label htmlFor="confirm_password">confirm password</label>
-          <input
-            className="password"
-            id="confirm_password"
-            type="password"
-            placeholder="confirm password"
-            onChange={(e) => this.updateConfirmPassword(e)}
-          />
-          {this.confirmPassword()}
-          <label htmlFor="terms">
-            I agree to the Creative's Block
-            <Link to="/terms" target="_blank">
-              Terms of Use
-            </Link>
-          </label>
-          <input className="terms" id="terms" type="checkbox" required />
-
-          <button type="submit">Register</button>
-        </form>
+        {this.renderRegistration()}
       </div>
     );
   }

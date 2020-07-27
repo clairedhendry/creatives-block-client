@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import BlockAPIService from "../../Services/block-api-service";
 import "./NewBlockInput.css";
 
@@ -10,6 +11,8 @@ export default class NewBlockInput extends React.Component {
     description: "",
     feedback_details: "",
     category: "",
+    uploaded: false,
+    error: null
   };
 
   updateTitleInput = (e) => {
@@ -43,6 +46,17 @@ export default class NewBlockInput extends React.Component {
     });
   };
 
+  onSuccessfulUpload() {
+    if (this.state.uploaded) {
+      return (
+        <div>
+          <div>Your block has been successfully uploaded!</div>
+          <Link to={`/user/${this.state.user_name}`}>Back</Link>
+        </div>
+      )
+    }
+  }
+
   handleBlockSubmit = (e) => {
     e.preventDefault();
     const user_name = this.state.user_name;
@@ -66,13 +80,18 @@ export default class NewBlockInput extends React.Component {
         description: "",
         feedback_details: "",
         category: "",
+        uploaded: true
       })
-    );
+    )
+      .catch((res) => {
+        this.setState({ error: res.error });
+      });
   };
 
-  render() {
-    return (
-      <div className="new-block-container">
+  renderUploadBlock() {
+    if (!this.state.uploaded) {
+      return (
+
         <form className="new-block-form" onSubmit={this.handleBlockSubmit}>
           <label htmlFor="title">Title</label>
           <input
@@ -120,7 +139,27 @@ export default class NewBlockInput extends React.Component {
 
           <button type="submit">Submit Block</button>
         </form>
+
+      )
+    } else {
+      return (
+        <div className="new-block-container">
+          <div className="success-message">Your block has been successfully uploaded!</div>
+          <Link to={`/user/${this.state.user_name}`}>Back</Link>
+        </div>
+      )
+    }
+  }
+
+  render() {
+
+    return (
+      <div className="new-block-container">
+        {this.renderUploadBlock()}
+        {this.state.error === null
+          ? <></>
+          : <div>{this.state.error}</div>}
       </div>
-    );
+    )
   }
 }
