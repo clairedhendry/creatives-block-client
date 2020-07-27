@@ -2,12 +2,12 @@ import React from 'react';
 import RecentBlocks from '../RecentBlocks/RecentBlocks';
 import TokenService from '../../Services/token-service';
 import BlockAPIService from '../../Services/block-api-service';
-import Context from '../../Context';
+import { DataContext } from '../../Context';
 import { Link } from 'react-router-dom';
 import './AccountPage.css';
 
 export default class AccountPage extends React.Component {
-    static contextType = Context;
+    static contextType = DataContext;
     //new fetch call to server for all user's blocks
     //temp use mock data to fill
 
