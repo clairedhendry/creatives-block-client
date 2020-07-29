@@ -9,51 +9,51 @@ import BlockAPIService from '../../Services/block-api-service'
 
 export default class HomePage extends React.Component {
 
-state = {
-    blocks: [],
-    loading: true,
-}
-
-renderLoading() {
-    if(this.state.loading) {
-        return (
-            <div className="loading">Loading Blocks...</div>
-        )
+    state = {
+        blocks: [],
+        loading: true,
     }
-}
-    
-fetchRecentBlocks() {
-    BlockAPIService.getAllRecentBlocks()
-        .then(data => {
-            data.length === 0
-            ? this.setState({
-                blocks: [
-                    {message: `There are no blocks to display`}
-                ]
-            })
-            : this.setState({
-                blocks: data
-        })
-    }
-    )
-        .then( () => {
-            this.setState({
-                loading: false
-            })
-        })
-}
 
-render() {
-       
+    renderLoading() {
+        if (this.state.loading) {
+            return (
+                <div className="loading">Loading Blocks...</div>
+            )
+        }
+    }
+
+    fetchRecentBlocks() {
+        BlockAPIService.getAllRecentBlocks()
+            .then(data => {
+                data.length === 0
+                    ? this.setState({
+                        blocks: [
+                            { message: `There are no blocks to display` }
+                        ]
+                    })
+                    : this.setState({
+                        blocks: data
+                    })
+            }
+            )
+            .then(() => {
+                this.setState({
+                    loading: false
+                })
+            })
+    }
+
+    render() {
+
         return (
             <main>
-               <Hero />
-               {this.renderLoading()}
-               {this.state.blocks.length === 0
-               ? this.fetchRecentBlocks()
-               : <RecentBlocks blocks={this.state.blocks} user_name={null}/>
+                <Hero />
+                {this.renderLoading()}
+                {this.state.blocks.length === 0
+                    ? this.fetchRecentBlocks()
+                    : <RecentBlocks blocks={this.state.blocks} user_name={null} />
                 }
-            
+
             </main>
         )
     }

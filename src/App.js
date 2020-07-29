@@ -5,7 +5,6 @@ import LandingPage from "./components/LandingPage/LandingPage";
 import HomePage from "./components/HomePage/HomePage";
 import NavBar from "./components/NavBar/NavBar";
 import Register from "./components/RegistrationPage/Register";
-import CategoryPage from "./components/CategoryPage/CategoryPage";
 import LogInPage from "./components/LogIn/LogIn";
 import AboutPage from "./components/AboutPage/AboutPage";
 import BlockPage from "./components/BlockPage/BlockPage";
@@ -40,18 +39,11 @@ export default class App extends React.Component {
           </Route>
           <Route path="/home" component={HomePage} />
           <Route path="/register" component={Register} />
-          <Route path="/category/:id" component={CategoryPage} />
           <Route path="/about" component={AboutPage} />
           <Route path="/log-in" component={LogInPage} />
           <Route path="/blocks/:category/:id" component={BlockPage} />
           <Route exact path="/myaccount/:user_name" component={UserAccountPage} />
-          {/* <Route exact path="/myaccount" render={(props) => (
-            <AccountPage {...props} user_name={false} />
-          )} /> */}
           <Route exact path="/user/:user_name" component={AccountPage} />
-          {/* <Route exact path="/user/:user_name" render={(props) => (
-            <AccountPage {...props} user_name={true} />
-          )} /> */}
           <Route exact path="/user/:user_name/profile" component={ProfilePage} />
           <Route path="/user/:user_name/newblock" component={NewBlockInput} />
           <Route path="/terms" component={Terms} />

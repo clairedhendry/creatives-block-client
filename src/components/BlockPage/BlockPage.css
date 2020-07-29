@@ -33,3 +33,7 @@ h2 > a {
     background-repeat: no-repeat;
     margin: 0 auto 0 auto;
 }
+
+.writing-block {
+    height: 500px;
+}

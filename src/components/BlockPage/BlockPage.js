@@ -5,8 +5,8 @@ import BlockAPIService from "../../Services/block-api-service";
 import "./BlockPage.css";
 import TokenService from "../../Services/token-service";
 import ViewFeedback from "../Feedback_View/feedback_view";
-import FileViewer from "react-file-viewer";
 import ReactAudioPlayer from "react-audio-player";
+
 
 export default class BlockPage extends React.Component {
   state = {
@@ -24,13 +24,13 @@ export default class BlockPage extends React.Component {
       BlockAPIService.getBlockFeedback(this.state.id).then((data) => {
         data.length === 0
           ? this.setState({
-              blockFeedback: [
-                { message: `There is no feedback on this block yet` },
-              ],
-            })
+            blockFeedback: [
+              { message: `There is no feedback on this block yet` },
+            ],
+          })
           : this.setState({
-              blockFeedback: data,
-            });
+            blockFeedback: data,
+          });
       });
     }
   }
@@ -75,7 +75,7 @@ export default class BlockPage extends React.Component {
     }
 
     if (block.category_id === "writing") {
-      display = <FileViewer fileType="docx" filePath={url} />;
+      display = <a target="_blank" href={url}>Link to Writing</a>;
     }
 
     return (

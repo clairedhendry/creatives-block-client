@@ -3,36 +3,36 @@ import './InfoSection.css';
 
 
 export default function InfoSection() {
-    return(
-    <section className="info-container"> 
-            
-            
+    return (
+        <section className="info-container">
+
+
             <div className="information one">
                 <div className="info-logo-1"></div>
                 <div className="about-landing right">
-                    <h3>How does it work?</h3> 
-               
-                    <p>      
-                    As creatives, we get stuck from time to time. 
+                    <h3>How does it work?</h3>
+
+                    <p>
+                        As creatives, we get stuck from time to time.
                     <br />
                     It’s normal!
-                        <br/>
-                        Creative's Block is here to help! 
-                        <br/>
+                        <br />
+                        Creative's Block is here to help!
+                        <br />
                         Post a work in progress, and get feedback from our community of creatives.
-                        <br/>
+                        <br />
                         Choose a category: Art, Writing, or Music.
-                        <br/>
-                        Then share it! 
-                        <br/>
+                        <br />
+                        Then share it!
+                        <br />
                         Check back often to see feedback on your block.
-                        <br/>
+                        <br />
                         Update, edit, or delete your block whenever you want!
                     </p>
                 </div>
-           </div>
+            </div>
 
-           <div className="information two">
+            <div className="information two">
                 <div className="about left">
                     <p>
                         Click 'Get Started' to look at recently posted blocks!
@@ -40,8 +40,8 @@ export default function InfoSection() {
 
                     </p>
                 </div>
-           
-        </div>
-    </section>
+
+            </div>
+        </section>
     )
 }

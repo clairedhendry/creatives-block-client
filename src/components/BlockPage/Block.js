@@ -13,7 +13,6 @@ export default class Block extends React.Component {
             <Link to={`/blocks/${this.props.category}/${this.props.id}`}
                 className="preview-content">
                 {this.props.title}
-                {/* {this.props.description} */}
             </Link>
         )
     }
@@ -37,19 +36,6 @@ export default class Block extends React.Component {
         }
         return selection;
     }
-
-    // renderImage() {
-    //     if(this.props.url && this.props.category === 'art') {
-    //         const styles = {backgroundImage: `url(${this.props.url})`}
-    //         return (
-    //             <div style={styles} className="icon"></div>
-    //         )
-    //     } else {
-    //         return (
-    //             <div className={`${this.props.category}-icon icon`}></div>
-    //         )
-    //     }
-    // }
 
     renderImage() {
         return (

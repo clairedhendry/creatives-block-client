@@ -4,6 +4,8 @@ Creative's Block is a community-based platform to provide artists, writers, and 
 
 ## Live App [Here](https://creatives-block-client.vercel.app/)
 
+Use login User: Demo_user  Password: Password@1 to try it out!
+
 ------
 
 ## API Documentation
