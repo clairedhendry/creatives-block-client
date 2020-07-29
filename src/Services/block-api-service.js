@@ -143,6 +143,46 @@ const BlockAPIService = {
         alert(`something went wrong: ${err.message}`);
       });
   },
+
+  postNewWritingBlock(
+    user_name,
+    category_id,
+    block_title,
+    block_file,
+    block_description,
+    feedback_details
+  ) {
+    return fetch(`${config.API_ENDPOINT}/blocks/writing-upload`, {
+      method: "POST",
+      headers: {
+        // 'API_TOKEN': `bearer ${config.API_TOKEN}`,
+        "content-type": "application/json",
+        "Authorization": `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({
+        category_id: category_id,
+        user_name: user_name,
+        block_title: block_title,
+        block_file: block_file,
+        block_description: block_description,
+        feedback_details: feedback_details
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(response.statusText);
+        }
+      })
+
+      .catch((err) => {
+        alert(`something went wrong: ${err.message}`);
+      });
+  },
+
 };
+
+
 
 export default BlockAPIService;

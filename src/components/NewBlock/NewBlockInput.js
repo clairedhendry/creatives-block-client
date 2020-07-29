@@ -12,7 +12,8 @@ export default class NewBlockInput extends React.Component {
     feedback_details: "",
     category: "",
     uploaded: false,
-    error: null
+    error: null,
+    text: '',
   };
 
   updateTitleInput = (e) => {
@@ -40,6 +41,12 @@ export default class NewBlockInput extends React.Component {
     });
   };
 
+  onTextChangeHandler = (e) => {
+    this.setState({
+      text: e.target.value
+    })
+  }
+
   updateFeedbackDetails = (e) => {
     this.setState({
       feedback_details: e.target.value,
@@ -62,26 +69,46 @@ export default class NewBlockInput extends React.Component {
     const user_name = this.state.user_name;
     const category_id = this.state.category;
     const block_title = this.state.title;
-    const block_file = this.state.file;
+    const text = this.state.text;
+    let block_file = this.state.file;
     const block_description = this.state.description;
     const feedback_details = this.state.feedback_details;
 
-    BlockAPIService.postNewBlock(
-      user_name,
-      category_id,
-      block_title,
-      block_file,
-      block_description,
-      feedback_details
-    ).then(res =>
-      this.props.history.push('/myaccount')
-    )
-      .catch((res) => {
-        this.setState({ error: res.error });
-      })
+
+    if (category_id !== "writing") {
+      BlockAPIService.postNewBlock(
+        user_name,
+        category_id,
+        block_title,
+        block_file,
+        block_description,
+        feedback_details
+      ).then(res =>
+        this.props.history.push('/myaccount')
+      )
+        .catch((res) => {
+          this.setState({ error: res.error });
+        })
+    } else {
+      block_file = text
+      BlockAPIService.postNewWritingBlock(
+        user_name,
+        category_id,
+        block_title,
+        block_file,
+        block_description,
+        feedback_details
+      ).then(res =>
+        this.props.history.push('/myaccount')
+      )
+        .catch((res) => {
+          this.setState({ error: res.error });
+        })
+    }
   };
 
   renderUploadBlock() {
+
     if (!this.state.uploaded) {
       return (
 
@@ -107,8 +134,26 @@ export default class NewBlockInput extends React.Component {
             <option value="music">music</option>
           </select>
 
-          <label htmlFor="myfile">Select files:</label>
-          <input type="file" name="file" onChange={this.onFileChangeHandler} />
+          {this.state.category !== "writing"
+            ?
+            <div>
+              <label htmlFor="myfile">Select files:</label>
+              <input type="file" name="file" onChange={this.onFileChangeHandler} />
+            </div>
+            :
+            <div>
+              <label htmlFor="mytext">Text field</label>
+              <textarea
+                id="mytext"
+                name="mytext"
+                cols="50"
+                rows="20"
+                placeholder="Place your text here"
+                required
+                onChange={this.onTextChangeHandler} />
+            </div>
+          }
+
           <label htmlFor="description-area">Description</label>
           <textarea
             id="description-area"
