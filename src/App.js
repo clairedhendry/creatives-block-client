@@ -12,6 +12,7 @@ import BlockPage from "./components/BlockPage/BlockPage";
 import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
 import NewBlockInput from "./components/NewBlock/NewBlockInput";
 import AccountPage from "./components/AccountPage/AccountPage";
+import UserAccountPage from "./components/AccountPage/UserAccountPage"
 import ProfilePage from "./components/AccountPage/ProfilePage";
 import Terms from "./components/TermsPage/TermsPage";
 
@@ -23,7 +24,9 @@ import TokenService from "./Services/token-service";
 export default class App extends React.Component {
   static contextType = DataContext;
 
+
   render() {
+
     return (
       <div>
         <NavBar />
@@ -41,13 +44,15 @@ export default class App extends React.Component {
           <Route path="/about" component={AboutPage} />
           <Route path="/log-in" component={LogInPage} />
           <Route path="/blocks/:category/:id" component={BlockPage} />
-          <Route path="/myaccount" component={AccountPage} />
+          <Route exact path="/myaccount/:user_name" component={UserAccountPage} />
+          {/* <Route exact path="/myaccount" render={(props) => (
+            <AccountPage {...props} user_name={false} />
+          )} /> */}
           <Route exact path="/user/:user_name" component={AccountPage} />
-          <Route
-            exact
-            path="/user/:user_name/profile"
-            component={ProfilePage}
-          />
+          {/* <Route exact path="/user/:user_name" render={(props) => (
+            <AccountPage {...props} user_name={true} />
+          )} /> */}
+          <Route exact path="/user/:user_name/profile" component={ProfilePage} />
           <Route path="/user/:user_name/newblock" component={NewBlockInput} />
           <Route path="/terms" component={Terms} />
           <Route component={NotFoundPage} />

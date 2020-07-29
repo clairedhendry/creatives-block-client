@@ -9,8 +9,9 @@ export class DataProvider extends React.Component {
     categories: [],
     blocks: [],
     categorySelected: "all",
-    user_logged_in: null,
+    userLoggedIn: null,
     logged_in: false,
+    current_user_page: null,
   };
 
   updateCategorySelected = (category) => {
@@ -21,9 +22,15 @@ export class DataProvider extends React.Component {
 
   updateUserLoggedIn = (user_name) => {
     this.setState({
-      user_logged_in: user_name,
+      userLoggedIn: user_name,
     });
   };
+
+  updateCurrentUserPage = (user_name) => {
+    this.setState({
+      current_user_page: user_name
+    })
+  }
 
   updateLoggedIn = () => {
     this.setState({
@@ -46,6 +53,7 @@ export class DataProvider extends React.Component {
             updateCategorySelected: this.updateCategorySelected,
             updateUserLoggedIn: this.updateUserLoggedIn,
             updateLoggedIn: this.updateLoggedIn,
+            updateCurrentUserPage: this.updateCurrentUserPage,
           },
         }}
       >

@@ -4,12 +4,13 @@ import BlockAPIService from '../../Services/block-api-service';
 import { DataContext } from '../../Context';
 import { Link } from 'react-router-dom';
 import './AccountPage.css';
+import TokenService from '../../Services/token-service';
 
-export default class AccountPage extends React.Component {
+export default class UserAccountPage extends React.Component {
     static contextType = DataContext;
 
     state = {
-        user: this.props.match.params.user_name,
+        user: TokenService.getUserToken(),
         blocks: [],
         isLoading: true,
         noBlocks: true,
@@ -32,7 +33,7 @@ export default class AccountPage extends React.Component {
 
     renderNewBlockButton = () => {
 
-        if (!this.props.match.params.user_name) {
+        if (this.props.match.params.user_name) {
 
             return <div className="link">
                 <Link to={`/user/${this.state.user}/newblock`}>Create new block</Link>
@@ -48,7 +49,7 @@ export default class AccountPage extends React.Component {
     }
 
     renderEditProfileLink() {
-        if (!this.props.match.params.user_name) {
+        if (this.props.match.params.user_name) {
 
             return (
                 <Link to={`/user/${this.state.user}/profile`}>Edit Profile Info</Link>

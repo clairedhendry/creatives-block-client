@@ -38,14 +38,12 @@ export default class NavBar extends React.Component {
 
     renderLogOutLink() {
 
-
-
         return (
             <div className='nav-bar_logged-in links'>
                 <Link to='/home' onClick={this.updateMenuState}>Home</Link>
                 <Link onClick={this.handleLogOutClick} to='/'>Logout</Link>
                 <Link to='/about' onClick={this.updateMenuState}>About</Link>
-                <Link to={`/myaccount`} onClick={this.updateMenuState}>My Account</Link>
+                <Link to={`/myaccount/${this.context.state.userLoggedIn}`} onClick={this.updateMenuState}>My Account</Link>
             </div>
         )
     }
@@ -55,13 +53,16 @@ export default class NavBar extends React.Component {
         return (
 
             <div className="horizontal">
-                {this.context.state.user_logged_in
+                {this.context.state.userLoggedIn
                     ? this.renderLogOutLink()
                     : this.renderLogInLink()}
             </div>
         )
     }
 
+    updateUserLoggedIn() {
+        this.context.actions.updateUserLoggedIn(TokenService.getUserToken())
+    }
 
     updateMenuState = () => {
         const menu_state = this.state.menu_clicked;
