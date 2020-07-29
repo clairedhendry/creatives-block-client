@@ -155,13 +155,12 @@ const BlockAPIService = {
     return fetch(`${config.API_ENDPOINT}/blocks/writing-upload`, {
       method: "POST",
       headers: {
-        // 'API_TOKEN': `bearer ${config.API_TOKEN}`,
         "content-type": "application/json",
         "Authorization": `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        category_id: category_id,
         user_name: user_name,
+        category_id: category_id,
         block_title: block_title,
         block_file: block_file,
         block_description: block_description,
