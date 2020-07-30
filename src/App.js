@@ -32,10 +32,7 @@ export default class App extends React.Component {
         <Switch>
           <Route exact path="/">
             {TokenService.hasAuthToken() ? (
-              <Redirect to="/home" />
-            ) : (
-                <LandingPage />
-              )}
+              <Redirect to="/home" />) : (<LandingPage />)}
           </Route>
           <Route path="/home" component={HomePage} />
           <Route path="/register" component={Register} />

@@ -3,6 +3,11 @@
     align-items: center;
     background-color: grey;
     height: 50px;
+    width: 100vw;
+}
+
+.mobile_nav {
+    width: 100vw;
 }
 
 .logo {
@@ -66,5 +71,11 @@
 
     .links {
         right: 0;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .links > a { 
+        padding: 0 10px 0 10px;
     }
 }

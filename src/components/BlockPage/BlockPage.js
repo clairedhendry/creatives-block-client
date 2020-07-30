@@ -75,7 +75,7 @@ export default class BlockPage extends React.Component {
     }
 
     if (block.category_id === "writing") {
-      display = <a target="_blank" href={url}>Link to Writing</a>;
+      display = <a target="_blank" rel="noopener noreferrer" href={url}>Link to Writing</a>;
     }
 
     return (
