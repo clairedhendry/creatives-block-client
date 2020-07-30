@@ -1,5 +1,6 @@
 .register-page {
     text-align: center;
+    margin-top: 50px;
 }
 
 h2 {
@@ -20,4 +21,10 @@ input {
     width: 400px;
     padding: 5px;
     margin: 20px;
+}
+
+@media only screen and (max-width: 450px) {
+    input {
+        width: 300px;
+    }
 }
