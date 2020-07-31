@@ -104,16 +104,16 @@ export default class RecentBlocks extends React.Component {
 
     return (
       <section className="recent-blocks-container">
-        <div>
+        {/* <div>
           <p>Recently Posted Blocks</p>
-        </div>
+        </div> */}
         {TokenService.hasAuthToken() ? (
           <div>Sign in to view blocks</div>
         ) : (
-          <div className="sign-in-message">
-            <Link to="/log-in">Sign in</Link> to see block details
-          </div>
-        )}
+            <div className="sign-in-message">
+              <Link to="/log-in">Sign in</Link> to see block details
+            </div>
+          )}
         {blocks}
       </section>
     );

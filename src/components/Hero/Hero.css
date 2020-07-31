@@ -1,6 +1,5 @@
 .hero {
-    
-    background: url('../../image_assets/creative-block-logo-white.svg');
+    background: url('../../image_assets/creative-block-logo-white-neworange.svg');
     background-position: center; 
     text-align: center;
     background-repeat: no-repeat; 
@@ -10,6 +9,8 @@
 }
 
 h1 {
+    font-family: 'Rock Salt', cursive;
+    font-size: 60px;
     margin-top: 50px;
     margin-bottom: 50px;
     color: white;    
@@ -23,6 +24,7 @@ h1 {
         height: 75px;
     }
     h1 {
+        font-size: x-large;
         padding-top: 100px;
     }
 }
