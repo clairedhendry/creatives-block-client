@@ -48,6 +48,19 @@ export default class NavBar extends React.Component {
         )
     }
 
+    updateUserLoggedIn() {
+        this.context.actions.updateUserLoggedIn(TokenService.getUserToken())
+    }
+
+    updateMenuState = () => {
+        const menu_state = this.state.menu_clicked;
+        this.setState({
+            menu_clicked: !menu_state,
+        })
+
+    }
+
+
     renderDesktopNav() {
 
         return (
@@ -60,17 +73,6 @@ export default class NavBar extends React.Component {
         )
     }
 
-    updateUserLoggedIn() {
-        this.context.actions.updateUserLoggedIn(TokenService.getUserToken())
-    }
-
-    updateMenuState = () => {
-        const menu_state = this.state.menu_clicked;
-        this.setState({
-            menu_clicked: !menu_state,
-        })
-
-    }
 
     renderMobileNav() {
         if (this.state.menu_clicked) {

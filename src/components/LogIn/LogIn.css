@@ -11,6 +11,10 @@
     color: white;
 }
 
+.login-form > p {
+    color: white;
+}
+
 @media only screen and (max-width: 450px) {
     .login-form {
         width: 200px;

@@ -14,6 +14,7 @@ export default class LogInPage extends React.Component {
   };
 
   onLoginSuccess() {
+    this.context.actions.updateLoggedIn();
     this.setState({
       loggedIn: true,
     }, () => {
@@ -29,12 +30,11 @@ export default class LogInPage extends React.Component {
 
   handleSubmitJwtAuth = (e) => {
     e.preventDefault();
-    this.context.actions.updateLoggedIn();
+
     this.setState({ error: null });
     const { user_name, user_password } = e.target;
 
-    TokenService.saveUserToken(this.state.user_name);
-    this.context.actions.updateUserLoggedIn(TokenService.getUserToken);
+
 
     AuthApiService.postLogin({
       user_name: user_name.value,
@@ -43,6 +43,8 @@ export default class LogInPage extends React.Component {
       .then((res) => {
         user_name.value = "";
         user_password.value = "";
+        TokenService.saveUserToken(this.state.user_name);
+        this.context.actions.updateUserLoggedIn(TokenService.getUserToken);
         TokenService.saveAuthToken(res.authToken);
         this.onLoginSuccess();
       })
@@ -72,6 +74,7 @@ export default class LogInPage extends React.Component {
             placeholder="password"
           />
           {this.state.error === null ? <></> : <div>{this.state.error}</div>}
+          <p>Use user name: demo_user password: Password@1 to try it out</p>
           <button type="submit">Log In</button>
         </form>
       </div>

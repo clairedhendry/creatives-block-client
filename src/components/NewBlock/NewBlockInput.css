@@ -34,3 +34,24 @@ p {
     padding-top: 100px;
     color: white;
 }
+
+.input-message {
+    margin: 20px 0 20px 0;
+}
+
+textarea#mytext {
+        width: 100%;
+        padding: 12px 20px;
+    }
+
+@media only screen and (max-width: 450px) {
+    .new-block-form {
+        width: 100%;
+    }
+
+    .new-block-form > input {
+        max-width: 90%;
+    }
+
+    
+}

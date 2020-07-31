@@ -5,6 +5,8 @@
 
 .block-container {
     color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 .block-container > a {
@@ -36,4 +38,20 @@ h2 > a {
 
 .writing-block {
     height: 500px;
+}
+
+.writing-block-text {
+    width: 100%;
+    padding: 20px 15px 20px 15px;
+    background-color: white;
+    color: black;
+    text-align: start;
+}
+
+
+@media only screen and (min-width: 450px) {
+    .writing-block-text {
+        width: 90%;
+        margin: auto;
+    }
 }

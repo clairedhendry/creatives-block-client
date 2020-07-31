@@ -84,7 +84,7 @@ export default class NewBlockInput extends React.Component {
         block_description,
         feedback_details
       ).then(res =>
-        this.props.history.push('/myaccount')
+        this.props.history.push(`/myaccount/${this.state.user_name}`)
       )
         .catch((res) => {
           this.setState({ error: res.error });
@@ -99,13 +99,59 @@ export default class NewBlockInput extends React.Component {
         block_description,
         feedback_details
       ).then(res =>
-        this.props.history.push('/myaccount')
+        this.props.history.push(`/myaccount/${this.state.user_name}`)
       )
         .catch((res) => {
           this.setState({ error: res.error });
         })
     }
   };
+
+  renderFileSelection() {
+
+    if (this.state.category === "writing") {
+      return (
+        <div>
+          <label htmlFor="mytext">Text field</label>
+          <textarea
+            id="mytext"
+            name="mytext"
+            rows="20"
+            placeholder="Place your text here"
+            required
+            onChange={this.onTextChangeHandler} />
+        </div>
+      )
+    }
+    if (this.state.category === "art") {
+      return (
+        <div>
+          <label htmlFor="myfile">Select files:</label>
+          <input type="file"
+            name="file"
+            accept="image/*, video/*"
+            onChange={this.onFileChangeHandler} />
+        </div>
+      )
+    }
+    if (this.state.category === "music") {
+      return (
+        <div>
+          <label htmlFor="myfile">Select files:</label>
+          <input type="file"
+            name="file"
+            accept="audio/*"
+            onChange={this.onFileChangeHandler} />
+        </div>
+      )
+    }
+    else {
+      return (
+        <div className="input-message">Please select a category to upload a file</div>
+      )
+    }
+
+  }
 
   renderUploadBlock() {
 
@@ -134,25 +180,7 @@ export default class NewBlockInput extends React.Component {
             <option value="music">music</option>
           </select>
 
-          {this.state.category !== "writing"
-            ?
-            <div>
-              <label htmlFor="myfile">Select files:</label>
-              <input type="file" name="file" onChange={this.onFileChangeHandler} />
-            </div>
-            :
-            <div>
-              <label htmlFor="mytext">Text field</label>
-              <textarea
-                id="mytext"
-                name="mytext"
-                cols="50"
-                rows="20"
-                placeholder="Place your text here"
-                required
-                onChange={this.onTextChangeHandler} />
-            </div>
-          }
+          {this.renderFileSelection()}
 
           <label htmlFor="description-area">Description</label>
           <textarea
