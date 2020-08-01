@@ -33,7 +33,15 @@ POST /auth/login - Login existing user.
 
 Creative's Block is a service designed to facilitate the creative process by allowing users to post work in progress projects, and gain critical feedback from a community of other creatives. Registration and uploading content are free and open to most forms of media; specifically visual art (2D, video, animation), writing, and music.
 
-Currently accepted forms of media include jpeg, png, gif, mp4, pdf, doc, mp3.
+Future Features:
+- Retrieve/update user information
+- Upload and custom format text documents
+- Update/delete blocks
+- Search specific users
+- Follow specific users and curate homepage experience
+- Customize user's account page
+- Customize block thumbnail image
+- Credit system for posting new blocks
 
 ------
 
@@ -47,6 +55,6 @@ Currently accepted forms of media include jpeg, png, gif, mp4, pdf, doc, mp3.
 
 ## Technology Used
 
-This service is build with ReactJS, Node, Express, and PostgreSQL.
+This service is built with ReactJS, Node, Express, and PostgreSQL.
 
 Hosted using Heroku and Vercel.
