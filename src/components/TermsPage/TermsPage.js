@@ -28,7 +28,7 @@ export default function Terms() {
             considered hate-speech, racist, or sexist.
             </p>
             <h3>Questions? Concerns?</h3>
-            <p>Contact us <a href="mailto:creatives.block@gmail.com">here</a></p>
+            <p>Email us <a href="mailto:creatives.block@gmail.com" target="_blank">creatives.block@gmail.com</a></p>
         </div>
     )
 }
