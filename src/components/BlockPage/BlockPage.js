@@ -96,7 +96,7 @@ export default class BlockPage extends React.Component {
   }
 
   renderFeedbackInput() {
-    if (TokenService.getUserToken !== this.state.blockData.user_name) {
+    if (TokenService.getUserToken() !== this.state.blockData.user_name) {
       return (
         <Feedback
           user_name={this.state.blockData.user_name}

@@ -40,4 +40,8 @@ button {
     margin-left: auto;
     margin-right: auto;
   }
+
+      textarea#comment-area {
+        width: 100%;
+    }
 }
