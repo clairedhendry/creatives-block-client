@@ -104,7 +104,9 @@ export default class BlockPage extends React.Component {
         />
       );
     } else {
-      return;
+      return (
+        <></>
+      );
     }
   }
 
@@ -131,7 +133,6 @@ export default class BlockPage extends React.Component {
         {this.state.blockFeedback.length === 0
           ? this.checkUserTokenToFetch()
           : this.renderBlockFeedback()}
-        {}
         {this.renderFeedbackInput()}
       </div>
     );

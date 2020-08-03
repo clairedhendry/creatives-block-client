@@ -54,4 +54,8 @@ h2 > a {
         width: 90%;
         margin: auto;
     }
+
+    textarea#comment-area {
+        width: 100%;
+    }
 }
