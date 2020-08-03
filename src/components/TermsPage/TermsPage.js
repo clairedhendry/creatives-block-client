@@ -4,19 +4,30 @@ import './TermsPage.css'
 
 
 export default function Terms() {
-    return(
+    return (
         <div className="terms-container">
             <h2>Terms of Use</h2>
             <h3>Registering an Account</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices sagittis orci a scelerisque purus semper eget duis. Nec feugiat nisl pretium fusce id velit. Gravida rutrum quisque non tellus orci ac auctor augue. Neque volutpat ac tincidunt vitae semper quis lectus nulla at. Consequat ac felis donec et odio pellentesque diam volutpat. Eget felis eget nunc lobortis mattis. Tristique senectus et netus et malesuada fames ac turpis egestas. Amet tellus cras adipiscing enim eu turpis egestas pretium. Enim blandit volutpat maecenas volutpat blandit.</p>
-            <br />
+            <p>Creative's Block requires a user name, password, and email address to sign up.
+                Your information is securely stored and will never be made available to third parties without your consent.</p>
             <h3>Uploading Blocks</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices sagittis orci a scelerisque purus semper eget duis. Nec feugiat nisl pretium fusce id velit. Gravida rutrum quisque non tellus orci ac auctor augue. Neque volutpat ac tincidunt vitae semper quis lectus nulla at. Consequat ac felis donec et odio pellentesque diam volutpat. Eget felis eget nunc lobortis mattis. Tristique senectus et netus et malesuada fames ac turpis egestas. Amet tellus cras adipiscing enim eu turpis egestas pretium. Enim blandit volutpat maecenas volutpat blandit.</p>
-            <br />
+            <p>Creative's Block allows you to upload and share files with the community.
+            As a user, you agree to allow Creative's Block to store these files and display them on the website.
+            As the creator of your work, you retain all ownership and rights to your content.
+            In using Creative's Block you verify that content uploaded by you is your own and can not be claimed as copyright to someone else.
+                If a user is discovered to be uploading content that they do not own, their account will be terminated.</p>
+            <h4>On Content</h4>
+            <p>Creative's Block strives to encoruage creativity and a community of healthy feedback.
+            Content may be flagged or removed if deemed inappropriate including, but not limited to being offensive,
+                   considered hate-speech, racist, or sexist.</p>
+
             <h3>Sharing Feedback</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices sagittis orci a scelerisque purus semper eget duis. Nec feugiat nisl pretium fusce id velit. Gravida rutrum quisque non tellus orci ac auctor augue. Neque volutpat ac tincidunt vitae semper quis lectus nulla at. Consequat ac felis donec et odio pellentesque diam volutpat. Eget felis eget nunc lobortis mattis. Tristique senectus et netus et malesuada fames ac turpis egestas. Amet tellus cras adipiscing enim eu turpis egestas pretium. Enim blandit volutpat maecenas volutpat blandit.</p>
+            <p>Feedback is the core of Creative's Block, allowing users to give and receive constructive criticism on projects.
+            As such, feedback may be flagged or removed if deemed inappropriate including, but not limited to being offensive,
+            considered hate-speech, racist, or sexist.
+            </p>
             <h3>Questions? Concerns?</h3>
-            <p>Contact us at ...</p>
+            <p>Contact us <a href="mailto:creatives.block@gmail.com">here</a></p>
         </div>
-    ) 
+    )
 }
