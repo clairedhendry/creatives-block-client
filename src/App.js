@@ -12,7 +12,6 @@ import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
 import NewBlockInput from "./components/NewBlock/NewBlockInput";
 import AccountPage from "./components/AccountPage/AccountPage";
 import UserAccountPage from "./components/AccountPage/UserAccountPage"
-import ProfilePage from "./components/AccountPage/ProfilePage";
 import Terms from "./components/TermsPage/TermsPage";
 
 import { DataContext } from "./Context";
@@ -41,7 +40,6 @@ export default class App extends React.Component {
           <Route path="/blocks/:category/:id" component={BlockPage} />
           <Route exact path="/myaccount/:user_name" component={UserAccountPage} />
           <Route exact path="/user/:user_name" component={AccountPage} />
-          <Route exact path="/user/:user_name/profile" component={ProfilePage} />
           <Route path="/user/:user_name/newblock" component={NewBlockInput} />
           <Route path="/terms" component={Terms} />
           <Route component={NotFoundPage} />
