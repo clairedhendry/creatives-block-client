@@ -68,7 +68,10 @@ export default class BlockPage extends React.Component {
     };
     let display;
     if (block.category_id === "art") {
-      display = <div style={style} className="block-image"></div>;
+      // display = <div style={style} className="block-image"></div>;
+      display = <div className="block-image-container">
+        <img src={url} className="block-image" />
+      </div>
     }
     if (block.category_id === "music") {
       display = <ReactAudioPlayer src={url} controls loop />;

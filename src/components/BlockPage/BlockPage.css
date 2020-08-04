@@ -27,15 +27,6 @@ h2 > a {
     padding-top: 100px;
 }
 
-.block-image {
-    width: 100%;
-    height: 500px;
-    background-position: center; 
-    text-align: center;
-    background-repeat: no-repeat;
-    margin: 0 auto 0 auto;
-}
-
 .writing-block {
     height: 500px;
 }
@@ -52,11 +43,18 @@ audio.react-audio-player {
     margin: 0 auto 0 auto;
 }
 
+.block-image {
+    width: 100%;
+}
+
 @media only screen and (min-width: 450px) {
     .writing-block-text {
         width: 90%;
         margin: auto;
     }
 
+    .block-image {
+        width: auto;
+    }
 
 }

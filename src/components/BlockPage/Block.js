@@ -3,10 +3,7 @@ import './Block.css';
 import { Link } from 'react-router-dom';
 import TokenService from '../../Services/token-service';
 
-
 export default class Block extends React.Component {
-
-
 
     renderIfLoggedIn() {
         return (
