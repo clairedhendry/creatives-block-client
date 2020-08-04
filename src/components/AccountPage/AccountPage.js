@@ -44,15 +44,6 @@ export default class AccountPage extends React.Component {
         this.fetchBlocks()
     }
 
-    renderEditProfileLink() {
-        if (!this.props.match.params.user_name) {
-
-            return (
-                <Link to={`/user/${this.state.user}/profile`}>Edit Profile Info</Link>
-            )
-        }
-    }
-
     componentWillUnmount() {
         this.setState({
             user: null
