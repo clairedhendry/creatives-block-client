@@ -4,7 +4,6 @@ import InfoSection from '../InfoSections/InfoSection'
 import './LandingPage.css'
 import RegisterPage from '../RegistrationPage/Register'
 
-
 export default class LandingPage extends React.Component {
 
     render() {
@@ -22,7 +21,6 @@ export default class LandingPage extends React.Component {
                 <InfoSection />
                 <RegisterPage />
             </div>
-
         )
     }
 }

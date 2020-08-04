@@ -48,6 +48,9 @@ h2 > a {
     text-align: start;
 }
 
+audio.react-audio-player {
+    margin: 0 auto 0 auto;
+}
 
 @media only screen and (min-width: 450px) {
     .writing-block-text {

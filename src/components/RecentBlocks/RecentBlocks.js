@@ -34,8 +34,6 @@ export default class RecentBlocks extends React.Component {
     } else {
       blockArray = fetchedBlocks;
     }
-    // let blockArray =
-    //   fetchedBlocks.length === 0 ? (blockArray = [emptyBlocks]) : fetchedBlocks;
 
     const newBlocks = blockArray.map((block) => (
       <Block
@@ -104,9 +102,6 @@ export default class RecentBlocks extends React.Component {
 
     return (
       <section className="recent-blocks-container">
-        {/* <div>
-          <p>Recently Posted Blocks</p>
-        </div> */}
         {TokenService.hasAuthToken() ? (
           <div>Sign in to view blocks</div>
         ) : (

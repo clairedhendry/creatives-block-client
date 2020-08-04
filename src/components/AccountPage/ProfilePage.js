@@ -4,16 +4,16 @@ import './ProfilePage.css'
 
 export default class ProfilePage extends React.Component {
 
-state = {
-    password: ''
-}
+    state = {
+        password: ''
+    }
 
-resetPassword() {
-
-}
+    resetPassword() {
+        //need to implement logic to reset password using email address
+    }
 
     render() {
-        return(
+        return (
             <div>
                 Profile Page
             </div>

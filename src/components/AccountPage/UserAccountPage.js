@@ -41,11 +41,8 @@ export default class UserAccountPage extends React.Component {
         }
     }
 
-
     componentDidMount() {
-        console.log(this.context.state)
         this.fetchBlocks()
-
     }
 
     renderEditProfileLink() {
@@ -55,7 +52,6 @@ export default class UserAccountPage extends React.Component {
                 <Link to={`/user/${this.state.user}/profile`}>Edit Profile Info</Link>
             )
         }
-
     }
 
     componentWillUnmount() {
@@ -73,7 +69,6 @@ export default class UserAccountPage extends React.Component {
             <div className="account-page-container">
                 <h1>{user}'s Blocks</h1>
                 {newBlockButton}
-                {this.renderEditProfileLink()}
                 {this.state.blocks.length > 0
                     ? <RecentBlocks blocks={this.state.blocks} user_name={null} />
                     : <div className="no-blocks">There are no blocks to display!</div>}

@@ -4,8 +4,6 @@ import TokenService from '../../Services/token-service';
 import { DataContext } from '../../Context'
 import './NavBar.css';
 
-
-
 export default class NavBar extends React.Component {
 
     static contextType = DataContext;
@@ -21,7 +19,6 @@ export default class NavBar extends React.Component {
         this.context.actions.updateLoggedIn();
         this.context.actions.updateUserLoggedIn(null);
         this.updateMenuState();
-
     }
 
     renderLogInLink() {
@@ -60,7 +57,6 @@ export default class NavBar extends React.Component {
 
     }
 
-
     renderDesktopNav() {
 
         return (
@@ -72,7 +68,6 @@ export default class NavBar extends React.Component {
             </div>
         )
     }
-
 
     renderMobileNav() {
         if (this.state.menu_clicked) {
@@ -97,7 +92,6 @@ export default class NavBar extends React.Component {
         }
     }
 
-
     renderNavBar() {
         const navBar = document.documentElement.clientWidth > 450
             ? this.renderDesktopNav()
@@ -106,8 +100,6 @@ export default class NavBar extends React.Component {
     }
 
     render() {
-
-
         return (
             <nav className="navigation-bar">
                 {this.renderNavBar()}

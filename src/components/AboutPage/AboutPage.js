@@ -29,9 +29,7 @@ export default class AboutPage extends React.Component {
                
                 Check back often to see feedback on your block.
            
-                Update, edit, or delete your block whenever you want!
-               
-                
+                Update, edit, or delete your block whenever you want!               
             </p>
         </section>
             </div>

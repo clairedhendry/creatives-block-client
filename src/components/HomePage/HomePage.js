@@ -4,9 +4,6 @@ import Hero from '../Hero/Hero';
 import './HomePage.css'
 import BlockAPIService from '../../Services/block-api-service'
 
-
-
-
 export default class HomePage extends React.Component {
 
     state = {
