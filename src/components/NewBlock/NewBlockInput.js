@@ -5,7 +5,7 @@ import "./NewBlockInput.css";
 
 export default class NewBlockInput extends React.Component {
   state = {
-    user_name: this.props.match.params.user_name,
+    user_name: this.props.test ? "Leela" : this.props.match.params.user_name,
     title: "",
     file: {},
     description: "",

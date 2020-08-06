@@ -13,10 +13,15 @@ export default class RecentBlocks extends React.Component {
   };
 
   renderRecentBlocks() {
-    const fetchedBlocks =
-      this.props.blocks.rows && this.props.blocks.rows.length > 0
-        ? this.props.blocks.rows
-        : this.props.blocks;
+    let fetchedBlocks;
+    if (!this.props.test) {
+      fetchedBlocks =
+        this.props.blocks.rows && this.props.blocks.rows.length > 0
+          ? this.props.blocks.rows
+          : this.props.blocks;
+    } else {
+      fetchedBlocks = []
+    }
 
     const emptyBlocks = {
       id: 0,
