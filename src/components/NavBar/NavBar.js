@@ -10,7 +10,8 @@ export default class NavBar extends React.Component {
 
     state = {
         menu_clicked: false,
-        logged_in: this.context.state.logged_in
+        // logged_in: this.props.test ? false : this.context.state.logged_in,
+        // logged_in: false,
     }
 
     handleLogOutClick = () => {

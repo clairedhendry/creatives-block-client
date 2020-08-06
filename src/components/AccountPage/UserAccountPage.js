@@ -32,7 +32,12 @@ export default class UserAccountPage extends React.Component {
     }
 
     renderNewBlockButton = () => {
-
+        const test = this.props.test ? this.props.test : false
+        if (test) {
+            return <div className="link">
+                <Link to={`/user/${this.state.user}/newblock`}>Create new block</Link>
+            </div>
+        }
         if (this.props.match.params.user_name) {
 
             return <div className="link">

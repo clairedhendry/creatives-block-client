@@ -9,7 +9,7 @@ export default class AccountPage extends React.Component {
     static contextType = DataContext;
 
     state = {
-        user: this.props.match.params.user_name,
+        user: this.props.test ? "Leela" : this.props.match.params.user_name,
         blocks: [],
         isLoading: true,
         noBlocks: true,
@@ -29,15 +29,15 @@ export default class AccountPage extends React.Component {
             })
     }
 
-    renderNewBlockButton = () => {
+    // renderNewBlockButton = () => {
 
-        if (!this.props.match.params.user_name) {
+    //     if (!this.props.match.params.user_name) {
 
-            return <div className="link">
-                <Link to={`/user/${this.state.user}/newblock`}>Create new block</Link>
-            </div>
-        }
-    }
+    //         return <div className="link">
+    //             <Link to={`/user/${this.state.user}/newblock`}>Create new block</Link>
+    //         </div>
+    //     }
+    // }
 
 
     componentDidMount() {
@@ -53,12 +53,12 @@ export default class AccountPage extends React.Component {
     render() {
 
         const { user } = this.state;
-        const newBlockButton = this.renderNewBlockButton();
+        // const newBlockButton = this.renderNewBlockButton();
 
         return (
             <div className="account-page-container">
                 <h1>{user}'s Blocks</h1>
-                {newBlockButton}
+                {/* {newBlockButton} */}
                 {this.state.blocks.length > 0
                     ? <RecentBlocks blocks={this.state.blocks} user_name={null} />
                     : <div className="no-blocks">There are no blocks to display!</div>}

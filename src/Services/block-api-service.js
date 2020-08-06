@@ -126,7 +126,6 @@ const BlockAPIService = {
     return fetch(`${config.API_ENDPOINT}/blocks/upload`, {
       method: "POST",
       headers: {
-        // 'API_TOKEN': `bearer ${config.API_TOKEN}`,
         "Authorization": `bearer ${TokenService.getAuthToken()}`,
       },
       body: formData,

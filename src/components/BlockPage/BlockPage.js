@@ -9,13 +9,14 @@ import ReactAudioPlayer from "react-audio-player";
 
 
 export default class BlockPage extends React.Component {
+
   state = {
     blockData: {
       block_description: "",
       user_name: "",
     },
-    category: this.props.match.params.category,
-    id: this.props.match.params.id,
+    category: this.props.test ? this.props.test : this.props.match.params.category,
+    id: this.props.test ? 1 : this.props.match.params.id,
     blockFeedback: [],
   };
 
@@ -63,14 +64,11 @@ export default class BlockPage extends React.Component {
     const user_name = block.user_name;
     const details = block.feedback_details;
     const url = block.block_url;
-    const style = {
-      backgroundImage: `url(${url})`,
-    };
     let display;
     if (block.category_id === "art") {
-      // display = <div style={style} className="block-image"></div>;
+
       display = <div className="block-image-container">
-        <img src={url} className="block-image" />
+        <img src={url} className="block-image" alt={''} />
       </div>
     }
     if (block.category_id === "music") {
