@@ -179,6 +179,82 @@ const BlockAPIService = {
       });
   },
 
+  updateBlock(
+    id,
+    user_name,
+    category_id,
+    block_title,
+    block_file,
+    block_description,
+    feedback_details
+  ) {
+    const formData = new FormData();
+    formData.append("id", id);
+    formData.append("user_name", user_name);
+    formData.append("category_id", category_id);
+    formData.append("block_title", block_title);
+    formData.append("block_file", block_file, block_file.name);
+    formData.append("block_description", block_description);
+    formData.append("feedback_details", feedback_details);
+
+    return fetch(`${config.API_ENDPOINT}/blocks/update/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Authorization": `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: formData,
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(response.statusText);
+        }
+      })
+
+      .catch((err) => {
+        alert(`something went wrong: ${err.message}`);
+      });
+  },
+
+  updateBlockNoNewFile(
+    id,
+    user_name,
+    category_id,
+    block_title,
+    block_file,
+    block_description,
+    feedback_details
+  ) {
+    return fetch(`${config.API_ENDPOINT}/blocks/update/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        "Authorization": `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({
+        id: id,
+        user_name: user_name,
+        category_id: category_id,
+        block_title: block_title,
+        block_file: block_file,
+        block_description: block_description,
+        feedback_details: feedback_details
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(response.statusText);
+        }
+      })
+
+      .catch((err) => {
+        alert(`something went wrong: ${err.message}`);
+      });
+  },
+
 };
 
 

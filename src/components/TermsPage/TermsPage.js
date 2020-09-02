@@ -1,8 +1,6 @@
 import React from 'react'
 import './TermsPage.css'
 
-
-
 export default function Terms() {
     return (
         <div className="terms-container">

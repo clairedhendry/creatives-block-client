@@ -5,15 +5,15 @@ import "./NewBlockInput.css";
 
 export default class NewBlockInput extends React.Component {
   state = {
-    user_name: this.props.test ? "Leela" : this.props.match.params.user_name,
-    title: "",
-    file: {},
-    description: "",
-    feedback_details: "",
-    category: "",
+    user_name: this.props.user_name ? this.props.user_name : this.props.match.params.user_name,
+    title: this.props.blockInfo ? this.props.blockInfo.blockData.block_title : "",
+    file: this.props.blockInfo ? this.props.blockInfo.blockData.block_url : false,
+    description: this.props.blockInfo ? this.props.blockInfo.blockData.block_description : "",
+    feedback_details: this.props.blockInfo ? this.props.blockInfo.blockData.feedback_details : "",
+    category: this.props.blockInfo ? this.props.blockInfo.blockData.block_title : "",
     uploaded: false,
     error: null,
-    text: '',
+    text: this.props.blockInfo ? this.props.blockInfo.blockData.block_url : '',
   };
 
   updateTitleInput = (e) => {
@@ -74,7 +74,24 @@ export default class NewBlockInput extends React.Component {
     const block_description = this.state.description;
     const feedback_details = this.state.feedback_details;
 
+    if (this.props.updating) {
+      if (block_file !== {})
+        BlockAPIService.updateBlockNoNewFile(
+          this.props.id,
+          user_name,
+          category_id,
+          block_title,
+          block_file,
+          block_description,
+          feedback_details
+        ).then(res =>
+          this.props.history.push(`/myaccount/${this.state.user_name}`)
+        )
+          .catch((res) => {
+            this.setState({ error: res.error });
+          })
 
+    }
     if (category_id !== "writing") {
       BlockAPIService.postNewBlock(
         user_name,
@@ -117,7 +134,7 @@ export default class NewBlockInput extends React.Component {
             id="mytext"
             name="mytext"
             rows="20"
-            placeholder="Place your text here"
+            placeholder={this.props.blockInfo ? this.state.text : "Place your text here"}
             required
             onChange={this.onTextChangeHandler} />
         </div>
@@ -163,7 +180,9 @@ export default class NewBlockInput extends React.Component {
           <input
             id="title"
             type="text"
+            vallue={this.props.blockInfo ? this.state.title : null}
             onChange={(e) => this.updateTitleInput(e)}
+            placeholder={this.props.blockInfo ? this.state.title : "Title"}
             required
           />
 
@@ -189,7 +208,7 @@ export default class NewBlockInput extends React.Component {
             cols="50"
             rows="8"
             onChange={(e) => this.updateDescriptionInput(e)}
-            placeholder="What's your project about?"
+            placeholder={this.props.blockInfo ? this.state.description : "What's your project about?"}
             required
           ></textarea>
           <label htmlFor="feedback-details">What feedback do you need?</label>
@@ -199,7 +218,7 @@ export default class NewBlockInput extends React.Component {
             cols="50"
             rows="8"
             onChange={(e) => this.updateFeedbackDetails(e)}
-            placeholder="Describe the feedback you're looking for..."
+            placeholder={this.props.blockInfo ? this.state.feedback_details : "Describe the feedback you're looking for..."}
             required
           ></textarea>
 

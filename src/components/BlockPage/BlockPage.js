@@ -6,7 +6,7 @@ import "./BlockPage.css";
 import TokenService from "../../Services/token-service";
 import ViewFeedback from "../Feedback_View/feedback_view";
 import ReactAudioPlayer from "react-audio-player";
-
+import NewBlockInput from '../NewBlock/NewBlockInput';
 
 export default class BlockPage extends React.Component {
 
@@ -18,6 +18,7 @@ export default class BlockPage extends React.Component {
     category: this.props.test ? this.props.test : this.props.match.params.category,
     id: this.props.test ? 1 : this.props.match.params.id,
     blockFeedback: [],
+    updateBlock: false,
   };
 
   checkUserTokenToFetch() {
@@ -125,12 +126,26 @@ export default class BlockPage extends React.Component {
     }
   }
 
+  updateBlockInfo = () => {
+    const info = this.state.updateBlock
+    this.setState({
+      updateBlock: !info
+    })
+  }
+
   render() {
     return (
       <div className="blocks-page-container">
         {this.state.blockData.block_description === ""
           ? this.fetchBlockData()
           : this.renderBlockData()}
+        {this.state.updateBlock
+          ? <NewBlockInput user_name={this.state.blockData.user_name} blockInfo={this.state} updating={true} id={this.state.id} />
+          : <></>}
+        <button onClick={this.updateBlockInfo}>Update Block</button>
+        {this.state.updateBlock
+          ? <button onClick={this.updateBlockInfo}>Cancel</button>
+          : <></>}
         {this.state.blockFeedback.length === 0
           ? this.checkUserTokenToFetch()
           : this.renderBlockFeedback()}
